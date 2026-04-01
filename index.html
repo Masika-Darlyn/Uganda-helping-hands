@@ -21,7 +21,8 @@
       --primary-soft: #fef5f0;
       --secondary: #9e6b3e;
       --accent: #e6b17e;
-      --dark: #2d2d2a;
+      --dark: #330000;
+      --nav-bg: rgb(238, 219, 219);
       --light: #fef9f5;
       --light-beige: #fffaf5;
       --white: #ffffff;
@@ -49,9 +50,9 @@
 
     /* Typography */
     h1, h2, h3, h4, h5 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      line-height: 1.2;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    line-height: 1.2;
     }
 
     h1 { font-size: clamp(2.8rem, 5vw, 4.2rem); }
@@ -112,27 +113,32 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 250, 245, 0.98);
+     background: var(--nav-bg);
       backdrop-filter: blur(10px);
       box-shadow: var(--shadow-sm);
       z-index: 1000;
-      padding: 0.8rem 0;
+      padding: 0.7rem 0;
       transition: all 0.3s;
     }
     .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      color: var(--primary);
     }
     .logo-img {
       height: 48px;
       width: auto;
-      border-radius: 10px;
+      border-radius: 8px;
+       background: white;
     }
     .logo span {
       font-size: 1.3rem;
@@ -145,17 +151,43 @@
       gap: 1.5rem;
     }
     .nav-link {
-      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.7rem 1.3rem;
+      border-radius: 40px;
       color: var(--dark);
-      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+  
       transition: color 0.3s;
-      font-size: 0.95rem;
+      font-weight: 500;
     }
-    .nav-link:hover, .nav-link.active {
-      color: var(--primary);
+    .nav-link:hover {
+      background: rgba(128,0,0,0.08);
+       transform: translateY(-2px);
+    }
+
+   .nav-link.active {
+      background: var(--primary);
+      color: white !important;
+       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
     .dropdown {
       position: relative;
+    }
+    .dropdown-text {
+      font-size: 1rem;
+      padding: 0.7rem 0.5rem 0.7rem 1.3rem;
+      color: var(--dark);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+     .dropdown-text:hover {
+      background: rgba(128,0,0,0.08);
+      border-radius: 40px;
     }
     .dropdown-btn {
       background: none;
@@ -175,7 +207,7 @@
       left: 0;
       background: white;
       min-width: 220px;
-      border-radius: 12px;
+      border-radius: 10px;
       box-shadow: var(--shadow);
       opacity: 0;
       visibility: hidden;
@@ -196,6 +228,7 @@
       transition: all 0.2s;
     }
     .dropdown-content a:hover {
+      background: #f0e6e0;
       background: var(--light);
       color: var(--primary);
       padding-left: 1.8rem;
@@ -334,57 +367,183 @@
       padding: 5rem 0;
       background: var(--white);
     }
-    .programs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .program-card {
-      background: var(--light-beige);
-      border-radius: 24px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(128,0,0,0.05);
-    }
-    .program-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow);
-      background: var(--white);
-      border-color: rgba(128,0,0,0.15);
-    }
-    .program-icon {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, rgba(128,0,0,0.1) 0%, rgba(128,0,0,0.05) 100%);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-    }
-    .program-icon i {
-      font-size: 2rem;
-      color: var(--primary);
-    }
-    .program-card h3 {
-      color: var(--primary);
-    }
-    .program-card p {
-      color: var(--gray);
-      margin: 1rem 0;
-    }
-    .program-link {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
+  .programs-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.8rem;
+            margin: 0 auto;
+        }
 
+        /* Each card: flexible but with consistent width that ensures 5 cards fit nicely */
+        .program-card {
+            flex: 1 1 200px;
+            min-width: 200px;
+            max-width: 230px;
+            background: #ffffff;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 32px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* IMAGE container - all images now properly sized and complete */
+        .program-image {
+            width: 100%;
+            height: 170px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8eef4, #dfe6ef);
+            position: relative;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .program-card:hover .program-image img {
+            transform: scale(1.05);
+        }
+
+        /* ICON container (for Women Empowerment & Community SACCO) */
+        .program-icon {
+            width: 100%;
+            height: 170px;
+            background: linear-gradient(145deg, #fef7e8, #fff3e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.6rem;
+            color: #e67e22;
+            transition: all 0.2s;
+        }
+
+        /* Content area */
+        .program-content {
+            padding: 1.2rem 1rem 1.3rem 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1f3e4c;
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+        }
+
+        .program-content p {
+            font-size: 0.8rem;
+            line-height: 1.45;
+            color: #3c5a6b;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            flex: 1;
+        }
+
+        /* Learn more link */
+        .program-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #e67e22;
+            transition: all 0.2s;
+            width: fit-content;
+            border-bottom: 1.5px solid transparent;
+            margin-top: 0.2rem;
+        }
+
+        .program-link i {
+            font-size: 0.7rem;
+            transition: transform 0.2s;
+        }
+
+        .program-link:hover {
+            color: #c75e12;
+            gap: 0.65rem;
+            border-bottom-color: #e67e22;
+        }
+
+        .program-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Responsive breakpoints: ensure no horizontal scroll, images complete */
+        @media (max-width: 1200px) {
+            .program-card {
+                min-width: 190px;
+                max-width: 210px;
+            }
+            .program-image, .program-icon {
+                height: 160px;
+            }
+            .program-content h3 {
+                font-size: 1.1rem;
+            }
+            .program-content p {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .programs-grid {
+                gap: 1.2rem;
+            }
+            .program-card {
+                min-width: 180px;
+                max-width: 200px;
+            }
+            .program-image, .program-icon {
+                height: 150px;
+            }
+            .program-content {
+                padding: 1rem 0.9rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            /* On medium-small screens, cards will wrap to 2 rows, but still no scroll needed */
+            .programs-grid {
+                justify-content: center;
+            }
+            .program-card {
+                min-width: 210px;
+                max-width: 220px;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .program-card {
+                min-width: 100%;
+                max-width: 280px;
+            }
+            .program-image, .program-icon {
+                height: 180px;
+            }
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Additional polish: consistent border radius */
+        .program-card, .program-icon, .program-image {
+            border-radius: 1.5rem 1.5rem 0 0;
+        }
     /* Impact Section */
     .impact-section {
       padding: 5rem 0;
@@ -722,28 +881,39 @@
         <i class="fas fa-bars"></i>
       </div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link active">Home</a>
+        <a href="index.html" class="nav-link active"><i class="fas fa-home"></i>Home</a>
         
         <div class="dropdown" id="aboutDropdown">
-          <button class="dropdown-btn">About Us <i class="fas fa-chevron-down"></i></button>
+          <button class="dropdown-btn">
+            <a href="about.html" class="dropdown-text">
+               <i class="fas fa-info-circle"></i>About Us</a><i class="fas fa-chevron-down"></i> 
+            </button>
           <div class="dropdown-content">
-            <a href="who-we-are.html">Who We Are</a>
+           <a href="who-we-are.html">Who we are</a>
+            <a href="history.html">Our history</a>
             <a href="mission-vision.html">Mission & Vision</a>
-            <a href="core-values.html">Core Values</a>
+            <a href="beneficiaries.html">Beneficiaries</a>
+            <a href="core-values.html">Core values</a>
           </div>
         </div>
         <div class="dropdown" id="projectsDropdown">
-          <button class="dropdown-btn">Projects <i class="fas fa-chevron-down"></i></button>
+          <button class="dropdown-btn">
+            <a href="projects.html" class="dropdown-text">
+                <i class="fas fa-leaf"></i> Projects</a>
+                <i class="fas fa-chevron-down"></i>
+                </button>
           <div class="dropdown-content">
-            <a href="orphan-care.html">Orphan Care</a>
-            <a href="education-support.html">Education Support</a>
-            <a href="women-empowerment.html">Women Empowerment</a>
-            <a href="sacco-loans.html">SACCO & Loans</a>
+           <a href="orphan-care.html">Orphan care & shelter</a>
+            <a href="education-support.html">Education support</a>
+            <a href="women-empowerment.html">Women empowerment</a>
+            <a href="sacco-loans.html">SACCO & loans</a>
+            <a href="water-sanitation.html">Water & sanitation</a>
+            <a href="humanitarian-aid.html">Humanitarian aid</a>
           </div>
         </div>
-        <a href="gallery.html" class="nav-link">Gallery</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-        <a href="donate.html" class="btn btn-primary"><i class="fas fa-heart"></i> Donate</a>
+        <a href="gallery.html" class="nav-link"><i class="fas fa-images"></i>Gallery</a>
+        <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contact</a>
+        <a href="donate.html" class="btn btn-primary"><i class="fas fa-donate"></i> Donate now</a>
       </div>
     </div>
   </nav>
@@ -758,8 +928,9 @@
     </div>
     <div class="hero-content">
       <div class="container">
+        <span class="hero-tag"><i class="fas fa-hand-holding-heart"></i> Together we can make a difference</span>
         <div class="hero-text">
-          <span class="hero-tag"><i class="fas fa-hand-holding-heart"></i> Since 2020</span>
+          
           <h1>Helping Hands,<br>Brighter Futures</h1>
           <p>Empowering orphans, women, and vulnerable families in Bundibugyo District, Uganda through sustainable programs and community-driven solutions.</p>
           <div class="hero-buttons">
@@ -775,10 +946,10 @@
   <div class="container">
     <div class="stats">
       <div class="stats-grid">
-        <div><div class="stat-number">10+</div><div class="stat-label">Children in Care</div></div>
-        <div><div class="stat-number">5+</div><div class="stat-label">Girls Trained Monthly</div></div>
-        <div><div class="stat-number">20+</div><div class="stat-label">SACCO Members</div></div>
-        <div><div class="stat-number">15</div><div class="stat-label">Founding Members</div></div>
+        <div><div class="stat-number" >10+</div><div class="stat-label"><a href="orphan-care.html" style="color: var(--primary);">Children in Care</a></div></div>
+        <div><div class="stat-number">5+</div><div class="stat-label"><a  href="women-empowerment.html" style="color: var(--primary);">Girls Trained Quarterly</a></div></div>
+        <div><div class="stat-number">20</div><div class="stat-label"><a href="sacco-loans.html" style="color: var(--primary);">SACCO Members</a></div></div>
+        <div><div class="stat-number">15</div><div class="stat-label"><a href="story.html" style="color: var(--primary);"> Founding Members</a></div></div>
       </div>
     </div>
   </div>
@@ -795,40 +966,81 @@
   <!-- Programs Section -->
   <section class="programs-section">
     <div class="container">
-      <div class="section-title">
-        <h2>Our Core Programs</h2>
-        <p>Creating lasting change through sustainable initiatives</p>
-      </div>
-      <div class="programs-grid">
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-home"></i></div>
-          <h3>Orphan Care</h3>
-          <p>Providing shelter, education, and unconditional love to orphaned and vulnerable children.</p>
-          <a href="orphan-care.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        <div class="section-title">
+            <h2>Our Core Programs</h2>
+            <p>Creating lasting change through sustainable initiatives</p>
         </div>
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
-          <h3>Education Support</h3>
-          <p>Ensuring vulnerable children access quality education through scholastic materials and tuition.</p>
-          <a href="education-support.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-cut"></i></div>
-          <h3>Women Empowerment</h3>
-          <p>Skills training in tailoring, vocational skills, and economic empowerment initiatives.</p>
-          <a href="women-empowerment.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-hand-holding-usd"></i></div>
-          <h3>Community SACCO</h3>
-          <p>Savings and credit cooperative supporting small businesses and farmers.</p>
-          <a href="sacco-loans.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="programs-grid">
+            
+            <!-- Card 1: Orphan Care (Image - complete & high quality) -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/child.jpg" 
+                         loading="eager">
+                </div>
+                <div class="program-content">
+                    <h3>Orphan Care</h3>
+                    <p>Providing shelter, education, and unconditional love to orphaned and vulnerable children.</p>
+                    <a href="orphan-care.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
 
-  <!-- Impact Section -->
+            <!-- Card 2: Education Support (Image - complete, shows learning) -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/soap.jpg" 
+                         loading="eager">
+                </div>
+                <div class="program-content">
+                    <h3>Education Support</h3>
+                    <p>Ensuring vulnerable children access quality education through scholastic materials and tuition.</p>
+                    <a href="education-support.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 3: Health & Nutrition (replaces duplicate orphan care - adds variety, complete image) -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/wel.jpg"  
+                         loading="eager">
+                </div>
+                <div class="program-content">
+                    <h3>Water & Sanitation</h3>
+                    <p>Ensuring proper Clean water transforms health, education, and opportunity — one well at a time.</p>
+                    <a href="water-sanitation.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 4: Women Empowerment (Icon - with stylish icon) -->
+            <div class="program-card">
+                 <div class="program-image">
+                    <img src="images/tailors (2).jpg"  
+                         loading="eager">
+                </div>
+                <div class="program-content">
+                    <h3>Women Empowerment</h3>
+                    <p>Skills training in tailoring, vocational skills, and economic empowerment initiatives.</p>
+                    <a href="women-empowerment.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 5: Community SACCO (Icon) -->
+            <div class="program-card">
+                 <div class="program-image">
+                    <img src="images/TEENAGE.jpg"  
+                         loading="eager">
+                </div>
+                <div class="program-content">
+                    <h3>Community SACCO</h3>
+                    <p>Savings and credit cooperative supporting small businesses and farmers.</p>
+                    <a href="sacco-loans.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+
+<!-- Impact Section -->
   <section class="impact-section">
     <div class="container">
       <div class="section-title" style="color: white;">
@@ -836,29 +1048,88 @@
         <p style="color: rgba(255,255,255,0.9);">Making a difference in our community</p>
       </div>
       <div class="impact-grid">
-        <div class="impact-item"><h3>5,000+</h3><p>Meals Served</p></div>
-        <div class="impact-item"><h3>200+</h3><p>Children Supported</p></div>
+        <div class="impact-item"><h3>20,+</h3><p>Meals Served</p></div>
+        <div class="impact-item"><h3>10+</h3><p>Children Supported</p></div>
         <div class="impact-item"><h3>50+</h3><p>Women Trained</p></div>
         <div class="impact-item"><h3>100+</h3><p>Families Reached</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Showcase -->
-  <section class="projects-section">
+<section class="programs-section">
     <div class="container">
-      <div class="section-title">
-        <h2>Projects That Sustain</h2>
+        <div class="section-title">
+             <h2>Projects That Sustain</h2>
         <p>Empowering communities through sustainable solutions</p>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card"><i class="fas fa-seedling"></i><h4>Farming Initiative</h4><p>Organic farming of maize, beans, and vegetables for food security.</p></div>
-        <div class="project-card"><i class="fas fa-scissors"></i><h4>Tailoring Project</h4><p>Training mothers in tailoring and sustainable skills for economic independence.</p></div>
-        <div class="project-card"><i class="fas fa-hand-holding-usd"></i><h4>Community SACCO</h4><p>Savings and credit program for farmers and small business owners.</p></div>
-        <div class="project-card"><i class="fas fa-water"></i><h4>Water & Sanitation</h4><p>Construction of wells for clean water access in rural communities.</p></div>
-      </div>
+        </div>
+        <div class="programs-grid">
+            
+            <!-- Card 1: Orphan Care (Image - complete & high quality) -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/tailor.jpg" 
+                         loading="eager">
+                </div>
+                <div class="program-content">
+                    <h3>Tailoring Project</h3>
+  <p>Training mothers in tailoring and sustainable skills.</p>
+                    <a href="women-empowerment.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 2: Education Support (Image - complete, shows learning) -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/maize.jpg" 
+                         loading="eager">
+                </div>
+                <div class="program-content">
+                    <h3>Sustainable Agriculture</h3><p>Organic farming of maize, beans, and vegetables for food security.</p>
+                    <a href="projects.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 3: Health & Nutrition (replaces duplicate orphan care - adds variety, complete image) -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/wel.jpg"  
+                         loading="eager">
+                </div>
+                <div class="program-content">
+                    <h3>Water & Sanitation</h3>
+                    <p>Ensuring proper Clean water transforms health, education, and opportunity — one well at a time.</p>
+                    <a href="water-sanitation.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 4: Women Empowerment (Icon - with stylish icon) -->
+            <div class="program-card">
+                 <div class="program-image">
+                    <img src="images/tailors (2).jpg"  
+                         loading="eager">
+                </div>
+                <div class="program-content">
+                    <h3>Women Empowerment</h3>
+                    <p>Skills training in tailoring, vocational skills, and economic empowerment initiatives.</p>
+                    <a href="women-empowerment.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Card 5: Community SACCO (Icon) -->
+            <div class="program-card">
+                 <div class="program-image">
+                    <img src="images/TEENAGE.jpg"  
+                         loading="eager">
+                </div>
+                <div class="program-content">
+                    <h3>Community SACCO</h3>
+                    <p>Savings and credit cooperative supporting small businesses and farmers.</p>
+                    <a href="sacco-loans.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
+</section> 
 
   <!-- Founder Story -->
   <section class="founder-section">
@@ -932,7 +1203,7 @@
          aria-label="LinkedIn">
         <i class="fab fa-linkedin"></i>
       </a>
-    <a href="https://www.instagram.com/ugandahelpinghands" target="_blank" rel="noopener noreferrer" style="color: #e4405f; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+    <a href="https://www.instagram.com/ugan.dahelpinghands?igsh=MXQ2Ymh0Z3JycnY4eA==" target="_blank" rel="noopener noreferrer" style="color: #e4405f; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-instagram"></i>
     </a>
     <a href="https://wa.me/256786497006" target="_blank" rel="noopener noreferrer" style="color: #25D366; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
