@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <link rel="icon" type="image/png" href="images/logo.png">
-  <title>Uganda Helping Hands | Orphans & Community Empowerment</title>
+  <title>Uganda- Helping Hands | Home page</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -125,6 +125,9 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
     .logo {
       display: flex;
@@ -139,6 +142,7 @@
       width: auto;
       border-radius: 8px;
        background: white;
+       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .logo span {
       font-size: 1.3rem;
@@ -148,29 +152,30 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
     }
     .nav-link {
-      font-size: 1rem;
-      padding: 0.7rem 1.3rem;
+     font-size: 0.95rem;
+      padding: 0.5rem 1rem;
       border-radius: 40px;
       color: var(--dark);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-  
-      transition: color 0.3s;
+      gap: 6px;
+      transition: all 0.25s;
       font-weight: 500;
     }
     .nav-link:hover {
-      background: rgba(128,0,0,0.08);
-       transform: translateY(-2px);
+     background: rgba(128,0,0,0.12);
+      transform: translateY(-2px);
+      color: var(--primary);
     }
 
    .nav-link.active {
       background: var(--primary);
       color: white !important;
-       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+       box-shadow: 0 4px 10px rgba(128,0,0,0.3);
     }
     .dropdown {
       position: relative;
@@ -200,6 +205,9 @@
       gap: 6px;
       color: var(--dark);
       font-family: inherit;
+      padding: 0.5rem 0.8rem;
+      border-radius: 40px;
+      transition: 0.2s;
     }
     .dropdown-content {
       position: absolute;
@@ -221,7 +229,7 @@
     }
     .dropdown-content a {
       display: block;
-      padding: 0.7rem 1.5rem;
+      padding: 0.6rem 1.5rem;
       text-decoration: none;
       color: var(--dark);
       font-size: 0.85rem;
@@ -239,6 +247,7 @@
       cursor: pointer;
       color: var(--primary);
     }
+    
 
     /* Hero Section */
     .hero {
@@ -439,7 +448,7 @@
         .program-content h3 {
             font-size: 1.2rem;
             font-weight: 700;
-            color: #1f3e4c;
+            color: rgb(32, 3, 3);
             margin-bottom: 0.6rem;
             line-height: 1.3;
         }
@@ -447,7 +456,7 @@
         .program-content p {
             font-size: 0.8rem;
             line-height: 1.45;
-            color: #3c5a6b;
+            color: brown;
             margin-bottom: 1rem;
             font-weight: 400;
             flex: 1;
@@ -461,7 +470,7 @@
             font-weight: 600;
             font-size: 0.8rem;
             text-decoration: none;
-            color: #e67e22;
+            color:maroon;
             transition: all 0.2s;
             width: fit-content;
             border-bottom: 1.5px solid transparent;
@@ -544,6 +553,133 @@
         .program-card, .program-icon, .program-image {
             border-radius: 1.5rem 1.5rem 0 0;
         }
+
+        /* ===== UPCOMING EVENTS SECTION - ATTRACTIVE & NICE ===== */
+    .events-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #fff8f0 0%, #feeedc 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .events-section::before {
+      content: '📅';
+      position: absolute;
+      font-size: 280px;
+      opacity: 0.03;
+      bottom: -60px;
+      right: -60px;
+      pointer-events: none;
+    }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .event-card {
+      background: var(--white);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: all 0.35s ease;
+      box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border: 1px solid rgba(128, 0, 0, 0.12);
+    }
+    .event-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px -15px rgba(128, 0, 0, 0.25);
+      border-color: var(--primary);
+    }
+    .event-date-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      z-index: 2;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .event-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .event-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .event-card:hover .event-image img {
+      transform: scale(1.06);
+    }
+    .event-content {
+      padding: 1.5rem;
+      flex: 1;
+    }
+    .event-category {
+      display: inline-block;
+      background: rgba(128, 0, 0, 0.1);
+      color: var(--primary);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.8rem;
+      border-radius: 50px;
+      margin-bottom: 0.8rem;
+    }
+    .event-content h3 {
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+    .event-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin: 0.5rem 0;
+    }
+    .event-detail i {
+      width: 20px;
+      color: var(--primary);
+      font-size: 0.85rem;
+    }
+    .event-description {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #4a3a2e;
+      margin: 0.8rem 0 1.2rem;
+    }
+    .event-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--primary);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .event-link:hover {
+      gap: 0.8rem;
+      border-bottom-color: var(--primary);
+    }
+    .view-all-events {
+      text-align: center;
+      margin-top: 3rem;
+    }
     /* Impact Section */
     .impact-section {
       padding: 5rem 0;
@@ -710,6 +846,7 @@
       box-shadow: var(--shadow-sm);
     }
 
+    
     /* CTA Section */
     .cta-section {
       padding: 5rem 0;
@@ -747,6 +884,80 @@
       flex-wrap: wrap;
       position: relative;
       z-index: 1;
+    }
+    
+    /* Partners Logos inside CTA - Horizontal attractive line */
+    .cta-partners {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      position: relative;
+      z-index: 1;
+    }
+    .cta-partners-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+      font-weight: 400;
+    }
+    .partners-horizontal {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      row-gap: 1.2rem;
+    }
+    .partner-logo-card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      padding: 0.7rem 1.5rem;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: default;
+    }
+    .partner-logo-card:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .partner-logo-img {
+      max-height: 45px;
+      width: auto;
+      max-width: 110px;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      transition: all 0.2s;
+    }
+    .partner-logo-card:hover .partner-logo-img {
+      opacity: 1;
+      filter: brightness(0) invert(1) drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+    }
+    /* For text-based partner placeholder */
+    .partner-text-logo {
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    @media (max-width: 700px) {
+      .partner-logo-card {
+        padding: 0.5rem 1rem;
+      }
+      .partner-logo-img {
+        max-height: 35px;
+        max-width: 85px;
+      }
+      .partners-horizontal {
+        gap: 1rem;
+      }
     }
 
     /* Footer */
@@ -868,14 +1079,15 @@
       .mission-card p { font-size: 1rem; }
       .impact-item h3 { font-size: 2rem; }
     }
+    
   </style>
 </head>
 <body>
   <nav class="navbar">
-    <div class="container nav-container">
+    <div class="nav-container">
       <div class="logo">
         <img src="images/logo.png" alt="Logo" class="logo-img" >
-        <span>Uganda Helping Hands</span>
+        <span>Uganda- Helping Hands</span>
       </div>
       <div class="menu-icon" id="menuToggle">
         <i class="fas fa-bars"></i>
@@ -958,7 +1170,7 @@
   <section class="mission-section">
     <div class="container">
       <div class="mission-card">
-        <p><strong>Uganda Helping Hands</strong> is a community-driven organization based in Bundibugyo District, committed to protecting and empowering vulnerable children, women, and families living in conditions of extreme hardship. Founded out of lived experience, we provide safe shelter, education support, skills training, and economic empowerment to restore dignity, stability, and hope.</p>
+        <p><strong>Uganda- Helping Hands</strong> is a community-driven organization based in Bundibugyo District, committed to protecting and empowering vulnerable children, women, and families living in conditions of extreme hardship. Founded out of lived experience, we provide safe shelter, education support, skills training, and economic empowerment to restore dignity, stability, and hope.</p>
       </div>
     </div>
   </section>
@@ -988,7 +1200,7 @@
             <!-- Card 2: Education Support (Image - complete, shows learning) -->
             <div class="program-card">
                 <div class="program-image">
-                    <img src="images/need.jpg" 
+                    <img src="images/soap.jpg" 
                          loading="eager">
                 </div>
                 <div class="program-content">
@@ -1040,6 +1252,61 @@
     </div>
 </section> 
 
+<!-- ===== NEW: UPCOMING EVENTS & UPDATES SECTION ===== -->
+  <section class="events-section">
+    <div class="container">
+      <div class="section-title">
+        <h2><i class="fas fa-calendar-alt" style="margin-right: 10px;"></i> Upcoming Events & Updates</h2>
+        <p>Join us in making a difference — mark your calendar for these upcoming activities</p>
+      </div>
+      <div class="events-grid">
+        <!-- Event 1 -->
+        <div class="event-card">
+          <div class="event-date-badge"><i class="fas fa-calendar-day"></i> May 15, 2025</div>
+          <div class="event-image"><img src="images/tailors.jpg" alt="Women Empowerment Workshop"></div>
+          <div class="event-content">
+            <span class="event-category"><i class="fas fa-female"></i> Women Empowerment</span>
+            <h3>Tailoring & Business Skills Workshop</h3>
+            <div class="event-detail"><i class="fas fa-clock"></i> 9:00 AM - 4:00 PM</div>
+            <div class="event-detail"><i class="fas fa-map-marker-alt"></i> Bundibugyo Community Hall</div>
+            <p class="event-description">Empower 30 women with practical tailoring skills and small business management. Graduates will receive startup sewing kits.</p>
+            <a href="#" class="event-link">Register Interest <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Event 2 -->
+        <div class="event-card">
+          <div class="event-date-badge"><i class="fas fa-calendar-day"></i> June 5, 2025</div>
+          <div class="event-image"><img src="images/child.jpg" alt="Back to School Campaign"></div>
+          <div class="event-content">
+            <span class="event-category"><i class="fas fa-book"></i> Education Support</span>
+            <h3>Back to School Drive</h3>
+            <div class="event-detail"><i class="fas fa-clock"></i> 8:30 AM - 3:00 PM</div>
+            <div class="event-detail"><i class="fas fa-map-marker-alt"></i> Humya Village Learning Center</div>
+            <p class="event-description">Distribution of scholastic materials, uniforms, and fees support for 50 vulnerable children ahead of the new school term.</p>
+            <a href="#" class="event-link">Donate Supplies <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Event 3 -->
+        <div class="event-card">
+          <div class="event-date-badge"><i class="fas fa-calendar-day"></i> June 20, 2025</div>
+          <div class="event-image"><img src="images/wel.jpg" alt="Community Water Project"></div>
+          <div class="event-content">
+            <span class="event-category"><i class="fas fa-water"></i> Water & Sanitation</span>
+            <h3>Community Well Handover Ceremony</h3>
+            <div class="event-detail"><i class="fas fa-clock"></i> 10:00 AM - 1:00 PM</div>
+            <div class="event-detail"><i class="fas fa-map-marker-alt"></i> Bukonzo Subcounty</div>
+            <p class="event-description">Celebrating the completion of a clean water well serving 200+ families. Join us for the ribbon-cutting and community feast.</p>
+            <a href="#" class="event-link">Join Celebration <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="view-all-events">
+        <a href="events.html" class="btn" style="background: var(--primary); color: white;"><i class="fas fa-calendar-week"></i> View All Events</a>
+      </div>
+    </div>
+  </section>
+
+
 <!-- Impact Section -->
   <section class="impact-section">
     <div class="container">
@@ -1077,7 +1344,7 @@
                 </div>
             </div>
 
-          
+            <!-- Card 2: Education Support (Image - complete, shows learning) -->
             <div class="program-card">
                 <div class="program-image">
                     <img src="images/maize.jpg" 
@@ -1167,7 +1434,7 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
+  <!-- CTA Section with Partners Logos inside (horizontal line) -->
   <section class="cta-section">
     <div class="container">
       <h2>Ready to Make a Difference?</h2>
@@ -1176,6 +1443,32 @@
         <a href="donate.html" class="btn btn-light"><i class="fas fa-heart"></i> Donate Today</a>
         <a href="volunteer.html" class="btn btn-outline" style="border-color: white; color: white;"><i class="fas fa-hands-helping"></i> Become a Volunteer</a>
       </div>
+      
+      <!-- Partners Logos Section inside CTA - attractive horizontal line -->
+      <div class="cta-partners">
+        <div class="cta-partners-title"><i class="fas fa-handshake"></i> Our Trusted Partners</div>
+        <div class="partners-horizontal">
+          <div class="partner-logo-card">
+            <img src="https://placehold.co/200x60/800000/white?text=Centenary+Bank" alt="Centenary Bank" class="partner-logo-img" style="filter: brightness(0) invert(1);">
+          </div>
+          <div class="partner-logo-card">
+            <img src="https://placehold.co/200x60/800000/white?text=MTN+Uganda" alt="MTN Uganda" class="partner-logo-img">
+          </div>
+          <div class="partner-logo-card">
+            <img src="https://placehold.co/200x60/800000/white?text=Airtel" alt="Airtel Uganda" class="partner-logo-img">
+          </div>
+          <div class="partner-logo-card">
+            <span class="partner-text-logo"><i class="fas fa-globe-africa"></i> UNICEF</span>
+          </div>
+          <div class="partner-logo-card">
+            <span class="partner-text-logo"><i class="fas fa-building"></i> Bundibugyo District</span>
+          </div>
+          <div class="partner-logo-card">
+            <span class="partner-text-logo"><i class="fas fa-leaf"></i> Green Hope</span>
+          </div>
+        </div>
+        <p style="font-size: 0.75rem; margin-top: 1.5rem; opacity: 0.7;">Together we build stronger communities</p>
+      </div>
     </div>
   </section>
 
@@ -1183,9 +1476,9 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya 1, LC I<br>Buhundu Parish<br>Bukonzo Subcounty<br>Bundibugyo District, Uganda</p></div>
+        <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
-             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="https://mail.google.com/mail/?view=cm&fs=1&to=ugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> ugandahelpinghands@gmail.com
+             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="inforugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> inforugandahelpinghands@gmail.com
     </a></div>
         <div>
   <h4>Connect With Us</h4>
@@ -1196,10 +1489,7 @@
     <a href="https://x.com/BukamaHakim088" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-twitter"></i>
     </a>
-     <a href="https://www.linkedin.com/in/uganda-helping-hands-472b752ab" 
-         class="social-link linkedin" 
-         target="_blank" 
-         rel="noopener noreferrer"
+  <a href="https://www.linkedin.com/in/uganda-helping-hands-472b752ab" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';" 
          aria-label="LinkedIn">
         <i class="fab fa-linkedin"></i>
       </a>
