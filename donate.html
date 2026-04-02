@@ -6,6 +6,7 @@
   <link rel="icon" type="image/png" href="images/logo.png">
   <title>Uganda- Helping Hands | Donate Now</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,208 +15,37 @@
     }
 
     :root {
-      --primary: #800000;
+       --primary: #800000;
+      --primary-dark: #5a0000;
       --primary-light: #a04545;
-      --secondary: #6b2d2d;
-      --accent: #a52a2a;
+      --primary-soft: #fef5f0;
+      --secondary: #9e6b3e;
+      --accent: #e6b17e;
       --dark: #330000;
-      --soft-bg: #fef8f2;
-      --shadow: 0 8px 20px rgba(100, 30, 0, 0.12);
       --nav-bg: rgb(238, 219, 219);
-      --dropdown-bg: #ffffff;
+      --light: #fef9f5;
+      --light-beige: #fffaf5;
+      --white: #ffffff;
+      --gray: #6b6b68;
+      --gray-light: #e8e0d8;
+      --shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --gradient-warm: linear-gradient(135deg, #fff5ed 0%, #ffe8dc 100%);
+      --gradient-soft: linear-gradient(135deg, #fdf8f2 0%, #fef0e8 100%);
     }
     body {
-      background: url('images/child.jpg') center/cover fixed no-repeat;
-      font-family: 'Times New Roman', Times, serif;
+      background: #faf5ed;
+     font-family: 'Times New Roman', Times, serif;
       line-height: 1.6;
       color: #1f1a17;
-      position: relative;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(2px);
-      z-index: -2;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .container {
-      width: 100%;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-
-    /* NAVBAR with beautiful background color */
-    .navbar {
-      background: var(--nav-bg);
-      box-shadow: var(--shadow);
-      padding: 0.5rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      width: 100%;
-
-    }
-
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: clamp(1.2rem, 4vw, 1.8rem);
-        color: var(--primary);
-    }
-
-    .logo-img {
-      height: 50px;
-      width: auto;
-      border-radius: 8px;
-      background: white;
-      padding: 3px;
-    }
-
-    .menu-icon {
-      display: none;
-      font-size: 2.4rem;
-      color: var(--primary);
-      cursor: pointer;
-      padding: 0.5rem 1rem;
-      transition: transform 0.2s;
-    }
-
-    .menu-icon:hover {
-      transform: scale(1.05);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .nav-link {
-      font-size: 1rem;
-      padding: 0.7rem 1.3rem;
-      border-radius: 40px;
-       color: var(--dark);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.3s;
-      font-weight: 500;
-    }
-
-    .nav-link:hover {
-      background: rgba(128,0,0,0.08);
-       transform: translateY(-2px);
-    }
-
-    .nav-link.active-home {
-      background: var(--primary);
-      color: white !important;
-       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Dropdown styles */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-link-wrapper {
-      display: flex;
-      align-items: center;
-      background: transparent;
-      border-radius: 40px;
-      overflow: hidden;
-    }
-
-    .dropdown-text {
-      font-size: 1rem;
-      padding: 0.7rem 0.5rem 0.7rem 1.3rem;
-      color: var(--dark);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 500;
-    }
-
-    .dropdown-text:hover {
-      background: rgba(128,0,0,0.08);
-    }
-
-    .dropdown-icon {
-      font-size: 1rem;
-      padding: 0.7rem 1.3rem 0.7rem 0.5rem;
-      color: var(--dark);
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .dropdown-icon i {
-      font-size: 0.7rem;
-      transition: transform 0.2s;
-    }
-
-    .dropdown.active .dropdown-icon i {
-      transform: rotate(180deg);
-    }
- .dropdown-icon:hover {
-      background: rgba(128,0,0,0.08);
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 240px;
-      background: var(--dropdown-bg);
-      border-radius: 20px;
-      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
-      padding: 0.8rem 0;
-      z-index: 1000;
-      margin-top: 5px;
-      border: 1px solid #f0e0e0;
-    }
-
-    .dropdown.active .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content a {
-      color: var(--dark);
-      padding: 0.8rem 1.8rem;
-      text-decoration: none;
-      display: block;
-      transition: all 0.2s;
-    }
-
-    .dropdown-content a:hover {
-      background: #f0e6e0;
-      color: var(--primary);
-      padding-left: 2rem;
-    }
-
-    .btn {
+    /* Buttons */
+   .btn {
       padding: 0.7rem 1.6rem;
       border-radius: 60px;
       background: linear-gradient(135deg, #ffb347, #ff8c1a);
@@ -229,60 +59,192 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
       transition: all 0.3s;
     }
-
     .btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
       background: linear-gradient(135deg, #ffc26b, #ffa133);
     }
 
-    /* ========== HERO SECTION ========== 
-           Hero with image that FILLS the entire section completely */
-        .hero {
-            /* Full viewport height hero - dramatic and immersive */
-            min-height: 85vh;
-            height: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            /* BACKGROUND IMAGE - FILLS THE WHOLE SECTION (cover) */
-            background-image: url('images/need.jpg');
-            background-size: cover;      /* Image fills entire section - covers all space */
-            background-position: center center;
-            background-repeat: no-repeat;
-            
-            /* Fallback color while image loads */
+   /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+     background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      z-index: 1000;
+      padding: 0.7rem 0;
+      transition: all 0.3s;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      color: var(--primary);
+    }
+    .logo-img {
+      height: 48px;
+      width: auto;
+      border-radius: 8px;
+       background: white;
+       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .logo span {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .nav-link {
+     font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      color: var(--dark);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+     background: rgba(128,0,0,0.12);
+      transform: translateY(-2px);
+      color: var(--primary);
+    }
 
-            
-            position: relative;
-            isolation: isolate;
-        }
-        
-        /* Semi-transparent overlay to improve text readability - keeps image fully visible but adds contrast */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.4) 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        /* Hero content wrapper - centers content beautifully above overlay */
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 4rem 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        
-        /* Main heading - bold, inspiring, with strong text shadow */
-        .hero h1 {
-            font-size: 5rem;
+   .nav-link.active {
+      background: var(--primary);
+      color: white !important;
+       box-shadow: 0 4px 10px rgba(128,0,0,0.3);
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-text {
+      font-size: 1rem;
+      padding: 0.7rem 0.5rem 0.7rem 1.3rem;
+      color: var(--dark);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+     .dropdown-text:hover {
+      background: rgba(128,0,0,0.08);
+      border-radius: 40px;
+    }
+    .dropdown-btn {
+      background: none;
+      border: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--dark);
+      font-family: inherit;
+      padding: 0.5rem 0.8rem;
+      border-radius: 40px;
+      transition: 0.2s;
+    }
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 220px;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 100;
+      padding: 0.5rem 0;
+    }
+    .dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 0.6rem 1.5rem;
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .dropdown-content a:hover {
+      background: #f0e6e0;
+      background: var(--light);
+      color: var(--primary);
+      padding-left: 1.8rem;
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary);
+    }
+    
+    /* ========== HERO - MASSIVE FULL-SCREEN WITH CLEAR FACES ========== */
+    .hero-wrapper {
+      position: relative;
+      margin-top: 70px;
+      width: 100%;
+    }
+    .hero {
+      min-height: 100vh;  /* FULL VIEWPORT HEIGHT - BIGGER */
+      height: 100vh;
+      max-height: 1000px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* HIGH-RES, CLEAR FACE-FOCUSED IMAGE (Ugandan children & community) */
+      background-image: url('images/need.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+      position: relative;
+      isolation: isolate;
+    }
+    /* Fallback gradient + overlay to keep text readable but image pops */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(80,30,20,0.35) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+       width: 100%;
+    }
+    .hero h1 {
+       font-size: 5rem;
             font-weight: 800;
             color: #ffffff;
             text-shadow: 0 4px 25px rgba(0, 0, 0, 0.7), 0 2px 5px rgba(0, 0, 0, 0.5);
@@ -290,10 +252,8 @@
             letter-spacing: -0.02em;
             line-height: 1.2;
             animation: fadeInUp 0.8s ease-out;
-        }
-        
-        /* Hero description - elegant and readable */
-        .hero .hero-description {
+    }
+    .hero .hero-description {
             font-size: 1.5rem;
             max-width: 780px;
             margin: 0 auto;
@@ -310,10 +270,8 @@
             letter-spacing: 0.01em;
             border: 1px solid rgba(255, 255, 255, 0.25);
             animation: fadeInUp 0.8s ease-out 0.1s both;
-        }
-        
-        /* Decorative element - warm underline */
-        .hero h1:after {
+    }
+    .hero h1:after {
             content: '';
             display: block;
             width: 90px;
@@ -321,16 +279,13 @@
             background: linear-gradient(90deg, #f5b042, #e67e22);
             margin: 1.2rem auto 0;
             border-radius: 4px;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.3);
-        }
-        
-        /* CTA button to enhance hero section */
-        .hero-cta {
-            margin-top: 2.5rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-        
-        .hero-cta .btn {
+            box-shadow: 0 1px 6px rgba(0,0,0,0.3);;
+    }
+    .hero-cta {
+      margin-top: 2.5rem;
+      animation: fadeInUp 0.7s ease-out 0.2s both;
+    }
+    .hero-cta .btn {
             display: inline-block;
             background: #f5b042;
             color: #1e2a23;
@@ -344,84 +299,44 @@
             border: none;
             cursor: pointer;
             letter-spacing: 0.5px;
-        }
-        
-        .hero-cta .btn:hover {
+    }
+    .hero-cta .btn:hover {
             background: #e67e22;
             color: white;
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive hero adjustments */
-        @media (max-width: 992px) {
-            .hero {
-                min-height: 75vh;
-            }
-            .hero h1 {
-                font-size: 3.8rem;
-            }
-            .hero .hero-description {
-                font-size: 1.3rem;
-                padding: 0.8rem 1.6rem;
-                backdrop-filter: blur(6px);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 70vh;
-            }
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .hero .hero-description {
-                font-size: 1.1rem;
-                padding: 0.7rem 1.2rem;
-                backdrop-filter: blur(5px);
-                background: rgba(0, 0, 0, 0.4);
-            }
-            .hero h1:after {
-                width: 70px;
-                height: 3px;
-            }
-            .hero-cta .btn {
-                padding: 0.7rem 1.6rem;
-                font-size: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                min-height: 65vh;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero .hero-description {
-                font-size: 0.95rem;
-                padding: 0.6rem 1rem;
-            }
-            .hero-content {
-                padding: 2rem 1rem;
-            }
-        }
-        
-    /* Main Content */
+    }
+    /* BIG & BEAUTIFUL CURVE */
+    .hero-curve {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      line-height: 0;
+      z-index: 5;
+      pointer-events: none;
+    }
+    .hero-curve svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    
+    /* Main container */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
     .donate-section {
-      padding: 2rem 0 5rem;
+       padding: 3rem 0 5rem;
+      position: relative;
+      z-index: 2;
     }
 
     .content-card {
@@ -701,42 +616,382 @@
       transform: translateY(-2px);
     }
 
-    /* Giving Options Grid */
-    .giving-grid {
+            /* main container - elegant and spacious */
+        .giving-horizontal-wrapper {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* content card: refined background, soft shadow, rounded */
+        .content-card {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(0px);
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.02);
+            padding: 2rem 2rem 2.2rem 2rem;
+            transition: all 0.2s ease;
+        }
+
+        /* section title with accent */
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: maroon;
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.65rem;
+            border-bottom: 1.5px solid transparent;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 45%;
+            height: 4px;
+            background: maroon;
+            border-radius: 4px;
+        }
+
+        /* HORIZONTAL FLEX GRID — all cards in one row, responsive but stays horizontal until mobile */
+        .giving-grid {
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 1.8rem;
+            justify-content: space-between;
+            align-items: stretch;
+            margin-top: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.75rem; /* for scrollbar on small screens but keeps layout */
+            scrollbar-width: thin;
+        }
+
+        /* individual giving card - attractive, glassmorphism touch */
+        .giving-card {
+            flex: 1 1 0px;         /* equal width, shrink equally, grow equally */
+            min-width: 230px;      /* never too tiny, readability */
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.8rem 1.4rem 2rem 1.4rem;
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.08);
+            transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+            border: 1px solid rgba(228, 161, 27, 0.2);
+            backdrop-filter: blur(0);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: center;
+        }
+
+        /* Hover effect for each card: lift + subtle border + shadow */
+        .giving-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 35px -16px rgba(0, 0, 0, 0.2);
+            border-color: rgba(228, 161, 27, 0.5);
+            background: #fefef7;
+        }
+
+        /* icon circle background */
+        .giving-icon {
+            background: linear-gradient(135deg, #FEF5E7 0%, #FFE9CC 100%);
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 2rem;
+            color: maroon;
+            box-shadow: 0 6px 12px -5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .giving-card:hover .giving-icon {
+            transform: scale(1.02);
+            background: linear-gradient(135deg, #FDEED8, #FBE3C2);
+        }
+
+        .giving-card h3 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color:rgb(39, 3, 3);
+            letter-spacing: -0.2px;
+        }
+
+        .giving-card p {
+            color:#5a3a2a;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+
+        /* inline links inside cards (elegant arrow style) */
+        .giving-card a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            color: maroon;
+            background: transparent;
+            padding: 0.2rem 0;
+            border-radius: 40px;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .giving-card a i {
+            font-size: 0.8rem;
+            transition: transform 0.2s;
+        }
+
+        .giving-card a:hover {
+            color: #C47F0C;
+            gap: 10px;
+        }
+
+        .giving-card a:hover i {
+            transform: translateX(4px);
+        }
+
+        /* bold texts inside paragraphs (bank details etc) */
+        .giving-card p strong {
+            color: #5a3a2a;
+            font-weight: 700;
+        }
+
+        /* For smaller laptops and tablets, reduce gap and padding but maintain row */
+        @media (max-width: 1100px) {
+            .giving-grid {
+                gap: 1.2rem;
+            }
+            .giving-card {
+                padding: 1.5rem 1rem 1.7rem 1rem;
+            }
+            .giving-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.7rem;
+            }
+            .giving-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* On medium devices, still row but we allow a bit of horizontal scroll if needed — ensures all cards visible */
+        @media (max-width: 880px) {
+            .giving-grid {
+                gap: 1rem;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 1rem;
+            }
+            .giving-card {
+                flex: 0 0 280px;      /* snap-width but still horizontal line, swipe */
+                scroll-snap-align: start;
+            }
+            .content-card {
+                padding: 1.5rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* For very small devices, keep horizontal row (no stacking), but cards are swipeable with visual hint */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem;
+            }
+            .giving-card {
+                flex: 0 0 260px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .giving-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* scrollbar styling (nice for overflow-x) */
+        .giving-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+        .giving-grid::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 20px;
+        }
+        .giving-grid::-webkit-scrollbar-thumb {
+            background: #E4A11B;
+            border-radius: 20px;
+        }
+
+        /* subtle helper text for mobile (optional but no clutter) */
+        @media (max-width: 880px) {
+            .giving-grid:after {
+                content: '';
+                padding-right: 8px;
+            }
+        }
+
+        /* decorative touch: card inner spacing balance */
+        .giving-card br {
+            display: block;
+            content: "";
+            margin: 4px 0;
+        }
+/* BALANCED GRID - exactly 3 columns, perfectly centered */
+    .testimonials-balanced {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+      justify-content: center;
     }
 
-    .giving-card {
+    /* SMALL, ATTRACTIVE CARD */
+    .testimonial-card {
+      background: #ffffff;
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 8px 18px -8px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(190, 130, 80, 0.18);
+      height: 100%;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 24px -10px rgba(90, 45, 20, 0.15);
+      border-color: rgba(194, 106, 56, 0.3);
+    }
+
+    /* IMAGE WRAPPER - fully visible, balanced proportions */
+    .testimonial-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: #e6d5c0;
+    }
+
+    .testimonial-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    .testimonial-card:hover .testimonial-img {
+      transform: scale(1.03);
+    }
+
+    /* subtle overlay for depth */
+    .img-overlay-soft {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.12), transparent);
+      pointer-events: none;
+    }
+
+    /* COMPACT CONTENT */
+    .testimonial-content {
+      padding: 1rem 1rem 1.2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       background: white;
-      padding: 1.8rem;
-      border-radius: 1.5rem;
-      text-align: center;
-      transition: all 0.3s;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
-    .giving-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-    }
-
-    .giving-icon {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .giving-card h3 {
-      color: var(--primary);
+    .quote-icon {
+      color: #bc5a2c;
+      font-size: 1.2rem;
+      opacity: 0.7;
       margin-bottom: 0.5rem;
+      line-height: 1;
     }
 
-    .giving-card p {
-      color: #5a3a2a;
-      margin-bottom: 1rem;
+    .testimonial-text {
+      font-size: 0.82rem;
+      line-height: 1.48;
+      color: rgb(32, 3, 3);
+      margin: 0 0 0.75rem 0;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .testimonial-author {
+      margin-top: 0.2rem;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: #8b4b30;
+      border-left: 2px solid #e2a16a;
+      padding-left: 0.7rem;
+      letter-spacing: -0.2px;
+    }
+
+    /* responsive: tablets and smaller - stack to 2 then 1 column */
+    @media (max-width: 900px) {
+      body {
+        padding: 1.2rem;
+      }
+      .testimonials-balanced {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+      .testimonial-img-wrapper {
+        height: 170px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .testimonials-balanced {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .testimonial-img-wrapper {
+        height: 190px;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+      .content-card {
+        padding: 1.2rem;
+      }
+    }
+
+    /* decorative note */
+    .gratitude-note {
+      text-align: center;
+      margin-top: 1.8rem;
+      font-size: 0.75rem;
+      color: #a16440;
+      font-weight: 500;
+      border-top: 1px dashed #e6c8b0;
+      padding-top: 1.2rem;
+      width: 100%;
+    }
+    .gratitude-note i {
+      margin-right: 5px;
+      color: #c2713e;
     }
 
     /* Impact Grid */
@@ -765,41 +1020,61 @@
       color: var(--primary);
       margin-bottom: 1rem;
     }
-
     /* Footer */
     .footer {
-      background: var(--dark);
-      backdrop-filter: blur(5px);
-      color: #f0e2d4;
-      padding: 3.5rem 0 2rem;
-      margin-top: 1rem;
-      border-top: 1px solid rgba(255, 200, 150, 0.3);
+      background: #1e1e1b;
+      color: #ccc;
+      padding: 4rem 0 2rem;
+      border-top: 3px solid var(--primary);
     }
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
     .footer h4 {
       color: white;
       margin-bottom: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     .footer a {
-      color: #e0b0b0;
+      color: #aaa;
       text-decoration: none;
       display: block;
       margin-bottom: 0.5rem;
+      transition: color 0.3s;
+      font-size: 0.85rem;
     }
     .footer a:hover {
+      color: var(--primary);
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
       color: white;
-      transform: translateX(5px);
+      font-size: 1.2rem;
+    }
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
     }
     .footer-bottom {
       text-align: center;
-      padding-top: 1.8rem;
-      border-top: 1px solid #5f4b4b;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
     }
     .back-to-top {
       position: fixed;
@@ -825,100 +1100,69 @@
 
 
     /* Responsive */
-    @media (max-width: 900px) {
-      .menu-icon {
-        display: block;
-      }
+    @media (max-width: 992px) {
+      .container { padding: 0 24px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .founder-container { flex-direction: column; text-align: center; }
       .nav-links {
-        display: none;
-        width: 100%;
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 70px);
+        background: var(--white);
         flex-direction: column;
-        background: rgba(46, 26, 26, 0.97);
-        backdrop-filter: blur(8px);
-        padding: 1.5rem;
-        border-radius: 2rem;
-        margin-top: 1rem;
+        align-items: flex-start;
+        padding: 2rem;
+        transition: left 0.3s;
+        box-shadow: var(--shadow);
+        gap: 1rem;
       }
-      .nav-links.show {
-        display: flex;
-      }
-      .dropdown {
-        width: 100%;
-      }
-      .dropdown-link-wrapper {
-        width: 100%;
-      }
+      .nav-links.active { left: 0; }
+      .menu-icon { display: block; }
       .dropdown-content {
-        position: relative;
-        width: 100%;
-        background: #2b1a16;
+        position: static;
+        box-shadow: none;
+        padding-left: 1rem;
+        opacity: 1;
+        visibility: visible;
+        display: none;
       }
-      .dropdown-content a {
-        color: #ffded0;
-      }
-      .nav-link {
-        width: 100%;
-        justify-content: center;
-      }
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
-      
-      .section-title::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .section-title {
-        display: block;
-        text-align: center;
-      }
-      
-      .currency-amount-container {
-        flex-direction: column;
-      }
+      .dropdown.active .dropdown-content { display: block; }
     }
-
-    @media (max-width: 550px) {
-      .container {
-        padding: 0 1rem;
-      }
-      .content-card {
-        padding: 1.5rem;
-      }
-      .impact-stats {
-        flex-direction: column;
-      }
-      .donation-form {
-        padding: 1.5rem;
-      }
-      .radio-group {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
+    @media (max-width: 768px) {
+      .hero { height: 70vh; min-height: 500px; }
+      .hero-buttons { flex-direction: column; align-items: flex-start; }
+      .stats { margin-top: -2rem; padding: 2rem; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .mission-card { padding: 2rem; }
+      .mission-card p { font-size: 1rem; }
+      .impact-item h3 { font-size: 2rem; }
     }
+    
   </style>
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="container nav-container">
+ <nav class="navbar">
+    <div class="nav-container">
       <div class="logo">
-        <img src="images/logo.png" alt="Logo" class="logo-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'%3E%3Crect width=\'50\' height=\'50\' fill=\'%23800000\' rx=\'10\'/%3E%3Ctext x=\'8\' y=\'38\' fill=\'white\' font-size=\'35\'%3E🤝%3C/text%3E%3C/svg%3E'">
+        <img src="images/logo.png" alt="Logo" class="logo-img" >
         <span>Uganda- Helping Hands</span>
       </div>
       <div class="menu-icon" id="menuToggle">
         <i class="fas fa-bars"></i>
       </div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+        <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
+        
         <div class="dropdown" id="aboutDropdown">
-          <div class="dropdown-link-wrapper">
-            <a href="about.html" class="dropdown-text"><i class="fas fa-info-circle"></i> About Us</a>
-            <button class="dropdown-icon" aria-label="Toggle dropdown"><i class="fas fa-chevron-down"></i></button>
-          </div>
+          <button class="dropdown-btn">
+            <a href="about.html" class="dropdown-text">
+               <i class="fas fa-info-circle"></i>About Us</a><i class="fas fa-chevron-down"></i> 
+            </button>
           <div class="dropdown-content">
-            <a href="who-we-are.html">Who we are</a>
+           <a href="who-we-are.html">Who we are</a>
             <a href="history.html">Our history</a>
             <a href="mission-vision.html">Mission & Vision</a>
             <a href="beneficiaries.html">Beneficiaries</a>
@@ -926,12 +1170,13 @@
           </div>
         </div>
         <div class="dropdown" id="projectsDropdown">
-          <div class="dropdown-link-wrapper">
-            <a href="projects.html" class="dropdown-text"><i class="fas fa-leaf"></i> Projects</a>
-            <button class="dropdown-icon" aria-label="Toggle dropdown"><i class="fas fa-chevron-down"></i></button>
-          </div>
+          <button class="dropdown-btn">
+            <a href="projects.html" class="dropdown-text">
+                <i class="fas fa-leaf"></i> Projects</a>
+                <i class="fas fa-chevron-down"></i>
+                </button>
           <div class="dropdown-content">
-            <a href="orphan-care.html">Orphan care & shelter</a>
+           <a href="orphan-care.html">Orphan care & shelter</a>
             <a href="education-support.html">Education support</a>
             <a href="women-empowerment.html">Women empowerment</a>
             <a href="sacco-loans.html">SACCO & loans</a>
@@ -939,33 +1184,37 @@
             <a href="humanitarian-aid.html">Humanitarian aid</a>
           </div>
         </div>
-        <a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Gallery</a>
-        <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact Us</a>
-        <a href="donate.html" class="btn active-home"><i class="fas fa-donate"></i> Donate now</a>
+        <a href="gallery.html" class="nav-link"><i class="fas fa-images"></i>Gallery</a>
+        <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contact</a>
+        <a href="donate.html" class="btn btn-primary"><i class="fas fa-donate"></i> Donate now</a>
       </div>
     </div>
   </nav>
 
+
+<div class="hero-wrapper">
   <section class="hero">
-        <div class="hero-content">
-            <h1>Donate Now</h1>
-            <p class="hero-description">
-Your generosity transforms lives — choose any currency and any amount to make a lasting impact.
-            </p>
-            <div class="hero-cta">
-                <a href="volunteer.html" class="btn">Join Our Mission →</a>
-            </div>
-        </div>
-    </section>
+    <div class="hero-content">
+      <h1>Donate Now</h1>
+      <p class="hero-description">Your generosity transforms lives — choose any currency & any amount to make a lasting impact.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn">Join Our Mission →</a>
+      </div>
+    </div>
+    <!-- LARGE & PROMINENT CURVE -->
+    <div class="hero-curve">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 150" preserveAspectRatio="none">
+        <path d="M0,0 C300,120 700,40 1200,80 L1200,150 L0,150 Z" fill="#fef8f2" opacity="1"></path>
+        <path d="M0,70 C400,140 800,60 1200,105 L1200,150 L0,150 Z" fill="#fef5e8" opacity="0.7"></path>
+      </svg>
+    </div>
+  </section>
+</div>
 
-
-
-  <!-- Main Content -->
-  <section class="donate-section">
-    <div class="container">
-      
-      <!-- Impact Stats -->
-      <div class="content-card">
+<section class="donate-section">
+  <div class="container">
+    <!-- Impact Stats -->
+     <div class="content-card">
         <h2 class="section-title">Your Impact at a Glance</h2>
         <div class="impact-stats">
           <div class="stat-box">
@@ -987,7 +1236,7 @@ Your generosity transforms lives — choose any currency and any amount to make 
         </div>
       </div>
 
-      <!-- Donation Form -->
+         <!-- Donation Form -->
       <div class="content-card">
         <h2 class="section-title">Make a Donation</h2>
         <p>Select your preferred currency and enter any amount you wish to give. Every contribution makes a difference.</p>
@@ -1076,44 +1325,56 @@ Your generosity transforms lives — choose any currency and any amount to make 
         </div>
       </div>
 
-      <!-- Other Ways to Give (Same as before) -->
-      <div class="content-card">
-        <h2 class="section-title">Other Ways to Give</h2>
-        <div class="giving-grid">
-          <div class="giving-card">
-            <div class="giving-icon"><i class="fas fa-university"></i></div>
-            <h3>Bank Transfer</h3>
-            <p><strong>Account Name:</strong> Uganda- Helping Hands<br>
-            <strong>Bank:</strong> Centenary Bank<br>
-            <strong>Account Number:</strong> 1234567890<br>
-            <strong>Branch:</strong> Bundibugyo<br>
-            <strong>Swift Code:</strong> CENBUGK</p>
-          </div>
-          
-          <div class="giving-card">
-            <div class="giving-icon"><i class="fas fa-mobile-alt"></i></div>
-            <h3>Mobile Money</h3>
-            <p><strong>MTN Mobile Money:</strong> 0783 572503<br>
-            <strong>Airtel Money:</strong> 0700 123456<br>
-            <strong>Name:</strong> Uganda- Helping Hands</p>
-          </div>
-          
-          <div class="giving-card">
-            <div class="giving-icon"><i class="fas fa-box-open"></i></div>
-            <h3>In-Kind Donations</h3>
-            <p>Donate clothing, bedding, school supplies, or other essential items. Contact us to arrange drop-off or collection.</p>
-            <a href="contact.html" style="color: var(--primary);">Contact us →</a>
-          </div>
-          
-          <div class="giving-card">
-            <div class="giving-icon"><i class="fas fa-church"></i></div>
-            <h3>Legacy Giving</h3>
-            <p>Include Uganda- Helping Hands in your will or estate plan. Leave a lasting legacy of compassion and hope.</p>
-            <a href="contact.html" style="color: var(--primary);">Learn more →</a>
-          </div>
-        </div>
-      </div>
 
+    <!-- Other Ways to Give (Same as before) -->
+      <div class="giving-horizontal-wrapper">
+    <div class="content-card">
+        <h2 class="section-title">Other Ways to Give</h2>
+        <!-- all cards in ONE HORIZONTAL LINE using flex row nowrap -->
+        <div class="giving-grid">
+            <!-- Bank Transfer Card -->
+            <div class="giving-card">
+                <div class="giving-icon"><i class="fas fa-university"></i></div>
+                <h3>Bank Transfer</h3>
+                <p>
+                    <strong>Account Name:</strong> Uganda- Helping Hands<br>
+                    <strong>Bank:</strong> Centenary Bank<br>
+                    <strong>Account Number:</strong> 1234567890<br>
+                    <strong>Branch:</strong> Bundibugyo<br>
+                    <strong>Swift Code:</strong> CENBUGK
+                </p>
+                <!-- subtle decorative spacer, no link needed but could be used -->
+            </div>
+            
+            <!-- Mobile Money Card -->
+            <div class="giving-card">
+                <div class="giving-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Mobile Money</h3>
+                <p>
+                    <strong>MTN Mobile Money:</strong> 0783 572503<br>
+                    <strong>Airtel Money:</strong> 0700 123456<br>
+                    <strong>Name:</strong> Uganda- Helping Hands
+                </p>
+            </div>
+            
+            <!-- In-Kind Donations Card (with contact link) -->
+            <div class="giving-card">
+                <div class="giving-icon"><i class="fas fa-box-open"></i></div>
+                <h3>In-Kind Donations</h3>
+                <p>Donate clothing, bedding, school supplies, or other essential items. Contact us to arrange drop-off or collection.</p>
+                <a href="contact.html">Contact us <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Legacy Giving Card (with learn more link) -->
+            <div class="giving-card">
+                <div class="giving-icon"><i class="fas fa-church"></i></div>
+                <h3>Legacy Giving</h3>
+                <p>Include Uganda- Helping Hands in your will or estate plan. Leave a lasting legacy of compassion and hope.</p>
+                <a href="contact.html">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
       <!-- Our Commitment -->
       <div class="content-card">
         <h2 class="section-title">Our Commitment to You</h2>
@@ -1130,27 +1391,68 @@ Your generosity transforms lives — choose any currency and any amount to make 
           <p style="margin-top: 1rem;">Registered Community Based Organization in Bundibugyo District, Uganda. Your donation is tax-deductible where applicable.</p>
         </div>
       </div>
-      <!-- Testimonials -->
       <div class="content-card">
-        <h2 class="section-title">Voices of Gratitude</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-          <div class="testimonial-card" style="background: linear-gradient(135deg, rgba(128, 0, 0, 0.05), rgba(100, 50, 30, 0.05)); padding: 1.5rem; border-radius: 1rem;">
-            <i class="fas fa-quote-left" style="color: var(--primary);"></i>
-            <p style="margin-top: 0.5rem;">"Because of donors like you, I am now in school. I want to become a nurse and help others. Thank you for believing in me."</p>
-            <p style="margin-top: 0.5rem; font-weight: 600;">— Masika, Sponsored Student</p>
-          </div>
-          <div class="testimonial-card" style="background: linear-gradient(135deg, rgba(128, 0, 0, 0.05), rgba(100, 50, 30, 0.05)); padding: 1.5rem; border-radius: 1rem;">
-            <i class="fas fa-quote-left" style="color: var(--primary);"></i>
-            <p style="margin-top: 0.5rem;">"The tailoring training changed my life. Now I can support my children. Thank you to everyone who made this possible."</p>
-            <p style="margin-top: 0.5rem; font-weight: 600;">— Grace, Program Graduate</p>
-          </div>
-          <div class="testimonial-card" style="background: linear-gradient(135deg, rgba(128, 0, 0, 0.05), rgba(100, 50, 30, 0.05)); padding: 1.5rem; border-radius: 1rem;">
-            <i class="fas fa-quote-left" style="color: var(--primary);"></i>
-            <p style="margin-top: 0.5rem;">"The well in our village means we no longer walk miles for water. My children are healthier. Thank you for this gift."</p>
-            <p style="margin-top: 0.5rem; font-weight: 600;">— Village Elder, Bundibugyo</p>
-          </div>
-        </div>
+  <h2 class="section-title">Voices of Gratitude</h2>
+  
+  <!-- PERFECTLY BALANCED 3-COLUMN GRID -->
+  <div class="testimonials-balanced">
+    
+    <!-- TESTIMONIAL 1 – Masika, Sponsored Student -->
+    <div class="testimonial-card">
+      <div class="testimonial-img-wrapper">
+        <img class="testimonial-img" 
+             src="images/girls.jpg" 
+             loading="lazy">
+        <div class="img-overlay-soft"></div>
       </div>
+      <div class="testimonial-content">
+        <div class="quote-icon">
+          <i class="fas fa-quote-left"></i>
+        </div>
+        <p class="testimonial-text">"Because of donors like you, I am now in school. I want to become a nurse and help others. Thank you for believing in me."</p>
+        <p class="testimonial-author">— Masika, Sponsored Student</p>
+      </div>
+    </div>
+    
+    <!-- TESTIMONIAL 2 – Grace, Program Graduate -->
+    <div class="testimonial-card">
+      <div class="testimonial-img-wrapper">
+        <img class="testimonial-img" 
+             src="images/tailor.jpg" 
+             loading="lazy">
+        <div class="img-overlay-soft"></div>
+      </div>
+      <div class="testimonial-content">
+        <div class="quote-icon">
+          <i class="fas fa-quote-left"></i>
+        </div>
+        <p class="testimonial-text">"The tailoring training changed my life. Now I can support my children. Thank you to everyone who made this possible."</p>
+        <p class="testimonial-author">— Grace, Program Graduate</p>
+      </div>
+    </div>
+    
+    <!-- TESTIMONIAL 3 – Village Elder, Bundibugyo -->
+    <div class="testimonial-card">
+      <div class="testimonial-img-wrapper">
+        <img class="testimonial-img" 
+             src="images/wel.jpg" 
+             loading="lazy">
+        <div class="img-overlay-soft"></div>
+      </div>
+      <div class="testimonial-content">
+        <div class="quote-icon">
+          <i class="fas fa-quote-left"></i>
+        </div>
+        <p class="testimonial-text">"The well in our village means we no longer walk miles for water. My children are healthier. Thank you for this gift."</p>
+        <p class="testimonial-author">— Village Elder, Bundibugyo</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="gratitude-note">
+    <i class="fas fa-hand-holding-heart"></i> Every gift creates ripples of hope & transformation
+  </div>
+</div>
 
       <!-- Call to Action -->
       <div class="content-card" style="text-align: center; background: linear-gradient(135deg, rgba(128,0,0,0.95), rgba(100,50,30,0.95)); color: white;">
@@ -1164,27 +1466,31 @@ Your generosity transforms lives — choose any currency and any amount to make 
     </div>
   </section>
 
-  <!-- Footer -->
+ <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya 1, LC I<br>Buhundu Parish<br>Bukonzo Subcounty<br>Bundibugyo District, Uganda</p></div>
+        <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
-             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="https://mail.google.com/mail/?view=cm&fs=1&to=ugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> ugandahelpinghands@gmail.com
+             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="inforugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> inforugandahelpinghands@gmail.com
     </a></div>
         <div>
   <h4>Connect With Us</h4>
   <div style="font-size: 1.8rem; display: flex; gap: 1.2rem; justify-content: flex-start; align-items: center; margin-top: 0.8rem;">
-    <a href="https://www.facebook.com/ugandahelpinghands" target="_blank" rel="noopener noreferrer" style="color: #3b5998; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+    <a href="https://facebook.com/groups/1213109826225170/" target="_blank" rel="noopener noreferrer" style="color: #3b5998; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-facebook"></i>
     </a>
-    <a href="https://twitter.com/ugandahelping" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+    <a href="https://x.com/BukamaHakim088" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-twitter"></i>
     </a>
-    <a href="https://www.instagram.com/ugandahelpinghands" target="_blank" rel="noopener noreferrer" style="color: #e4405f; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+    <a href="https://www.linkedin.com/in/uganda-helping-hands-472b752ab" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';" 
+         aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    <a href="https://www.instagram.com/ugan.dahelpinghands?igsh=MXQ2Ymh0Z3JycnY4eA==" target="_blank" rel="noopener noreferrer" style="color: #e4405f; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-instagram"></i>
     </a>
-    <a href="https://wa.me/256764377294" target="_blank" rel="noopener noreferrer" style="color: #25D366; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+    <a href="https://wa.me/256786497006" target="_blank" rel="noopener noreferrer" style="color: #25D366; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-whatsapp"></i>
     </a>
   </div>
@@ -1195,8 +1501,8 @@ Your generosity transforms lives — choose any currency and any amount to make 
   </footer>
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
 
-  <script>
-    // Currency conversion rates (approximate for suggested amounts)
+<script>
+   // Currency conversion rates (approximate for suggested amounts)
     const exchangeRates = {
       UGX: 1,
       USD: 3800,
@@ -1272,98 +1578,23 @@ Your generosity transforms lives — choose any currency and any amount to make 
       }
     });
 
-    // Mobile menu toggle
+
+// Mobile Menu
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
+    menuToggle?.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+    // Dropdown for mobile
     const dropdowns = document.querySelectorAll('.dropdown');
-
-    if (menuToggle) {
-      menuToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        navLinks.classList.toggle('show');
-      });
-    }
-
-    dropdowns.forEach(function(dropdown) {
-      const iconBtn = dropdown.querySelector('.dropdown-icon');
-      if (iconBtn) {
-        iconBtn.addEventListener('click', function(e) {
+    dropdowns.forEach(dropdown => {
+      const btn = dropdown.querySelector('.dropdown-btn');
+      btn?.addEventListener('click', (e) => {
+        if (window.innerWidth <= 992) {
           e.preventDefault();
-          e.stopPropagation();
-          dropdowns.forEach(d => { if (d !== dropdown) d.classList.remove('active'); });
           dropdown.classList.toggle('active');
-        });
-      }
-    });
-
-    document.addEventListener('click', function(e) {
-      let inside = false;
-      dropdowns.forEach(d => { if (d.contains(e.target)) inside = true; });
-      if (!inside && menuToggle && !menuToggle.contains(e.target)) {
-        dropdowns.forEach(d => d.classList.remove('active'));
-        if (navLinks) navLinks.classList.remove('show');
-      }
-    });
-
-    // Donation form submission
-    const donationForm = document.getElementById('donationForm');
-    if (donationForm) {
-      donationForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const amount = document.getElementById('donationAmount').value;
-        const currency = document.getElementById('currencySelect').value;
-        const type = document.querySelector('input[name="donationType"]:checked').value;
-        const designation = document.getElementById('designation').value;
-        const name = document.getElementById('fullName').value;
-        
-        if (!amount || amount <= 0) {
-          alert('Please enter a valid donation amount.');
-          return;
         }
-        
-        if (!name) {
-          alert('Please enter your full name.');
-          return;
-        }
-        
-        const currencySymbols = { UGX: 'UGX', USD: 'USD', GBP: 'GBP', EUR: 'EUR' };
-        const currencyDisplay = currencySymbols[currency];
-        
-        let designationText = '';
-        const designationMap = {
-          'general': 'where most needed',
-          'orphan-care': 'Orphan Care & Shelter',
-          'education': 'Education Support',
-          'women': 'Women Empowerment',
-          'sacco': 'SACCO & Loans',
-          'water': 'Water & Sanitation',
-          'aid': 'Humanitarian Aid'
-        };
-        designationText = designationMap[designation] || 'where most needed';
-        
-        const formattedAmount = parseFloat(amount).toLocaleString(undefined, {
-          minimumFractionDigits: currency === 'UGX' ? 0 : 2,
-          maximumFractionDigits: currency === 'UGX' ? 0 : 2
-        });
-        
-        alert(`Thank you, ${name}! Your ${type === 'monthly' ? 'monthly' : 'one-time'} donation of ${currencyDisplay} ${formattedAmount} to support ${designationText} has been received. We will send a confirmation email shortly.\n\nTogether, we are transforming lives in Uganda.`);
-        this.reset();
-        donationAmountInput.value = '';
-        // Reset to UGX default
-        currencySelect.value = 'UGX';
-        updateSuggestedAmounts();
       });
-    }
-
-    // Initialize suggested amounts
-    updateSuggestedAmounts();
-
-    // Back to top
-    const backToTop = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) backToTop.style.opacity = '1';
-      else backToTop.style.opacity = '0.9';
     });
-  </script>
+</script>
 </body>
 </html>
