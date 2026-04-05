@@ -14,20 +14,28 @@
     }
 
     :root {
-      --primary: #800000;
+       --primary: #800000;
+      --primary-dark: #5a0000;
       --primary-light: #a04545;
-      --secondary: #6b2d2d;
-      --accent: #a52a2a;
+      --primary-soft: #fef5f0;
+      --secondary: #9e6b3e;
+      --accent: #e6b17e;
       --dark: #330000;
-      --soft-bg: rgba(254, 248, 242, 0.94);
-      --shadow: 0 8px 20px rgba(100, 30, 0, 0.12);
       --nav-bg: rgb(238, 219, 219);
-      --dropdown-bg: #ffffff;
+      --light: #fef9f5;
+      --light-beige: #fffaf5;
+      --white: #ffffff;
+      --gray: #6b6b68;
+      --gray-light: #e8e0d8;
+      --shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --gradient-warm: linear-gradient(135deg, #fff5ed 0%, #ffe8dc 100%);
+      --gradient-soft: linear-gradient(135deg, #fdf8f2 0%, #fef0e8 100%);
     }
 
     /* ===== WHOLE PAGE BACKGROUND IMAGE ===== */
     body {
-      background-color: #f9fafb;
+      background-color: #fefaf5;
       font-family: 'Times New Roman', Times, serif;
       line-height: 1.6;
       color: #1f1a17;
@@ -35,17 +43,7 @@
     }
 
     /* Semi-transparent overlay for readability */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(2px);
-      z-index: -2;
-    }
+   
 
     .container {
       width: 100%;
@@ -54,10 +52,299 @@
       padding: 0 1.5rem;
     }
 
+/* intro section */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .intro-grid h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    .intro-grid h2 span {
+      color: #e65c2f;
+      display: block;
+    }
+
+    .intro-grid p {
+      color: #4a4a4a;
+      line-height: 1.6;
+    }
+
+    .feature-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .badge {
+      background: white;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-weight: 500;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+
+    .badge i {
+      color: maroon;
+    }
+
+    .badge:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* images + video */
+    .media-showcase {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-bottom: 70px;
+    }
+
+    .media-card {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.15);
+      transition: 0.3s;
+      background: #fff;
+    }
+
+    .media-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .media-card:hover img {
+      transform: scale(1.02);
+    }
+
+    .video-wrapper {
+      position: relative;
+      cursor: pointer;
+      background: #1e1e1e;
+    }
+
+    .video-thumb {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: maroon;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: white;
+      transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      pointer-events: auto;
+      z-index: 3;
+    }
+
+    .play-btn:hover {
+      background: maroon;
+      transform: translate(-50%, -50%) scale(1.07);
+    }
+
+    iframe.video-frame {
+      width: 100%;
+      height: 280px;
+      border: none;
+      display: none;
+    }
+
+    /* Team carousel */
+    .team-section {
+      background: #fff9f5;
+      padding: 60px 0 80px;
+      margin-top: 20px;
+      border-radius: 48px 48px 0 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-title span {
+      color: maroon;
+    }
+
+    .sub {
+      text-align: center;
+      color: #5e5e5e;
+      margin-bottom: 48px;
+    }
+
+    .carousel-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      position: relative;
+      padding: 0 40px;
+    }
+
+    .team-carousel {
+      overflow: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 28px;
+      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      will-change: transform;
+    }
+
+    .team-card {
+      flex: 0 0 calc(20% - 22.4px);
+      min-width: 220px;
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-info {
+      padding: 20px 18px 24px;
+      text-align: center;
+    }
+
+    .member-name {
+      background: rgb(238, 51, 51);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 40px;
+      display: inline-block;
+      font-weight: 600;
+      margin-top: -38px;
+      position: relative;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .role {
+      font-size: 0.85rem;
+      color: #7a6a5c;
+      margin: 12px 0 10px;
+      font-weight: 500;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .social-icons i {
+      color: #b97f5c;
+      transition: 0.2s;
+      font-size: 1.2rem;
+    }
+
+    .social-icons i:hover {
+      color: rgb(238, 51, 51);
+    }
+
+    /* carousel controls + dots */
+    .carousel-btn {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      background: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 60px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      font-size: 1.4rem;
+      color: rgb(238, 51, 51);
+      transition: 0.2s;
+      z-index: 5;
+    }
+
+    .carousel-btn:hover {
+      background: rgb(238, 51, 51);
+      color: white;
+    }
+
+    .btn-left {
+      left: 0;
+    }
+
+    .btn-right {
+      right: 0;
+    }
+
+    .dots-container {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: #d4c5b8;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dot.active {
+      background: rgb(238, 51, 51);
+      width: 32px;
+    }
+
     /* NAVBAR with beautiful background color */
     .navbar {
       background: var(--nav-bg);
-      box-shadow: var(--shadow);
+        box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
       padding: 0.5rem 0;
       position: sticky;
       top: 0;
@@ -189,7 +476,7 @@
       top: 100%;
       left: 0;
       min-width: 240px;
-      background: var(--dropdown-bg);
+      background: white;
       border-radius: 20px;
       box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
       padding: 0.8rem 0;
@@ -418,6 +705,53 @@
                 padding: 2rem 1rem;
             }
         }
+         @media (max-width: 1024px) {
+      .team-card {
+        flex: 0 0 calc(25% - 21px);
+      }
+    }
+
+    @media (max-width: 880px) {
+      .team-card {
+        flex: 0 0 calc(33.33% - 19px);
+      }
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .media-showcase {
+        grid-template-columns: 1fr;
+      }
+    }
+     @media (max-width: 640px) {
+      .team-card {
+        flex: 0 0 calc(50% - 14px);
+      }
+      .carousel-container {
+        padding: 0 20px;
+      }
+      .container {
+        padding: 40px 20px;
+      }
+      .section-title {
+        font-size: 1.9rem;
+      }
+      .badge {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .team-card {
+        flex: 0 0 100%;
+      }
+      .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+    }
         
     /* Main Content */
     .about-section {
@@ -427,7 +761,7 @@
     .content-card {
       background: rgba(255, 252, 245, 0.95);
       backdrop-filter: blur(4px);
-      border-radius: 2rem;
+      
       padding: 2.5rem;
       margin-bottom: 2.5rem;
       box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
@@ -554,55 +888,137 @@
       margin-bottom: 0.8rem;
     }
 
-    /* Governance Grid */
-    .governance-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
+    
+
+      /* Partners Logos inside CTA - Horizontal attractive line */
+    .cta-partners {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      position: relative;
+      z-index: 1;
+    }
+    .cta-partners-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+      font-weight: 400;
+    }
+    .partners-horizontal {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      row-gap: 1.2rem;
+    }
+    .partner-logo-card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(4px);
+      padding: 0.7rem 1.5rem;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: default;
+    }
+    .partner-logo-card:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .partner-logo-img {
+      max-height: 45px;
+      width: auto;
+      max-width: 110px;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      transition: all 0.2s;
+    }
+    .partner-logo-card:hover .partner-logo-img {
+      opacity: 1;
+      filter: brightness(0) invert(1) drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+    }
+    /* For text-based partner placeholder */
+    .partner-text-logo {
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    @media (max-width: 700px) {
+      .partner-logo-card {
+        padding: 0.5rem 1rem;
+      }
+      .partner-logo-img {
+        max-height: 35px;
+        max-width: 85px;
+      }
+      .partners-horizontal {
+        gap: 1rem;
+      }
     }
 
-    .governance-item {
-      background: white;
-      padding: 1rem;
-      border-radius: 1rem;
-      text-align: center;
-    }
-
-     /* Footer */
+    /* Footer */
     .footer {
-      background: var(--dark);
-      backdrop-filter: blur(5px);
-      color: #f0e2d4;
-      padding: 3.5rem 0 2rem;
-      margin-top: 1rem;
-      border-top: 1px solid rgba(255, 200, 150, 0.3);
+      background: #1e1e1b;
+      color: #ccc;
+      padding: 4rem 0 2rem;
+      border-top: 3px solid var(--primary);
     }
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
     .footer h4 {
       color: white;
       margin-bottom: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     .footer a {
-      color: #e0b0b0;
+      color: #aaa;
       text-decoration: none;
       display: block;
       margin-bottom: 0.5rem;
+      transition: color 0.3s;
+      font-size: 0.85rem;
     }
     .footer a:hover {
+      color: var(--primary);
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
       color: white;
-      transform: translateX(5px);
+      font-size: 1.2rem;
+    }
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
     }
     .footer-bottom {
       text-align: center;
-      padding-top: 1.8rem;
-      border-top: 1px solid #5f4b4b;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
     }
     .back-to-top {
       position: fixed;
@@ -625,6 +1041,8 @@
       background: #9e3a3a;
       transform: translateY(-5px);
     }
+
+
 
     /* Responsive */
     @media (max-width: 900px) {
@@ -758,7 +1176,7 @@
         </div>
     </section>
   <!-- Main Content -->
-  <section class="about-section">
+   <section class="about-section">
     <div class="container">
       
       <!-- Who We Are -->
@@ -786,7 +1204,24 @@
           </div>
         </div>
       </div>
+   <div class="container">
 
+  <!-- media: image + clickable video -->
+  <div class="media-showcase">
+    <div class="media-card">
+      <img src="images/meets.jpg" alt="Community work">
+    </div>
+    <div class="media-card video-wrapper" id="videoContainer">
+      <img class="video-thumb" id="videoThumb" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format" alt="Play video">
+      <div class="play-btn" id="playVideoBtn"><i class="fas fa-play"></i></div>
+      <iframe class="video-frame" id="youtubeFrame" src="https://www.youtube.com/embed/4xtb0aB49KE?autoplay=1&rel=0" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+  <section class="about-section">
+    <div class="container">
+      
       <!-- Our Story / Founder's Journey -->
       <div class="content-card">
         <h2 class="section-title">Our Story</h2>
@@ -852,22 +1287,7 @@
         </div>
       </div>
 
-      <!-- Governance Structure -->
-      <div class="content-card">
-        <h2 class="section-title">Governance Structure</h2>
-        <p>Uganda- Helping Hands is governed by a dedicated Board of Directors elected by the General Assembly, ensuring accountability and transparent leadership.</p>
-        <div class="governance-grid">
-          <div class="governance-item"><i class="fas fa-gavel"></i><br><strong>Chairperson</strong><br>Bukama Hakim</div>
-          <div class="governance-item"><i class="fas fa-pen-alt"></i><br><strong>Secretary</strong><br>Masika Darlyn</div>
-          <div class="governance-item"><i class="fas fa-coins"></i><br><strong>Treasurer</strong><br>Muhindo Brian Kahigwa</div>
-          <div class="governance-item"><i class="fas fa-chart-line"></i><br><strong>Project Coordinator</strong></div>
-          <div class="governance-item"><i class="fas fa-hand-holding-usd"></i><br><strong>Fundraising Officer</strong></div>
-          <div class="governance-item"><i class="fas fa-bullhorn"></i><br><strong>Public Relations Officer</strong></div>
-        </div>
-        <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(128, 0, 0, 0.05); border-radius: 1rem;">
-          <p><strong><i class="fas fa-shield-alt"></i> Financial Accountability:</strong> Two authorized signatories required for all transactions. Annual audits conducted by independent auditors. Full financial reports presented at Annual General Meetings.</p>
-        </div>
-      </div>
+  
 
       <!-- Who We Serve -->
       <div class="content-card">
@@ -908,6 +1328,22 @@
         </div>
       </div>
 
+
+  <!-- Team Carousel Section: 15 members, 5 per slide, auto slide + dots -->
+<div class="team-section">
+  <div class="section-title">Meet Our <span>Team</span></div>
+  <div class="sub">Passionate change-makers driving impact across Uganda</div>
+
+  <div class="carousel-container">
+    <button class="carousel-btn btn-left" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+    <div class="team-carousel" id="teamCarousel">
+      <div class="carousel-track" id="carouselTrack"></div>
+    </div>
+    <button class="carousel-btn btn-right" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="dots-container" id="dotsContainer"></div>
+</div>
+
       <!-- Call to Action -->
       <div class="content-card" style="text-align: center; background: linear-gradient(135deg, rgba(128,0,0,0.95), rgba(100,50,30,0.95)); color: white;">
         <h2 style="color: white; margin-bottom: 1rem;">Join Us in Making a Difference</h2>
@@ -916,31 +1352,59 @@
           <a href="donate.html" style="background: #ffb347; color: #2d1b0c; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-donate"></i> Support Our Work</a>
           <a href="contact.html" style="background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-envelope"></i> Contact Us</a>
         </div>
+        <div class="cta-partners">
+        <div class="cta-partners-title"><i class="fas fa-handshake"></i> Our Trusted Partners</div>
+        <div class="partners-horizontal">
+          <div class="partner-logo-card">
+            <img src="https://placehold.co/200x60/800000/white?text=Centenary+Bank" alt="Centenary Bank" class="partner-logo-img" style="filter: brightness(0) invert(1);">
+          </div>
+          <div class="partner-logo-card">
+            <img src="https://placehold.co/200x60/800000/white?text=MTN+Uganda" alt="MTN Uganda" class="partner-logo-img">
+          </div>
+          <div class="partner-logo-card">
+            <img src="https://placehold.co/200x60/800000/white?text=Airtel" alt="Airtel Uganda" class="partner-logo-img">
+          </div>
+          <div class="partner-logo-card">
+            <span class="partner-text-logo"><i class="fas fa-globe-africa"></i> UNICEF</span>
+          </div>
+          <div class="partner-logo-card">
+            <span class="partner-text-logo"><i class="fas fa-building"></i> Bundibugyo District</span>
+          </div>
+          <div class="partner-logo-card">
+            <span class="partner-text-logo"><i class="fas fa-leaf"></i> Green Hope</span>
+          </div>
+        </div>
+        <p style="font-size: 0.75rem; margin-top: 1.5rem; opacity: 0.7;">Together we build stronger communities</p>
       </div>
     </div>
-  </section>
+      </div>
+    </div>
+     
 
- <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya 1, LC I<br>Buhundu Parish<br>Bukonzo Subcounty<br>Bundibugyo District, Uganda</p></div>
+        <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
-        <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="inforugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> inforugandahelpinghands@gmail.com
+             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="inforugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> inforugandahelpinghands@gmail.com
     </a></div>
         <div>
   <h4>Connect With Us</h4>
   <div style="font-size: 1.8rem; display: flex; gap: 1.2rem; justify-content: flex-start; align-items: center; margin-top: 0.8rem;">
-    <a href="https://www.facebook.com/ugandahelpinghands" target="_blank" rel="noopener noreferrer" style="color: #3b5998; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+    <a href="https://facebook.com/groups/1213109826225170/" target="_blank" rel="noopener noreferrer" style="color: #3b5998; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-facebook"></i>
     </a>
-    <a href="https://twitter.com/ugandahelping" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+    <a href="https://x.com/BukamaHakim088" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-twitter"></i>
     </a>
-    <a href="https://www.instagram.com/ugandahelpinghands" target="_blank" rel="noopener noreferrer" style="color: #e4405f; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+  <a href="https://www.linkedin.com/in/uganda-helping-hands-472b752ab" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';" 
+         aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    <a href="https://www.instagram.com/ugan.dahelpinghands?igsh=MXQ2Ymh0Z3JycnY4eA==" target="_blank" rel="noopener noreferrer" style="color: #e4405f; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-instagram"></i>
     </a>
-    <a href="https://wa.me/256764377294" target="_blank" rel="noopener noreferrer" style="color: #25D366; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+    <a href="https://wa.me/256786497006" target="_blank" rel="noopener noreferrer" style="color: #25D366; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-whatsapp"></i>
     </a>
   </div>
@@ -991,6 +1455,267 @@
       if (window.scrollY > 300) backToTop.style.opacity = '1';
       else backToTop.style.opacity = '0.9';
     });
+
+    // ------------------- TEAM MEMBERS (15 people) -------------------
+  const teamMembers = [
+    { name: "Bukama Hakeem", role: "Founder & Chairperson", img: "images/CHAIRPERSON.jpg", social: { fb: "#", twitter: "#", linkedin: "#" } },
+    { name: "Masika Darlyn", role: "Internet, Media & Publicity", img: "images/darlyn.jpg", social: {} },
+    { name: "Bwambale Musitafa", role: "Child Protection Officer & orphan tutor", img: "images/must.jpg", social: {} },
+    { name: "Muhindo Brian", role: "Secretary", img: "images/brian.jpg", social: {} },
+    { name: "Rebecca Auma", role: "Women Empowerment Lead", img: "https://randomuser.me/api/portraits/women/22.jpg", social: {} },
+    { name: "Michael Odongo", role: "Education Specialist", img: "https://randomuser.me/api/portraits/men/11.jpg", social: {} },
+    { name: "Florence Mutesi", role: "Health & Sanitation", img: "https://randomuser.me/api/portraits/women/89.jpg", social: {} },
+    { name: "James Wasswa", role: "SACCO Coordinator", img: "https://randomuser.me/api/portraits/men/52.jpg", social: {} },
+    { name: "Phiona Kyomuhendo", role: "Livelihood Officer", img: "https://randomuser.me/api/portraits/women/33.jpg", social: {} },
+    { name: "Robert Musoke", role: "Logistics Lead", img: "https://randomuser.me/api/portraits/men/77.jpg", social: {} },
+    { name: "Betty Amongin", role: "Advocacy & Legal", img: "https://randomuser.me/api/portraits/women/57.jpg", social: {} },
+    { name: "Erias Ssempijja", role: "Youth Coordinator", img: "https://randomuser.me/api/portraits/men/94.jpg", social: {} },
+    { name: "Catherine Nambi", role: "Finance Officer", img: "https://randomuser.me/api/portraits/women/16.jpg", social: {} },
+    { name: "Amos Bwambale", role: "Water & Sanitation", img: "https://randomuser.me/api/portraits/men/22.jpg", social: {} },
+    { name: "Martha Kyokunda", role: "Communications Officer", img: "https://randomuser.me/api/portraits/women/73.jpg", social: {} }
+  ];
+
+  const track = document.getElementById('carouselTrack');
+  const dotsContainer = document.getElementById('dotsContainer');
+  let currentIndex = 0;
+  let autoSlideInterval;
+  const slidesToShow = getSlidesToShow();  // responsive: 5 for large, 4/3/2/1 based on width
+  const totalMembers = teamMembers.length;
+  let totalSlides = Math.ceil(totalMembers / slidesToShow);
+
+  // Helper to get slidesToShow based on screen width
+  function getSlidesToShow() {
+    const width = window.innerWidth;
+    if (width >= 1100) return 5;
+    if (width >= 900) return 4;
+    if (width >= 640) return 3;
+    if (width >= 480) return 2;
+    return 1;
+  }
+
+  // Build team cards dynamically
+  function renderCarousel() {
+    track.innerHTML = '';
+    // Build groups (pages) each containing up to slidesToShow members
+    const groups = [];
+    for (let i = 0; i < totalMembers; i += slidesToShow) {
+      groups.push(teamMembers.slice(i, i + slidesToShow));
+    }
+    totalSlides = groups.length;
+    groups.forEach((group, groupIdx) => {
+      const groupDiv = document.createElement('div');
+      groupDiv.style.display = 'flex';
+      groupDiv.style.gap = '28px';
+      groupDiv.style.flex = '0 0 100%';
+      groupDiv.style.width = '100%';
+      groupDiv.classList.add('carousel-group');
+      // for each member in group
+      group.forEach(member => {
+        const card = document.createElement('a');
+        card.href = 'team.html';  // each member leads to team.html
+        card.classList.add('team-card');
+        card.style.textDecoration = 'none';
+        card.innerHTML = `
+          <img src="${member.img}" alt="${member.name}" loading="lazy">
+          <div class="card-info">
+            <div class="member-name">${member.name}</div>
+            <div class="role">${member.role}</div>
+            <div class="social-icons">
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-linkedin"></i>
+            </div>
+          </div>
+        `;
+        groupDiv.appendChild(card);
+      });
+      track.appendChild(groupDiv);
+    });
+    updateDots();
+    updateCarouselTransform();
+  }
+
+  function updateCarouselTransform() {
+    const slideWidthPercent = 100;
+    track.style.transform = `translateX(-${currentIndex * slideWidthPercent}%)`;
+  }
+
+  function updateDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === currentIndex) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        stopAutoSlide();
+        currentIndex = i;
+        updateCarouselTransform();
+        updateDots();
+        startAutoSlide();  // restart after manual click
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function nextSlide() {
+    if (totalSlides === 0) return;
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarouselTransform();
+    updateDots();
+  }
+
+  function prevSlide() {
+    if (totalSlides === 0) return;
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateCarouselTransform();
+    updateDots();
+  }
+
+  function startAutoSlide() {
+    if (autoSlideInterval) clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
+      nextSlide();
+    }, 4000);
+  }
+
+  function stopAutoSlide() {
+    if (autoSlideInterval) {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = null;
+    }
+  }
+
+  // Handle window resize -> rebuild carousel with new slidesToShow
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const newSlides = getSlidesToShow();
+      if (newSlides !== slidesToShow) {
+        // reload carousel with new layout
+        location.reload(); // simplest for demo consistency
+      } else {
+        // just in case re-center
+        updateCarouselTransform();
+      }
+    }, 200);
+  });
+
+  // initial render and autoplay with event listeners
+  function initCarousel() {
+    renderCarousel();
+    startAutoSlide();
+
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    if (nextBtn) nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      stopAutoSlide();
+      nextSlide();
+      startAutoSlide();
+    });
+    if (prevBtn) prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      stopAutoSlide();
+      prevSlide();
+      startAutoSlide();
+    });
+
+    // Pause autoplay when hovering carousel container
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+      carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+      carouselContainer.addEventListener('mouseleave', startAutoSlide);
+    }
+  }
+
+  // Video Play Logic: replace thumbnail with iframe on click
+  const videoContainer = document.getElementById('videoContainer');
+  const playBtn = document.getElementById('playVideoBtn');
+  const videoThumb = document.getElementById('videoThumb');
+  const youtubeFrame = document.getElementById('youtubeFrame');
+
+  function playVideo() {
+    if (youtubeFrame.style.display === 'none' || !youtubeFrame.style.display) {
+      videoThumb.style.display = 'none';
+      playBtn.style.display = 'none';
+      youtubeFrame.style.display = 'block';
+      // autoplay already in src (autoplay=1)
+    }
+  }
+
+  if (playBtn) {
+    playBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playVideo();
+    });
+  }
+  if (videoContainer) {
+    videoContainer.addEventListener('click', (e) => {
+      if (e.target !== playBtn && !playBtn.contains(e.target)) {
+        playVideo();
+      }
+    });
+  }
+
+  // when page loads, ensure video frame initially hidden
+  if (youtubeFrame) youtubeFrame.style.display = 'none';
+
+  // optional: iframe reset (just for good UX)
+  // team.html page placeholder: in case user clicks any team card, they go to team.html (we don't need to create full page here, but specification requires)
+  // Additionally, we can handle if team.html does not exist: but we implement link as required.
+
+  // Recalculate slidesToShow on resize without full reload but more gracefully
+  // Because getSlidesToShow may change, we can reinitialize carousel track without reload
+  let currentSlidesToShow = slidesToShow;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const newSlidesToShow = getSlidesToShow();
+      if (newSlidesToShow !== currentSlidesToShow) {
+        currentSlidesToShow = newSlidesToShow;
+        // rebuild track structure
+        const oldIndex = currentIndex;
+        // recompute groups
+        const newGroups = [];
+        for (let i = 0; i < totalMembers; i += newSlidesToShow) {
+          newGroups.push(teamMembers.slice(i, i + newSlidesToShow));
+        }
+        totalSlides = newGroups.length;
+        track.innerHTML = '';
+        newGroups.forEach(group => {
+          const groupDiv = document.createElement('div');
+          groupDiv.style.display = 'flex';
+          groupDiv.style.gap = '28px';
+          groupDiv.style.flex = '0 0 100%';
+          groupDiv.style.width = '100%';
+          group.forEach(member => {
+            const card = document.createElement('a');
+            card.href = 'team.html';
+            card.classList.add('team-card');
+            card.innerHTML = `
+              <img src="${member.img}" alt="${member.name}" loading="lazy">
+              <div class="card-info">
+                <div class="member-name">${member.name}</div>
+                <div class="role">${member.role}</div>
+                <div class="social-icons"><i class="fab fa-facebook"></i><i class="fab fa-twitter"></i><i class="fab fa-linkedin"></i></div>
+              </div>
+            `;
+            groupDiv.appendChild(card);
+          });
+          track.appendChild(groupDiv);
+        });
+        if (oldIndex >= totalSlides) currentIndex = totalSlides - 1;
+        else currentIndex = oldIndex;
+        if (currentIndex < 0) currentIndex = 0;
+        updateCarouselTransform();
+        updateDots();
+      }
+    }, 150);
+  });
+
+  initCarousel();
+
   </script>
 </body>
 </html>
