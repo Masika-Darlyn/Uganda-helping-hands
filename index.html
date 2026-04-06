@@ -15,6 +15,8 @@
     }
 
     :root {
+      --bg:#ffffff;
+      --text:#333;
       --primary: #800000;
       --primary-dark: #5a0000;
       --primary-light: #a04545;
@@ -34,13 +36,256 @@
       --gradient-soft: linear-gradient(135deg, #fdf8f2 0%, #fef0e8 100%);
     }
 
+    
     body {
-      font-family: 'Times New Roman', Times, serif;
-      color: var(--dark);
-      line-height: 1.6;
-      background: var(--light-beige);
-      overflow-x: hidden;
+  background:var(--bg);
+  color:var(--text);
+  font-family: 'Times New Roman', Times, serif;
     }
+
+/* NAVBAR */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background: var(--nav-bg);
+  padding:10px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* LOGO */
+.logo{
+  display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      color: var(--primary);
+}
+
+.logo-img{
+  width:40px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.logo span {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+/* MENU ICON */
+.menu-icon{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color: var(--primary);
+}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+/* LINKS */
+.nav-link{
+  font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      color: var(--dark);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s;
+      font-weight: 500;
+}
+ .nav-link:hover {
+     background: rgba(128,0,0,0.12);
+      transform: translateY(-2px);
+      color: var(--primary);
+    }
+
+   .nav-link.active {
+      background: var(--primary);
+      color: white !important;
+       box-shadow: 0 4px 10px rgba(128,0,0,0.3);
+    }
+/* BUTTON */
+.btn {
+      padding: 0.7rem 1.6rem;
+      border-radius: 60px;
+      background: linear-gradient(135deg, #ffb347, #ff8c1a);
+      color: #2d1b0c;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 0.3rem;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #ffc26b, #ffa133);
+    }
+
+/* CLOSE BUTTON */
+.close-btn{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* DROPDOWN */
+.dropdown{
+  position:relative;
+  width:auto;
+}
+
+.dropdown-link-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.dropdown-icon{
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+/* DROPDOWN ANIMATION */
+.dropdown-content{
+  position:absolute;
+  top:100%;
+  left:0;
+  background:white;
+  min-width:200px;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  overflow:hidden;
+
+  max-height:0;
+  opacity:0;
+  transform:translateY(-10px);
+  transition:all 0.3s ease;
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px;
+  color: var(--dark);
+  text-decoration:none;
+}
+
+.dropdown-content a:hover{
+  background: #f0e6e0;
+      background: var(--light);
+      color: var(--primary);
+}
+
+.dropdown.active .dropdown-content{
+  max-height:500px;
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+  .menu-icon{
+    display:block;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:0;
+    left:-100%;
+    width:270px;
+    height:100%;
+    background:var(--bg);
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px;
+    gap:8px;
+    transition:0.3s;
+    z-index:1000;
+    overflow-y:auto;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.active{
+    left:0;
+  }
+
+  .close-btn{
+    display:block;
+    width:100%;
+    text-align:right;
+    margin-bottom:10px;
+  }
+
+  /* LINKS */
+  .nav-link{
+    display:block;
+    width:100%;
+    padding:12px 10px;
+    border-radius:8px;
+  }
+
+  .nav-link:hover{
+       background: rgba(128,0,0,0.12);
+      transform: translateY(-2px);
+      color: var(--primary);
+  }
+
+  /* DROPDOWN */
+  .dropdown{
+    width:100%;
+  }
+
+  .dropdown-link-wrapper{
+    width:100%;
+    padding:12px 10px;
+    border-radius:8px;
+  }
+
+  .dropdown-link-wrapper:hover{
+    background:#f2f2f2;
+  }
+
+  .dropdown-content{
+    position:static;
+    width:100%;
+    box-shadow:none;
+    padding-left:5px;
+  }
+
+  .dropdown-content a{
+    padding:10px 15px;
+    font-size:14px;
+    border-left:2px solid #ddd;
+  }
+
+  /* BUTTON */
+  .btn{
+    width:100%;
+    margin-top:10px;
+  }
+}
 
     .container {
       max-width: 1280px;
@@ -108,177 +353,13 @@
       background: linear-gradient(135deg, #ffc26b, #ffa133);
     }
 
-    /* Navigation */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-     background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow-sm);
-      z-index: 1000;
-      padding: 0.7rem 0;
-      transition: all 0.3s;
-    }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: clamp(1.2rem, 4vw, 1.8rem);
-      color: var(--primary);
-    }
-    .logo-img {
-      height: 48px;
-      width: auto;
-      border-radius: 8px;
-       background: white;
-       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .logo span {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .nav-link {
-     font-size: 0.95rem;
-      padding: 0.5rem 1rem;
-      border-radius: 40px;
-      color: var(--dark);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.25s;
-      font-weight: 500;
-    }
-    .nav-link:hover {
-     background: rgba(128,0,0,0.12);
-      transform: translateY(-2px);
-      color: var(--primary);
-    }
-
-   .nav-link.active {
-      background: var(--primary);
-      color: white !important;
-       box-shadow: 0 4px 10px rgba(128,0,0,0.3);
-    }
-   /* FIX DROPDOWN POSITION */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  min-width: 220px;
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-  display: none;
-  flex-direction: column;
-  z-index: 1000;
-}
-
-/* SHOW ON HOVER (DESKTOP) */
-@media (min-width: 992px) {
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-}
-
-/* MOBILE STYLE */
-@media (max-width: 992px) {
-
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    display: none;
-    padding-left: 10px;
-  }
-
-  .dropdown.active .dropdown-content {
-    display: block;
-  }
-
-}
-    .dropdown-text {
-      font-size: 1rem;
-      padding: 0.7rem 0.5rem 0.7rem 1.3rem;
-      color: var(--dark);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 500;
-    }
-     .dropdown-text:hover {
-      background: rgba(128,0,0,0.08);
-      border-radius: 40px;
-    }
-    .dropdown-btn {
-      background: none;
-      border: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--dark);
-      font-family: inherit;
-      padding: 0.5rem 0.8rem;
-      border-radius: 40px;
-      transition: 0.2s;
-    }
-    
-    .dropdown:hover .dropdown-content {
-      opacity: 1;
-      visibility: visible;
-    }
-    .dropdown-content a {
-      display: block;
-      padding: 0.6rem 1.5rem;
-      text-decoration: none;
-      color: var(--dark);
-      font-size: 0.85rem;
-      transition: all 0.2s;
-    }
-    .dropdown-content a:hover {
-      background: #f0e6e0;
-      background: var(--light);
-      color: var(--primary);
-      padding-left: 1.8rem;
-    }
-    .menu-icon {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--primary);
-    }
-    
+  
 
     /* Hero Section */
     .hero {
       position: relative;
       height: 90vh;
       min-height: 600px;
-      margin-top: 70px;
       overflow: hidden;
     }
     .hero-slideshow {
@@ -1097,23 +1178,13 @@
     /* CTA Section */
     .cta-section {
       padding: 1rem 0;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      background: linear-gradient(135deg, rgba(128,0,0,0.95), rgba(100,50,30,0.95));
       color: white;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path fill="white" d="M50,10 L60,30 L80,35 L65,50 L70,70 L50,60 L30,70 L35,50 L20,35 L40,30 Z"/></svg>') repeat;
-      background-size: 40px;
-      pointer-events: none;
-    }
+    
     .cta-section h2 {
       margin-bottom: 1rem;
       position: relative;
@@ -1291,31 +1362,6 @@
       .container { padding: 0 24px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .founder-container { flex-direction: column; text-align: center; }
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 80%;
-        height: calc(100vh - 70px);
-        background: var(--white);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2rem;
-        transition: left 0.3s;
-        box-shadow: var(--shadow);
-        gap: 1rem;
-      }
-      .nav-links.active { left: 0; }
-      .menu-icon { display: block; }
-      .dropdown-content {
-        position: static;
-        box-shadow: none;
-        padding-left: 1rem;
-        opacity: 1;
-        visibility: visible;
-        display: none;
-      }
-      .dropdown.active .dropdown-content { display: block; }
     }
     @media (max-width: 768px) {
       .hero { height: 70vh; min-height: 500px; }
@@ -1330,32 +1376,38 @@
   </style>
 </head>
 <body>
-  <nav class="navbar">
+<nav class="navbar">
   <div class="nav-container">
 
+    <!-- LOGO -->
     <div class="logo">
-      <img src="images/logo.png" class="logo-img">
+      <img src="images/logo.png" class="logo-img"
+      onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'%3E%3Crect width=\'50\' height=\'50\' fill=\'%23800000\' rx=\'10\'/%3E%3Ctext x=\'8\' y=\'38\' fill=\'white\' font-size=\'35\'%3E🤝%3C/text%3E%3C/svg%3E'">
       <span>Uganda- Helping Hands</span>
     </div>
 
+    <!-- MENU ICON -->
     <div class="menu-icon" id="menuToggle">
       <i class="fas fa-bars"></i>
     </div>
 
+    <!-- NAV LINKS -->
     <div class="nav-links" id="navLinks">
 
-      <a href="index.html" class="nav-link active">
-        <i class="fas fa-home"></i> Home
-      </a>
+      <div class="close-btn" id="closeMenu">
+        <i class="fas fa-times"></i>
+      </div>
+
+      <a href="index.html" class="nav-link active"><i class="fas fa-home"></i>Home</a>
 
       <!-- ABOUT -->
       <div class="dropdown">
-        <a href="about.html" class="nav-link dropdown-toggle">
-          <i class="fas fa-info-circle"></i> About Us
-          <i class="fas fa-chevron-down"></i>
-        </a>
+        <div class="dropdown-link-wrapper">
+          <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i>About Us</a>
+          <button class="dropdown-icon"><i class="fas fa-chevron-down"></i></button>
+        </div>
         <div class="dropdown-content">
-          <a href="who-we-are.html">Who we are</a>
+           <a href="who-we-are.html">Who we are</a>
           <a href="history.html">Our history</a>
           <a href="mission-vision.html">Mission & Vision</a>
           <a href="beneficiaries.html">Beneficiaries</a>
@@ -1365,10 +1417,10 @@
 
       <!-- PROJECTS -->
       <div class="dropdown">
-        <a href="projects.html" class="nav-link dropdown-toggle">
-          <i class="fas fa-leaf"></i> Projects
-          <i class="fas fa-chevron-down"></i>
-        </a>
+        <div class="dropdown-link-wrapper">
+          <a href="projects.html" class="nav-link"><i class="fas fa-leaf"></i>Projects</a>
+          <button class="dropdown-icon"><i class="fas fa-chevron-down"></i></button>
+        </div>
         <div class="dropdown-content">
           <a href="orphan-care.html">Orphan care</a>
           <a href="education-support.html">Education support</a>
@@ -1382,18 +1434,19 @@
       <a href="gallery.html" class="nav-link">
         <i class="fas fa-images"></i> Gallery
       </a>
-
       <a href="contact.html" class="nav-link">
         <i class="fas fa-envelope"></i> Contact
       </a>
 
-      <a href="donate.html" class="btn">
+     <a href="donate.html" class="btn">
         <i class="fas fa-donate"></i> Donate now
       </a>
+
 
     </div>
   </div>
 </nav>
+
 
   <!-- Hero Section -->
   <section class="hero">
@@ -1938,15 +1991,7 @@
       <div class="cta-partners">
         <div class="cta-partners-title"><i class="fas fa-handshake"></i> Our Trusted Partners</div>
         <div class="partners-horizontal">
-          <div class="partner-logo-card">
-            <img src="https://placehold.co/200x60/800000/white?text=Centenary+Bank" alt="Centenary Bank" class="partner-logo-img" style="filter: brightness(0) invert(1);">
-          </div>
-          <div class="partner-logo-card">
-            <img src="https://placehold.co/200x60/800000/white?text=MTN+Uganda" alt="MTN Uganda" class="partner-logo-img">
-          </div>
-          <div class="partner-logo-card">
-            <img src="https://placehold.co/200x60/800000/white?text=Airtel" alt="Airtel Uganda" class="partner-logo-img">
-          </div>
+  
           <div class="partner-logo-card">
             <span class="partner-text-logo"><i class="fas fa-globe-africa"></i> UNICEF</span>
           </div>
@@ -2012,26 +2057,44 @@
     startSlideshow();
     
 
-/* MOBILE MENU TOGGLE */
+// MENU
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
+const closeMenu = document.getElementById("closeMenu");
 
-menuToggle.onclick = () => {
-  navLinks.classList.toggle("active");
-};
+menuToggle.onclick = () => navLinks.classList.add("active");
+closeMenu.onclick = () => navLinks.classList.remove("active");
 
-/* DROPDOWN TOGGLE (MOBILE CLICK) */
-document.querySelectorAll(".dropdown-toggle").forEach(link => {
-  link.addEventListener("click", function(e) {
+// DROPDOWN
+const dropdowns = document.querySelectorAll(".dropdown");
 
-    if (window.innerWidth <= 992) {
-      e.preventDefault(); // prevent instant navigation
+dropdowns.forEach(drop => {
+  const btn = drop.querySelector(".dropdown-icon");
 
-      const parent = this.parentElement;
-      parent.classList.toggle("active");
-    }
-  });
+  btn.onclick = (e) => {
+    e.stopPropagation();
+
+    dropdowns.forEach(d => {
+      if(d !== drop) d.classList.remove("active");
+    });
+
+    drop.classList.toggle("active");
+  };
 });
+
+// CLOSE OUTSIDE
+document.addEventListener("click", () => {
+  dropdowns.forEach(d => d.classList.remove("active"));
+});
+
+// DESKTOP HOVER
+if(window.innerWidth > 768){
+  dropdowns.forEach(drop => {
+    drop.onmouseenter = () => drop.classList.add("active");
+    drop.onmouseleave = () => drop.classList.remove("active");
+  });
+}
+
 
      // Function for card click (simulate navigation to team detail)
     function openMemberPage(name) {
