@@ -15,7 +15,9 @@
     }
 
     :root {
-       --primary: #800000;
+      --bg:#ffffff;
+      --text:#333;
+      --primary: #800000;
       --primary-dark: #5a0000;
       --primary-light: #a04545;
       --primary-soft: #fef5f0;
@@ -33,11 +35,12 @@
       --gradient-warm: linear-gradient(135deg, #fff5ed 0%, #ffe8dc 100%);
       --gradient-soft: linear-gradient(135deg, #fdf8f2 0%, #fef0e8 100%);
     }
-    body {
-      background: #faf5ed;
-     font-family: 'Times New Roman', Times, serif;
-      line-height: 1.6;
-      color: #1f1a17;
+
+    
+     body {
+  background:var(--bg);
+  color:var(--text);
+  font-family: 'Times New Roman', Times, serif;
     }
 
     html {
@@ -65,54 +68,61 @@
       background: linear-gradient(135deg, #ffc26b, #ffa133);
     }
 
-   /* Navigation */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-     background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow-sm);
-      z-index: 1000;
-      padding: 0.7rem 0;
-      transition: all 0.3s;
-    }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    .logo {
-      display: flex;
+/* NAVBAR */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background: var(--nav-bg);
+  padding:10px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* LOGO */
+.logo{
+  display: flex;
       align-items: center;
       gap: 10px;
       font-weight: 700;
       font-size: clamp(1.2rem, 4vw, 1.8rem);
       color: var(--primary);
-    }
-    .logo-img {
-      height: 48px;
-      width: auto;
-      border-radius: 8px;
-       background: white;
-       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .logo span {
+}
+
+.logo-img{
+  width:40px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.logo span {
       font-size: 1.3rem;
       font-weight: 700;
       color: var(--primary);
     }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    .nav-link {
-     font-size: 0.95rem;
+/* MENU ICON */
+.menu-icon{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color: var(--primary);
+}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+/* LINKS */
+.nav-link{
+  font-size: 0.95rem;
       padding: 0.5rem 1rem;
       border-radius: 40px;
       color: var(--dark);
@@ -122,8 +132,8 @@
       gap: 6px;
       transition: all 0.25s;
       font-weight: 500;
-    }
-    .nav-link:hover {
+}
+ .nav-link:hover {
      background: rgba(128,0,0,0.12);
       transform: translateY(-2px);
       color: var(--primary);
@@ -134,81 +144,178 @@
       color: white !important;
        box-shadow: 0 4px 10px rgba(128,0,0,0.3);
     }
-    .dropdown {
-      position: relative;
-    }
-    .dropdown-text {
-      font-size: 1rem;
-      padding: 0.7rem 0.5rem 0.7rem 1.3rem;
-      color: var(--dark);
+/* BUTTON */
+.btn {
+      padding: 0.7rem 1.6rem;
+      border-radius: 60px;
+      background: linear-gradient(135deg, #ffb347, #ff8c1a);
+      color: #2d1b0c;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-weight: 500;
-    }
-     .dropdown-text:hover {
-      background: rgba(128,0,0,0.08);
-      border-radius: 40px;
-    }
-    .dropdown-btn {
-      background: none;
-      border: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--dark);
-      font-family: inherit;
-      padding: 0.5rem 0.8rem;
-      border-radius: 40px;
-      transition: 0.2s;
-    }
-    .dropdown-content {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      min-width: 220px;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      opacity: 0;
-      visibility: hidden;
+      gap: 8px;
+      margin-left: 0.3rem;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
       transition: all 0.3s;
-      z-index: 100;
-      padding: 0.5rem 0;
     }
-    .dropdown:hover .dropdown-content {
-      opacity: 1;
-      visibility: visible;
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #ffc26b, #ffa133);
     }
-    .dropdown-content a {
-      display: block;
-      padding: 0.6rem 1.5rem;
-      text-decoration: none;
-      color: var(--dark);
-      font-size: 0.85rem;
-      transition: all 0.2s;
-    }
-    .dropdown-content a:hover {
-      background: #f0e6e0;
+
+/* CLOSE BUTTON */
+.close-btn{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* DROPDOWN */
+.dropdown{
+  position:relative;
+  width:auto;
+}
+
+.dropdown-link-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.dropdown-icon{
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+/* DROPDOWN ANIMATION */
+.dropdown-content{
+  position:absolute;
+  top:100%;
+  left:0;
+  background:white;
+  min-width:200px;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  overflow:hidden;
+
+  max-height:0;
+  opacity:0;
+  transform:translateY(-10px);
+  transition:all 0.3s ease;
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px;
+  color: var(--dark);
+  text-decoration:none;
+}
+
+.dropdown-content a:hover{
+  background: #f0e6e0;
       background: var(--light);
       color: var(--primary);
-      padding-left: 1.8rem;
-    }
-    .menu-icon {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
+}
+
+.dropdown.active .dropdown-content{
+  max-height:500px;
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+  .menu-icon{
+    display:block;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:0;
+    left:-100%;
+    width:270px;
+    height:100%;
+    background:var(--bg);
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px;
+    gap:8px;
+    transition:0.3s;
+    z-index:1000;
+    overflow-y:auto;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.active{
+    left:0;
+  }
+
+  .close-btn{
+    display:block;
+    width:100%;
+    text-align:right;
+    margin-bottom:10px;
+  }
+
+  /* LINKS */
+  .nav-link{
+    display:block;
+    width:100%;
+    padding:12px 10px;
+    border-radius:8px;
+  }
+
+  .nav-link:hover{
+       background: rgba(128,0,0,0.12);
+      transform: translateY(-2px);
       color: var(--primary);
-    }
-    
+  }
+
+  /* DROPDOWN */
+  .dropdown{
+    width:100%;
+  }
+
+  .dropdown-link-wrapper{
+    width:100%;
+    padding:12px 10px;
+    border-radius:8px;
+  }
+
+  .dropdown-link-wrapper:hover{
+    background:#f2f2f2;
+  }
+
+  .dropdown-content{
+    position:static;
+    width:100%;
+    box-shadow:none;
+    padding-left:5px;
+  }
+
+  .dropdown-content a{
+    padding:10px 15px;
+    font-size:14px;
+    border-left:2px solid #ddd;
+  }
+
+  /* BUTTON */
+  .btn{
+    width:100%;
+    margin-top:10px;
+  }
+}
+
     /* ========== HERO - MASSIVE FULL-SCREEN WITH CLEAR FACES ========== */
     .hero-wrapper {
       position: relative;
-      margin-top: 70px;
+    
       width: 100%;
     }
     .hero {
@@ -1020,7 +1127,7 @@
       color: var(--primary);
       margin-bottom: 1rem;
     }
-    /* Footer */
+   /* Footer */
     .footer {
       background: #1e1e1b;
       color: #ccc;
@@ -1099,36 +1206,14 @@
     }
 
 
+
+
     /* Responsive */
     @media (max-width: 992px) {
       .container { padding: 0 24px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .founder-container { flex-direction: column; text-align: center; }
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 80%;
-        height: calc(100vh - 70px);
-        background: var(--white);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2rem;
-        transition: left 0.3s;
-        box-shadow: var(--shadow);
-        gap: 1rem;
-      }
-      .nav-links.active { left: 0; }
-      .menu-icon { display: block; }
-      .dropdown-content {
-        position: static;
-        box-shadow: none;
-        padding-left: 1rem;
-        opacity: 1;
-        visibility: visible;
-        display: none;
-      }
-      .dropdown.active .dropdown-content { display: block; }
+    
     }
     @media (max-width: 768px) {
       .hero { height: 70vh; min-height: 500px; }
@@ -1144,52 +1229,77 @@
 </head>
 <body>
 
- <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo">
-        <img src="images/logo.png" alt="Logo" class="logo-img" >
-        <span>Uganda- Helping Hands</span>
-      </div>
-      <div class="menu-icon" id="menuToggle">
-        <i class="fas fa-bars"></i>
-      </div>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
-        
-        <div class="dropdown" id="aboutDropdown">
-          <button class="dropdown-btn">
-            <a href="about.html" class="dropdown-text">
-               <i class="fas fa-info-circle"></i>About Us</a><i class="fas fa-chevron-down"></i> 
-            </button>
-          <div class="dropdown-content">
-           <a href="who-we-are.html">Who we are</a>
-            <a href="history.html">Our history</a>
-            <a href="mission-vision.html">Mission & Vision</a>
-            <a href="beneficiaries.html">Beneficiaries</a>
-            <a href="core-values.html">Core values</a>
-          </div>
-        </div>
-        <div class="dropdown" id="projectsDropdown">
-          <button class="dropdown-btn">
-            <a href="projects.html" class="dropdown-text">
-                <i class="fas fa-leaf"></i> Projects</a>
-                <i class="fas fa-chevron-down"></i>
-                </button>
-          <div class="dropdown-content">
-           <a href="orphan-care.html">Orphan care & shelter</a>
-            <a href="education-support.html">Education support</a>
-            <a href="women-empowerment.html">Women empowerment</a>
-            <a href="sacco-loans.html">SACCO & loans</a>
-            <a href="water-sanitation.html">Water & sanitation</a>
-            <a href="humanitarian-aid.html">Humanitarian aid</a>
-          </div>
-        </div>
-        <a href="gallery.html" class="nav-link"><i class="fas fa-images"></i>Gallery</a>
-        <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i>Contact</a>
-        <a href="donate.html" class="btn btn-primary"><i class="fas fa-donate"></i> Donate now</a>
-      </div>
+<nav class="navbar">
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="images/logo.png" class="logo-img">
+      <span>Uganda- Helping Hands</span>
     </div>
-  </nav>
+
+    <!-- MENU ICON -->
+    <div class="menu-icon" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- NAV LINKS -->
+    <div class="nav-links" id="navLinks">
+
+      <div class="close-btn" id="closeMenu">
+        <i class="fas fa-times"></i>
+      </div>
+
+      <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
+
+      <!-- ABOUT -->
+      <div class="dropdown">
+        <div class="dropdown-link-wrapper">
+          <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i>About Us</a>
+          <button class="dropdown-icon"><i class="fas fa-chevron-down"></i></button>
+        </div>
+        <div class="dropdown-content">
+           <a href="who-we-are.html">Who we are</a>
+          <a href="history.html">Our history</a>
+          <a href="mission-vision.html">Mission & Vision</a>
+          <a href="beneficiaries.html">Beneficiaries</a>
+          <a href="core-values.html">Core values</a>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="dropdown">
+        <div class="dropdown-link-wrapper">
+          <a href="projects.html" class="nav-link"><i class="fas fa-leaf"></i>Projects</a>
+          <button class="dropdown-icon"><i class="fas fa-chevron-down"></i></button>
+        </div>
+        <div class="dropdown-content">
+          <a href="orphan-care.html">Orphan care</a>
+          <a href="education-support.html">Education support</a>
+          <a href="women-empowerment.html">Women empowerment</a>
+          <a href="sacco-loans.html">SACCO & loans</a>
+          <a href="water-sanitation.html">Water & sanitation</a>
+          <a href="humanitarian-aid.html">Humanitarian aid</a>
+        </div>
+      </div>
+ <a href="events.html" class="nav-link"><i class="fas fa-calendar-alt"></i>Events</a>
+      <a href="gallery.html" class="nav-link">
+        <i class="fas fa-images"></i> Gallery
+      </a>
+      <a href="contact.html" class="nav-link">
+        <i class="fas fa-envelope"></i> Contact
+      </a>
+
+     <a href="donate.html" class="btn">
+        <i class="fas fa-donate"></i> Donate now
+      </a>
+
+
+    </div>
+  </div>
+</nav>
+
+
 
 
 <div class="hero-wrapper">
@@ -1466,7 +1576,7 @@
     </div>
   </section>
 
- <!-- Footer -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -1483,7 +1593,7 @@
     <a href="https://x.com/BukamaHakim088" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-twitter"></i>
     </a>
-    <a href="https://www.linkedin.com/in/uganda-helping-hands-472b752ab" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';" 
+  <a href="https://www.linkedin.com/in/uganda-helping-hands-472b752ab" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';" 
          aria-label="LinkedIn">
         <i class="fab fa-linkedin"></i>
       </a>
@@ -1579,22 +1689,44 @@
     });
 
 
-// Mobile Menu
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    menuToggle?.addEventListener('click', () => navLinks.classList.toggle('active'));
+// MENU
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const closeMenu = document.getElementById("closeMenu");
 
-    // Dropdown for mobile
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-      const btn = dropdown.querySelector('.dropdown-btn');
-      btn?.addEventListener('click', (e) => {
-        if (window.innerWidth <= 992) {
-          e.preventDefault();
-          dropdown.classList.toggle('active');
-        }
-      });
+menuToggle.onclick = () => navLinks.classList.add("active");
+closeMenu.onclick = () => navLinks.classList.remove("active");
+
+// DROPDOWN
+const dropdowns = document.querySelectorAll(".dropdown");
+
+dropdowns.forEach(drop => {
+  const btn = drop.querySelector(".dropdown-icon");
+
+  btn.onclick = (e) => {
+    e.stopPropagation();
+
+    dropdowns.forEach(d => {
+      if(d !== drop) d.classList.remove("active");
     });
+
+    drop.classList.toggle("active");
+  };
+});
+
+// CLOSE OUTSIDE
+document.addEventListener("click", () => {
+  dropdowns.forEach(d => d.classList.remove("active"));
+});
+
+// DESKTOP HOVER
+if(window.innerWidth > 768){
+  dropdowns.forEach(drop => {
+    drop.onmouseenter = () => drop.classList.add("active");
+    drop.onmouseleave = () => drop.classList.remove("active");
+  });
+}
+
 </script>
 </body>
 </html>
