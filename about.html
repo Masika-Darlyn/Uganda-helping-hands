@@ -14,7 +14,9 @@
     }
 
     :root {
-       --primary: #800000;
+       --bg:#ffffff;
+      --text:#333;
+      --primary: #800000;
       --primary-dark: #5a0000;
       --primary-light: #a04545;
       --primary-soft: #fef5f0;
@@ -35,21 +37,18 @@
 
     /* ===== WHOLE PAGE BACKGROUND IMAGE ===== */
     body {
-      background-color: #fefaf5;
-      font-family: 'Times New Roman', Times, serif;
-      line-height: 1.6;
-      color: #1f1a17;
-      position: relative;
+  background:var(--bg);
+  color:var(--text);
+  font-family: 'Times New Roman', Times, serif;
     }
 
     /* Semi-transparent overlay for readability */
    
 
     .container {
-      width: 100%;
-      max-width: 1400px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 40px;
     }
 
 /* intro section */
@@ -177,10 +176,9 @@
 
     /* Team carousel */
     .team-section {
-      background: #fff9f5;
-      padding: 60px 0 80px;
-      margin-top: 20px;
-      border-radius: 48px 48px 0 0;
+       max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 24px;
     }
 
     .section-title {
@@ -339,171 +337,84 @@
       background: rgb(238, 51, 51);
       width: 32px;
     }
+/* NAVBAR */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background: var(--nav-bg);
+  padding:10px 20px;
+  box-shadow: var(--shadow-sm);
+}
 
-    /* NAVBAR with beautiful background color */
-    .navbar {
-      background: var(--nav-bg);
-        box-shadow: var(--shadow-sm);
-      backdrop-filter: blur(10px);
-      padding: 0.5rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      width: 100%;
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    }
-
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      display: flex;
+/* LOGO */
+.logo{
+  display: flex;
       align-items: center;
       gap: 10px;
       font-weight: 700;
       font-size: clamp(1.2rem, 4vw, 1.8rem);
-        color: var(--primary);
-    }
-
-    .logo-img {
-      height: 50px;
-      width: auto;
-      border-radius: 8px;
-      background: white;
-      padding: 3px;
-    }
-
-    .menu-icon {
-      display: none;
-      font-size: 2.4rem;
       color: var(--primary);
-      cursor: pointer;
+}
+
+.logo-img{
+  width:40px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.logo span {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+/* MENU ICON */
+.menu-icon{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color: var(--primary);
+}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+/* LINKS */
+.nav-link{
+  font-size: 0.95rem;
       padding: 0.5rem 1rem;
-      transition: transform 0.2s;
-    }
-
-    .menu-icon:hover {
-      transform: scale(1.05);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .nav-link {
-      font-size: 1rem;
-      padding: 0.7rem 1.3rem;
       border-radius: 40px;
-       color: var(--dark);
+      color: var(--dark);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.3s;
+      transition: all 0.25s;
       font-weight: 500;
+}
+ .nav-link:hover {
+     background: rgba(128,0,0,0.12);
+      transform: translateY(-2px);
+      color: var(--primary);
     }
 
-    .nav-link:hover {
-      background: rgba(128,0,0,0.08);
-       transform: translateY(-2px);
-    }
-
-     .nav-link.active-home {
+   .nav-link.active {
       background: var(--primary);
       color: white !important;
-       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+       box-shadow: 0 4px 10px rgba(128,0,0,0.3);
     }
-    /* Dropdown styles */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-link-wrapper {
-      display: flex;
-      align-items: center;
-      background: transparent;
-      border-radius: 40px;
-      overflow: hidden;
-    }
-
-    .dropdown-text {
-      font-size: 1rem;
-      padding: 0.7rem 0.5rem 0.7rem 1.3rem;
-      color: var(--dark);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 500;
-    }
-
-    .dropdown-text:hover {
-      background: rgba(128,0,0,0.08);
-    }
-
-    .dropdown-icon {
-      font-size: 1rem;
-      padding: 0.7rem 1.3rem 0.7rem 0.5rem;
-      color: var(--dark);
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .dropdown-icon i {
-      font-size: 0.7rem;
-      transition: transform 0.2s;
-    }
-
-    .dropdown.active .dropdown-icon i {
-      transform: rotate(180deg);
-    }
- .dropdown-icon:hover {
-      background: rgba(128,0,0,0.08);
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 240px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
-      padding: 0.8rem 0;
-      z-index: 1000;
-      margin-top: 5px;
-      border: 1px solid #f0e0e0;
-    }
-
-    .dropdown.active .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content a {
-      color: var(--dark);
-      padding: 0.8rem 1.8rem;
-      text-decoration: none;
-      display: block;
-      transition: all 0.2s;
-    }
-
-    .dropdown-content a:hover {
-      background: #f0e6e0;
-      color: var(--primary);
-      padding-left: 2rem;
-    }
-
-    .btn {
+/* BUTTON */
+.btn {
       padding: 0.7rem 1.6rem;
       border-radius: 60px;
       background: linear-gradient(135deg, #ffb347, #ff8c1a);
@@ -517,12 +428,224 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
       transition: all 0.3s;
     }
-
     .btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
       background: linear-gradient(135deg, #ffc26b, #ffa133);
     }
+
+/* CLOSE BUTTON */
+.close-btn{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* DROPDOWN */
+.dropdown{
+  position:relative;
+  width:auto;
+}
+
+.dropdown-link-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.dropdown-icon{
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+/* DROPDOWN ANIMATION */
+.dropdown-content{
+  position:absolute;
+  top:100%;
+  left:0;
+  background:white;
+  min-width:200px;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  overflow:hidden;
+
+  max-height:0;
+  opacity:0;
+  transform:translateY(-10px);
+  transition:all 0.3s ease;
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px;
+  color: var(--dark);
+  text-decoration:none;
+}
+
+.dropdown-content a:hover{
+  background: #f0e6e0;
+      background: var(--light);
+      color: var(--primary);
+}
+
+.dropdown.active .dropdown-content{
+  max-height:500px;
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+  .menu-icon{
+    display:block;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:0;
+    left:-100%;
+    width:270px;
+    height:100%;
+    background:var(--bg);
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px;
+    gap:8px;
+    transition:0.3s;
+    z-index:1000;
+    overflow-y:auto;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.active{
+    left:0;
+  }
+  .close-btn{
+    display:block;
+    width:100%;
+    text-align:right;
+    margin-bottom:10px;
+  }
+
+  /* LINKS */
+  .nav-link{
+    display:block;
+    width:100%;
+    padding:12px 10px;
+    border-radius:8px;
+  }
+
+  .nav-link:hover{
+       background: rgba(128,0,0,0.12);
+      transform: translateY(-2px);
+      color: var(--primary);
+  }
+
+  /* DROPDOWN */
+  .dropdown{
+    width:100%;
+  }
+
+  .dropdown-link-wrapper{
+    width:100%;
+    padding:12px 10px;
+    border-radius:8px;
+  }
+
+  .dropdown-link-wrapper:hover{
+    background:#f2f2f2;
+  }
+
+  .dropdown-content{
+    position:static;
+    width:100%;
+    box-shadow:none;
+    padding-left:5px;
+  }
+
+  .dropdown-content a{
+    padding:10px 15px;
+    font-size:14px;
+    border-left:2px solid #ddd;
+  }
+
+  /* BUTTON */
+  .btn{
+    width:100%;
+    margin-top:10px;
+  }
+}
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    line-height: 1.2;
+    }
+
+    h1 { font-size: clamp(2.8rem, 5vw, 4.2rem); }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1rem; }
+    h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-title h2 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+    .section-title p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: 1rem auto 0;
+    }
+
+    /* Buttons */
+   .btn {
+      padding: 0.7rem 1.6rem;
+      border-radius: 60px;
+      background: linear-gradient(135deg, #ffb347, #ff8c1a);
+      color: #2d1b0c;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 0.3rem;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #ffc26b, #ffa133);
+    }
+
    /* ========== HERO SECTION ========== 
            Hero with image that FILLS the entire section completely */
         .hero {
@@ -755,15 +878,15 @@
         
     /* Main Content */
     .about-section {
-      padding: 2rem 0 5rem;
+      padding: 5rem 0;
     }
 
     .content-card {
       background: rgba(255, 252, 245, 0.95);
       backdrop-filter: blur(4px);
       
-      padding: 2.5rem;
-      margin-bottom: 2.5rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
       box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s;
     }
@@ -890,7 +1013,36 @@
 
     
 
-      /* Partners Logos inside CTA - Horizontal attractive line */
+      /* CTA Section */
+    .cta-section {
+      padding: 1rem 0;
+      background: linear-gradient(135deg, rgba(128,0,0,0.95), rgba(100,50,30,0.95));
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section h2 {
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-section p {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Partners Logos inside CTA - Horizontal attractive line */
     .cta-partners {
       margin-top: 3rem;
       padding-top: 2rem;
@@ -1046,44 +1198,6 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      .menu-icon {
-        display: block;
-      }
-      .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        background: rgba(46, 26, 26, 0.97);
-        backdrop-filter: blur(8px);
-        padding: 1.5rem;
-        border-radius: 2rem;
-        margin-top: 1rem;
-      }
-      .nav-links.show {
-        display: flex;
-      }
-      .dropdown {
-        width: 100%;
-      }
-      .dropdown-link-wrapper {
-        width: 100%;
-      }
-      .dropdown-content {
-        position: relative;
-        width: 100%;
-        background: #2b1a16;
-      }
-      .dropdown-content a {
-        color: #ffded0;
-      }
-      .nav-link {
-        width: 100%;
-        justify-content: center;
-      }
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
       
       .founder-grid {
         grid-template-columns: 1fr;
@@ -1102,7 +1216,10 @@
 
     @media (max-width: 550px) {
       .container {
-        padding: 0 1rem;
+         max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+
       }
       .content-card {
         padding: 1.5rem;
@@ -1120,49 +1237,76 @@
 <body>
 
   <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo">
-        <img src="images/logo.png" alt="Logo" class="logo-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'%3E%3Crect width=\'50\' height=\'50\' fill=\'%23800000\' rx=\'10\'/%3E%3Ctext x=\'8\' y=\'38\' fill=\'white\' font-size=\'35\'%3E🤝%3C/text%3E%3C/svg%3E'">
-        <span>Uganda- Helping Hands</span>
-      </div>
-      <div class="menu-icon" id="menuToggle">
-        <i class="fas fa-bars"></i>
-      </div>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
-        <div class="dropdown" id="aboutDropdown">
-          <div class="dropdown-link-wrapper">
-            <a href="about.html" class="nav-link active-home" class="dropdown-text active-home"><i class="fas fa-info-circle"></i> About Us</a>
-            <button class="dropdown-icon" aria-label="Toggle dropdown"><i class="fas fa-chevron-down"></i></button>
-          </div>
-          <div class="dropdown-content">
-            <a href="who-we-are.html">Who we are</a>
-            <a href="history.html">Our history</a>
-            <a href="mission-vision.html">Mission & Vision</a>
-            <a href="beneficiaries.html">Beneficiaries</a>
-            <a href="core-values.html">Core values</a>
-          </div>
-        </div>
-        <div class="dropdown" id="projectsDropdown">
-          <div class="dropdown-link-wrapper">
-            <a href="projects.html" class="dropdown-text"><i class="fas fa-leaf"></i> Projects</a>
-            <button class="dropdown-icon" aria-label="Toggle dropdown"><i class="fas fa-chevron-down"></i></button>
-          </div>
-          <div class="dropdown-content">
-            <a href="orphan-care.html">Orphan care & shelter</a>
-            <a href="education-support.html">Education support</a>
-            <a href="women-empowerment.html">Women empowerment</a>
-            <a href="sacco-loans.html">SACCO & loans</a>
-            <a href="water-sanitation.html">Water & sanitation</a>
-            <a href="humanitarian-aid.html">Humanitarian aid</a>
-          </div>
-        </div>
-        <a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Gallery</a>
-        <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact Us</a>
-        <a href="donate.html" class="btn"><i class="fas fa-donate"></i> Donate now</a>
-      </div>
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="images/logo.png" class="logo-img"
+      onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'%3E%3Crect width=\'50\' height=\'50\' fill=\'%23800000\' rx=\'10\'/%3E%3Ctext x=\'8\' y=\'38\' fill=\'white\' font-size=\'35\'%3E🤝%3C/text%3E%3C/svg%3E'">
+      <span>Uganda- Helping Hands</span>
     </div>
-  </nav>
+
+    <!-- MENU ICON -->
+    <div class="menu-icon" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- NAV LINKS -->
+    <div class="nav-links" id="navLinks">
+
+      <div class="close-btn" id="closeMenu">
+        <i class="fas fa-times"></i>
+      </div>
+
+      <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
+
+      <!-- ABOUT -->
+      <div class="dropdown">
+        <div class="dropdown-link-wrapper">
+          <a href="about.html" class="nav-link active"><i class="fas fa-info-circle"></i>About Us</a>
+          <button class="dropdown-icon"><i class="fas fa-chevron-down"></i></button>
+        </div>
+        <div class="dropdown-content">
+           <a href="who-we-are.html">Who we are</a>
+          <a href="history.html">Our history</a>
+          <a href="mission-vision.html">Mission & Vision</a>
+          <a href="beneficiaries.html">Beneficiaries</a>
+          <a href="core-values.html">Core values</a>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="dropdown">
+        <div class="dropdown-link-wrapper">
+          <a href="projects.html" class="nav-link"><i class="fas fa-leaf"></i>Projects</a>
+          <button class="dropdown-icon"><i class="fas fa-chevron-down"></i></button>
+        </div>
+        <div class="dropdown-content">
+          <a href="orphan-care.html">Orphan care</a>
+          <a href="education-support.html">Education support</a>
+          <a href="women-empowerment.html">Women empowerment</a>
+          <a href="sacco-loans.html">SACCO & loans</a>
+          <a href="water-sanitation.html">Water & sanitation</a>
+          <a href="humanitarian-aid.html">Humanitarian aid</a>
+        </div>
+      </div>
+ <a href="events.html" class="nav-link"><i class="fas fa-calendar-alt"></i>Events</a>
+      <a href="gallery.html" class="nav-link">
+        <i class="fas fa-images"></i> Gallery
+      </a>
+      <a href="contact.html" class="nav-link">
+        <i class="fas fa-envelope"></i> Contact
+      </a>
+
+     <a href="donate.html" class="btn">
+        <i class="fas fa-donate"></i> Donate now
+      </a>
+
+
+    </div>
+  </div>
+</nav>
+
 
   <section class="hero">
         <div class="hero-content">
@@ -1205,6 +1349,7 @@
         </div>
       </div>
    <div class="container">
+  
 
   <!-- media: image + clickable video -->
   <div class="media-showcase">
@@ -1218,7 +1363,7 @@
     </div>
   </div>
 </div>
-
+ </section>
   <section class="about-section">
     <div class="container">
       
@@ -1343,27 +1488,22 @@
   </div>
   <div class="dots-container" id="dotsContainer"></div>
 </div>
-
-      <!-- Call to Action -->
-      <div class="content-card" style="text-align: center; background: linear-gradient(135deg, rgba(128,0,0,0.95), rgba(100,50,30,0.95)); color: white;">
-        <h2 style="color: white; margin-bottom: 1rem;">Join Us in Making a Difference</h2>
-        <p style="margin-bottom: 1.5rem;">Your support helps us provide shelter, education, and hope to vulnerable children and families across Uganda.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="donate.html" style="background: #ffb347; color: #2d1b0c; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-donate"></i> Support Our Work</a>
-          <a href="contact.html" style="background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-envelope"></i> Contact Us</a>
-        </div>
-        <div class="cta-partners">
+ </section>
+      <!-- CTA Section with Partners Logos inside (horizontal line) -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Make a Difference?</h2>
+      <p>Your support helps us continue our mission of empowering vulnerable children and families.</p>
+      <div class="cta-buttons">
+        <a href="donate.html" class="btn btn-light"><i class="fas fa-heart"></i> Donate Today</a>
+        <a href="volunteer.html" class="btn btn-outline" style="border-color: white; color: white;"><i class="fas fa-hands-helping"></i> Become a Volunteer</a>
+      </div>
+      
+      <!-- Partners Logos Section inside CTA - attractive horizontal line -->
+      <div class="cta-partners">
         <div class="cta-partners-title"><i class="fas fa-handshake"></i> Our Trusted Partners</div>
         <div class="partners-horizontal">
-          <div class="partner-logo-card">
-            <img src="https://placehold.co/200x60/800000/white?text=Centenary+Bank" alt="Centenary Bank" class="partner-logo-img" style="filter: brightness(0) invert(1);">
-          </div>
-          <div class="partner-logo-card">
-            <img src="https://placehold.co/200x60/800000/white?text=MTN+Uganda" alt="MTN Uganda" class="partner-logo-img">
-          </div>
-          <div class="partner-logo-card">
-            <img src="https://placehold.co/200x60/800000/white?text=Airtel" alt="Airtel Uganda" class="partner-logo-img">
-          </div>
+  
           <div class="partner-logo-card">
             <span class="partner-text-logo"><i class="fas fa-globe-africa"></i> UNICEF</span>
           </div>
@@ -1377,9 +1517,7 @@
         <p style="font-size: 0.75rem; margin-top: 1.5rem; opacity: 0.7;">Together we build stronger communities</p>
       </div>
     </div>
-      </div>
-    </div>
-     
+  </section>
 
   <footer class="footer">
     <div class="container">
@@ -1416,38 +1554,43 @@
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
 
   <script>
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    const dropdowns = document.querySelectorAll('.dropdown');
+    // MENU
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const closeMenu = document.getElementById("closeMenu");
 
-    if (menuToggle) {
-      menuToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        navLinks.classList.toggle('show');
-      });
-    }
+menuToggle.onclick = () => navLinks.classList.add("active");
+closeMenu.onclick = () => navLinks.classList.remove("active");
 
-    dropdowns.forEach(function(dropdown) {
-      const iconBtn = dropdown.querySelector('.dropdown-icon');
-      if (iconBtn) {
-        iconBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          dropdowns.forEach(d => { if (d !== dropdown) d.classList.remove('active'); });
-          dropdown.classList.toggle('active');
-        });
-      }
+// DROPDOWN
+const dropdowns = document.querySelectorAll(".dropdown");
+
+dropdowns.forEach(drop => {
+  const btn = drop.querySelector(".dropdown-icon");
+
+  btn.onclick = (e) => {
+    e.stopPropagation();
+
+    dropdowns.forEach(d => {
+      if(d !== drop) d.classList.remove("active");
     });
 
-    document.addEventListener('click', function(e) {
-      let inside = false;
-      dropdowns.forEach(d => { if (d.contains(e.target)) inside = true; });
-      if (!inside && menuToggle && !menuToggle.contains(e.target)) {
-        dropdowns.forEach(d => d.classList.remove('active'));
-        if (navLinks) navLinks.classList.remove('show');
-      }
-    });
+    drop.classList.toggle("active");
+  };
+});
+
+// CLOSE OUTSIDE
+document.addEventListener("click", () => {
+  dropdowns.forEach(d => d.classList.remove("active"));
+});
+
+// DESKTOP HOVER
+if(window.innerWidth > 768){
+  dropdowns.forEach(drop => {
+    drop.onmouseenter = () => drop.classList.add("active");
+    drop.onmouseleave = () => drop.classList.remove("active");
+  });
+}
 
     // Back to top
     const backToTop = document.querySelector('.back-to-top');
