@@ -14,36 +14,33 @@
     }
 
     :root {
+      --bg:#ffffff;
+      --text:#333;
       --primary: #800000;
+      --primary-dark: #5a0000;
       --primary-light: #a04545;
-      --secondary: #6b2d2d;
-      --accent: #a52a2a;
+      --primary-soft: #fef5f0;
+      --secondary: #9e6b3e;
+      --accent: #e6b17e;
       --dark: #330000;
-      --soft-bg: rgba(254, 248, 242, 0.94);
-      --shadow: 0 8px 20px rgba(100, 30, 0, 0.12);
       --nav-bg: rgb(238, 219, 219);
-      --dropdown-bg: #ffffff;
+      --light: #fef9f5;
+      --light-beige: #fffaf5;
+      --white: #ffffff;
+      --gray: #6b6b68;
+      --gray-light: #e8e0d8;
+      --shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --gradient-warm: linear-gradient(135deg, #fff5ed 0%, #ffe8dc 100%);
+      --gradient-soft: linear-gradient(135deg, #fdf8f2 0%, #fef0e8 100%);
     }
+
+    
     body {
-      background: url('images/child.jpg') center/cover fixed no-repeat;
-      font-family: 'Times New Roman', Times, serif;
-      line-height: 1.6;
-      color: #1f1a17;
-      position: relative;
+  background:var(--bg);
+  color:var(--text);
+  font-family: 'Times New Roman', Times, serif;
     }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(2px);
-      z-index: -2;
-    }
-
     .container {
       width: 100%;
       max-width: 1400px;
@@ -52,170 +49,84 @@
     }
 
    
-    /* NAVBAR with beautiful background color */
-    .navbar {
-      background: var(--nav-bg);
-      box-shadow: var(--shadow);
-      padding: 0.5rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      width: 100%;
+    /* NAVBAR */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background: var(--nav-bg);
+  padding:10px 20px;
+  box-shadow: var(--shadow-sm);
+}
 
-    }
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      display: flex;
+/* LOGO */
+.logo{
+  display: flex;
       align-items: center;
       gap: 10px;
       font-weight: 700;
       font-size: clamp(1.2rem, 4vw, 1.8rem);
-        color: var(--primary);
-    }
-
-    .logo-img {
-      height: 50px;
-      width: auto;
-      border-radius: 8px;
-      background: white;
-      padding: 3px;
-    }
-
-    .menu-icon {
-      display: none;
-      font-size: 2.4rem;
       color: var(--primary);
-      cursor: pointer;
+}
+
+.logo-img{
+  width:40px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.logo span {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+/* MENU ICON */
+.menu-icon{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+  color: var(--primary);
+}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+/* LINKS */
+.nav-link{
+  font-size: 0.95rem;
       padding: 0.5rem 1rem;
-      transition: transform 0.2s;
-    }
-
-    .menu-icon:hover {
-      transform: scale(1.05);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .nav-link {
-      font-size: 1rem;
-      padding: 0.7rem 1.3rem;
       border-radius: 40px;
-       color: var(--dark);
+      color: var(--dark);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.3s;
+      transition: all 0.25s;
       font-weight: 500;
+}
+ .nav-link:hover {
+     background: rgba(128,0,0,0.12);
+      transform: translateY(-2px);
+      color: var(--primary);
     }
 
-    .nav-link:hover {
-      background: rgba(128,0,0,0.08);
-       transform: translateY(-2px);
-    }
-
-    .nav-link.active-home {
+   .nav-link.active {
       background: var(--primary);
       color: white !important;
-       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+       box-shadow: 0 4px 10px rgba(128,0,0,0.3);
     }
-
-    /* Dropdown styles */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-link-wrapper {
-      display: flex;
-      align-items: center;
-      background: transparent;
-      border-radius: 40px;
-      overflow: hidden;
-    }
-
-    .dropdown-text {
-      font-size: 1rem;
-      padding: 0.7rem 0.5rem 0.7rem 1.3rem;
-      color: var(--dark);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 500;
-    }
-
-    .dropdown-text:hover {
-      background: rgba(128,0,0,0.08);
-    }
-
-    .dropdown-icon {
-      font-size: 1rem;
-      padding: 0.7rem 1.3rem 0.7rem 0.5rem;
-      color: var(--dark);
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .dropdown-icon i {
-      font-size: 0.7rem;
-      transition: transform 0.2s;
-    }
-
-    .dropdown.active .dropdown-icon i {
-      transform: rotate(180deg);
-    }
- .dropdown-icon:hover {
-      background: rgba(128,0,0,0.08);
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 240px;
-      background: var(--dropdown-bg);
-      border-radius: 20px;
-      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
-      padding: 0.8rem 0;
-      z-index: 1000;
-      margin-top: 5px;
-      border: 1px solid #f0e0e0;
-    }
-
-    .dropdown.active .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content a {
-      color: var(--dark);
-      padding: 0.8rem 1.8rem;
-      text-decoration: none;
-      display: block;
-      transition: all 0.2s;
-    }
-
-    .dropdown-content a:hover {
-      background: #f0e6e0;
-      color: var(--primary);
-      padding-left: 2rem;
-    }
-
-    .btn {
+/* BUTTON */
+.btn {
       padding: 0.7rem 1.6rem;
       border-radius: 60px;
       background: linear-gradient(135deg, #ffb347, #ff8c1a);
@@ -229,12 +140,158 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
       transition: all 0.3s;
     }
-
     .btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
       background: linear-gradient(135deg, #ffc26b, #ffa133);
     }
+
+/* CLOSE BUTTON */
+.close-btn{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* DROPDOWN */
+.dropdown{
+  position:relative;
+  width:auto;
+}
+
+.dropdown-link-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.dropdown-icon{
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+/* DROPDOWN ANIMATION */
+.dropdown-content{
+  position:absolute;
+  top:100%;
+  left:0;
+  background:white;
+  min-width:200px;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  overflow:hidden;
+
+  max-height:0;
+  opacity:0;
+  transform:translateY(-10px);
+  transition:all 0.3s ease;
+}
+
+.dropdown-content a{
+  display:block;
+  padding:10px;
+  color: var(--dark);
+  text-decoration:none;
+}
+
+.dropdown-content a:hover{
+  background: #f0e6e0;
+      background: var(--light);
+      color: var(--primary);
+}
+
+.dropdown.active .dropdown-content{
+  max-height:500px;
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+  .menu-icon{
+    display:block;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:0;
+    left:-100%;
+    width:270px;
+    height:100%;
+    background:var(--bg);
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px;
+    gap:8px;
+    transition:0.3s;
+    z-index:1000;
+    overflow-y:auto;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.active{
+    left:0;
+  }
+
+  .close-btn{
+    display:block;
+    width:100%;
+    text-align:right;
+    margin-bottom:10px;
+  }
+
+  /* LINKS */
+  .nav-link{
+    display:block;
+    width:100%;
+    padding:12px 10px;
+    border-radius:8px;
+  }
+
+  .nav-link:hover{
+       background: rgba(128,0,0,0.12);
+      transform: translateY(-2px);
+      color: var(--primary);
+  }
+
+  /* DROPDOWN */
+  .dropdown{
+    width:100%;
+  }
+
+  .dropdown-link-wrapper{
+    width:100%;
+    padding:12px 10px;
+    border-radius:8px;
+  }
+
+  .dropdown-link-wrapper:hover{
+    background:#f2f2f2;
+  }
+
+  .dropdown-content{
+    position:static;
+    width:100%;
+    box-shadow:none;
+    padding-left:5px;
+  }
+
+  .dropdown-content a{
+    padding:10px 15px;
+    font-size:14px;
+    border-left:2px solid #ddd;
+  }
+
+  /* BUTTON */
+  .btn{
+    width:100%;
+    margin-top:10px;
+  }
+}
 
    /* ========== HERO SECTION ========== 
            Hero with image that FILLS the entire section completely */
@@ -677,39 +734,61 @@
     }
 
     /* Footer */
+    /* Footer */
     .footer {
-      background: var(--dark);
-      backdrop-filter: blur(5px);
-      color: #f0e2d4;
-      padding: 3.5rem 0 2rem;
-      margin-top: 1rem;
-      border-top: 1px solid rgba(255, 200, 150, 0.3);
+      background: #1e1e1b;
+      color: #ccc;
+      padding: 4rem 0 2rem;
+      border-top: 3px solid var(--primary);
     }
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
     .footer h4 {
       color: white;
       margin-bottom: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     .footer a {
-      color: #e0b0b0;
+      color: #aaa;
       text-decoration: none;
       display: block;
       margin-bottom: 0.5rem;
+      transition: color 0.3s;
+      font-size: 0.85rem;
     }
     .footer a:hover {
+      color: var(--primary);
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
       color: white;
-      transform: translateX(5px);
+      font-size: 1.2rem;
+    }
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
     }
     .footer-bottom {
       text-align: center;
-      padding-top: 1.8rem;
-      border-top: 1px solid #5f4b4b;
+      padding-top: 2rem;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
     }
     .back-to-top {
       position: fixed;
@@ -733,46 +812,10 @@
       transform: translateY(-5px);
     }
 
+
     /* Responsive */
     @media (max-width: 900px) {
-      .menu-icon {
-        display: block;
-      }
-      .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        background: rgba(46, 26, 26, 0.97);
-        backdrop-filter: blur(8px);
-        padding: 1.5rem;
-        border-radius: 2rem;
-        margin-top: 1rem;
-      }
-      .nav-links.show {
-        display: flex;
-      }
-      .dropdown {
-        width: 100%;
-      }
-      .dropdown-link-wrapper {
-        width: 100%;
-      }
-      .dropdown-content {
-        position: relative;
-        width: 100%;
-        background: #2b1a16;
-      }
-      .dropdown-content a {
-        color: #ffded0;
-      }
-      .nav-link {
-        width: 100%;
-        justify-content: center;
-      }
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
+      
       
       .vision-mission-hero {
         grid-template-columns: 1fr;
@@ -814,49 +857,75 @@
 <body>
 
   <nav class="navbar">
-    <div class="container nav-container">
-      <div class="logo">
-        <img src="images/logo.png" alt="Logo" class="logo-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'%3E%3Crect width=\'50\' height=\'50\' fill=\'%23800000\' rx=\'10\'/%3E%3Ctext x=\'8\' y=\'38\' fill=\'white\' font-size=\'35\'%3E🤝%3C/text%3E%3C/svg%3E'">
-        <span>Uganda- Helping Hands</span>
-      </div>
-      <div class="menu-icon" id="menuToggle">
-        <i class="fas fa-bars"></i>
-      </div>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
-        <div class="dropdown" id="aboutDropdown">
-          <div class="dropdown-link-wrapper">
-            <a href="about.html" class="dropdown-text"><i class="fas fa-info-circle"></i> About Us</a>
-            <button class="dropdown-icon" aria-label="Toggle dropdown"><i class="fas fa-chevron-down"></i></button>
-          </div>
-          <div class="dropdown-content">
-            <a href="who-we-are.html">Who we are</a>
-            <a href="history.html">Our history</a>
-            <a href="mission-vision.html">Mission & Vision</a>
-            <a href="beneficiaries.html">Beneficiaries</a>
-            <a href="core-values.html">Core values</a>
-          </div>
-        </div>
-        <div class="dropdown" id="projectsDropdown">
-          <div class="dropdown-link-wrapper">
-            <a href="projects.html" class="dropdown-text"><i class="fas fa-leaf"></i> Projects</a>
-            <button class="dropdown-icon" aria-label="Toggle dropdown"><i class="fas fa-chevron-down"></i></button>
-          </div>
-          <div class="dropdown-content">
-            <a href="orphan-care.html">Orphan care & shelter</a>
-            <a href="education-support.html">Education support</a>
-            <a href="women-empowerment.html">Women empowerment</a>
-            <a href="sacco-loans.html">SACCO & loans</a>
-            <a href="water-sanitation.html">Water & sanitation</a>
-            <a href="humanitarian-aid.html">Humanitarian aid</a>
-          </div>
-        </div>
-        <a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Gallery</a>
-        <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact Us</a>
-        <a href="donate.html" class="btn"><i class="fas fa-donate"></i> Donate now</a>
-      </div>
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="images/logo.png" class="logo-img">
+      <span>Uganda- Helping Hands</span>
     </div>
-  </nav>
+
+    <!-- MENU ICON -->
+    <div class="menu-icon" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- NAV LINKS -->
+    <div class="nav-links" id="navLinks">
+
+      <div class="close-btn" id="closeMenu">
+        <i class="fas fa-times"></i>
+      </div>
+
+      <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
+
+      <!-- ABOUT -->
+      <div class="dropdown">
+        <div class="dropdown-link-wrapper">
+          <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i>About Us</a>
+          <button class="dropdown-icon"><i class="fas fa-chevron-down"></i></button>
+        </div>
+        <div class="dropdown-content">
+           <a href="who-we-are.html">Who we are</a>
+          <a href="history.html">Our history</a>
+          <a href="mission-vision.html">Mission & Vision</a>
+          <a href="beneficiaries.html">Beneficiaries</a>
+          <a href="core-values.html">Core values</a>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="dropdown">
+        <div class="dropdown-link-wrapper">
+          <a href="projects.html" class="nav-link"><i class="fas fa-leaf"></i>Projects</a>
+          <button class="dropdown-icon"><i class="fas fa-chevron-down"></i></button>
+        </div>
+        <div class="dropdown-content">
+          <a href="orphan-care.html">Orphan care</a>
+          <a href="education-support.html">Education support</a>
+          <a href="women-empowerment.html">Women empowerment</a>
+          <a href="sacco-loans.html">SACCO & loans</a>
+          <a href="water-sanitation.html">Water & sanitation</a>
+          <a href="humanitarian-aid.html">Humanitarian aid</a>
+        </div>
+      </div>
+ <a href="events.html" class="nav-link"><i class="fas fa-calendar-alt"></i>Events</a>
+      <a href="gallery.html" class="nav-link">
+        <i class="fas fa-images"></i> Gallery
+      </a>
+      <a href="contact.html" class="nav-link">
+        <i class="fas fa-envelope"></i> Contact
+      </a>
+
+     <a href="donate.html" class="btn">
+        <i class="fas fa-donate"></i> Donate now
+      </a>
+
+
+    </div>
+  </div>
+</nav>
+
 
     <section class="hero">
         <div class="hero-content">
@@ -1044,27 +1113,32 @@
     </div>
   </section>
 
+
  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya 1, LC I<br>Buhundu Parish<br>Bukonzo Subcounty<br>Bundibugyo District, Uganda</p></div>
+        <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
-             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="https://mail.google.com/mail/?view=cm&fs=1&to=ugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> ugandahelpinghands@gmail.com
+             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="inforugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> inforugandahelpinghands@gmail.com
     </a></div>
         <div>
   <h4>Connect With Us</h4>
   <div style="font-size: 1.8rem; display: flex; gap: 1.2rem; justify-content: flex-start; align-items: center; margin-top: 0.8rem;">
-    <a href="https://www.facebook.com/ugandahelpinghands" target="_blank" rel="noopener noreferrer" style="color: #3b5998; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+    <a href="https://facebook.com/groups/1213109826225170/" target="_blank" rel="noopener noreferrer" style="color: #3b5998; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-facebook"></i>
     </a>
-    <a href="https://twitter.com/ugandahelping" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+    <a href="https://x.com/BukamaHakim088" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-twitter"></i>
     </a>
-    <a href="https://www.instagram.com/ugandahelpinghands" target="_blank" rel="noopener noreferrer" style="color: #e4405f; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+  <a href="https://www.linkedin.com/in/uganda-helping-hands-472b752ab" target="_blank" rel="noopener noreferrer" style="color: #1DA1F2; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';" 
+         aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    <a href="https://www.instagram.com/ugan.dahelpinghands?igsh=MXQ2Ymh0Z3JycnY4eA==" target="_blank" rel="noopener noreferrer" style="color: #e4405f; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-instagram"></i>
     </a>
-    <a href="https://wa.me/256764377294" target="_blank" rel="noopener noreferrer" style="color: #25D366; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
+    <a href="https://wa.me/256786497006" target="_blank" rel="noopener noreferrer" style="color: #25D366; transition: all 0.3s; display: inline-block;" onmouseover="this.style.transform='scale(1.1)'; this.style.opacity='0.9';" onmouseout="this.style.transform='scale(1)'; this.style.opacity='1';">
       <i class="fab fa-whatsapp"></i>
     </a>
   </div>
@@ -1076,38 +1150,44 @@
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
 
   <script>
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    const dropdowns = document.querySelectorAll('.dropdown');
+   // MENU
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const closeMenu = document.getElementById("closeMenu");
 
-    if (menuToggle) {
-      menuToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        navLinks.classList.toggle('show');
-      });
-    }
+menuToggle.onclick = () => navLinks.classList.add("active");
+closeMenu.onclick = () => navLinks.classList.remove("active");
 
-    dropdowns.forEach(function(dropdown) {
-      const iconBtn = dropdown.querySelector('.dropdown-icon');
-      if (iconBtn) {
-        iconBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          dropdowns.forEach(d => { if (d !== dropdown) d.classList.remove('active'); });
-          dropdown.classList.toggle('active');
-        });
-      }
+// DROPDOWN
+const dropdowns = document.querySelectorAll(".dropdown");
+
+dropdowns.forEach(drop => {
+  const btn = drop.querySelector(".dropdown-icon");
+
+  btn.onclick = (e) => {
+    e.stopPropagation();
+
+    dropdowns.forEach(d => {
+      if(d !== drop) d.classList.remove("active");
     });
 
-    document.addEventListener('click', function(e) {
-      let inside = false;
-      dropdowns.forEach(d => { if (d.contains(e.target)) inside = true; });
-      if (!inside && menuToggle && !menuToggle.contains(e.target)) {
-        dropdowns.forEach(d => d.classList.remove('active'));
-        if (navLinks) navLinks.classList.remove('show');
-      }
-    });
+    drop.classList.toggle("active");
+  };
+});
+
+// CLOSE OUTSIDE
+document.addEventListener("click", () => {
+  dropdowns.forEach(d => d.classList.remove("active"));
+});
+
+// DESKTOP HOVER
+if(window.innerWidth > 768){
+  dropdowns.forEach(drop => {
+    drop.onmouseenter = () => drop.classList.add("active");
+    drop.onmouseleave = () => drop.classList.remove("active");
+  });
+}
+
 
     // Back to top
     const backToTop = document.querySelector('.back-to-top');
