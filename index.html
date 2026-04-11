@@ -97,7 +97,7 @@
 
 /* LINKS */
 .nav-link{
-  font-size: 0.95rem;
+  font-size: 0.95r em;
       padding: 0.5rem 1rem;
       border-radius: 40px;
       color: var(--dark);
@@ -990,20 +990,30 @@
 
     /* Footer */
     .gmail-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  transition: all 0.3s ease;
- 
+  .gmail-btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:10px 18px;
+background:#d44638;
+color:white;
+text-decoration:none;
+border-radius:5px;
+font-size:15px;
+transition:0.3s;
 }
 
-.gmail-btn i {
-  font-size: 18px;
+.gmail-btn:hover{
+background:#b23121;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+.gmail-btn{
+font-size:14px;
+padding:8px 14px;
+}
 }
     .footer {
       background: #1e1e1b;
@@ -1243,7 +1253,7 @@
             <!-- Card 2: Education Support (Image - complete, shows learning) -->
             <div class="program-card">
                 <div class="program-image">
-                    <img src="images/soap.jpg" 
+                    <img src="images/education.jpg" 
                          loading="eager">
                 </div>
                 <div class="program-content">
@@ -1332,7 +1342,7 @@
         <!-- Event 3 -->
         <div class="event-card">
           <div class="event-date-badge"><i class="fas fa-calendar-day"></i> June 20, 2025</div>
-          <div class="event-image"><img src="images/wel.jpg" alt="Community Water Project"></div>
+          <div class="event-image"><img src="images/wells.webp" alt="Community Water Project"></div>
           <div class="event-content">
             <span class="event-category"><i class="fas fa-water"></i> Water & Sanitation</span>
             <h3>Community Well Handover Ceremony</h3>
@@ -1402,7 +1412,7 @@
             <!-- Card 3: Health & Nutrition (replaces duplicate orphan care - adds variety, complete image) -->
             <div class="program-card">
                 <div class="program-image">
-                    <img src="images/wel.jpg"  
+                    <img src="images/wells.webp"  
                          loading="eager">
                 </div>
                 <div class="program-content">
@@ -1498,8 +1508,10 @@
         <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
              <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=inforugandahelpinghands@gmail.com" 
-   target="_blank" class="gmail-btn"> <i class="fas fa-envelope"></i> Email Us</a></div>
+            <a href="mailto:inforugandahelpinghands@gmail.com" 
+class="gmail-btn">
+<i class="fas fa-envelope"></i>inforugandahelpinghands@gmail.com
+</a></div>
         <div>
   <h4>Connect With Us</h4>
   <div style="font-size: 1.8rem; display: flex; gap: 1.2rem; justify-content: flex-start; align-items: center; margin-top: 0.8rem;">
