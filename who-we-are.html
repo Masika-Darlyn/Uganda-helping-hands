@@ -8,9 +8,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
-      margin: 0;
+       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Times New Roman', Times, serif;
     }
 
     :root {
@@ -292,189 +293,75 @@
     margin-top:10px;
   }
 }
-   /* ========== HERO SECTION ========== 
-           Hero with image that FILLS the entire section completely */
-        .hero {
-            /* Full viewport height hero - dramatic and immersive */
-            min-height: 85vh;
-            height: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            /* BACKGROUND IMAGE - FILLS THE WHOLE SECTION (cover) */
-            background-image: url('images/girls\ \(2\).jpg');
-            background-size: cover;      /* Image fills entire section - covers all space */
-            background-position: center center;
-            background-repeat: no-repeat;
-            
-            /* Fallback color while image loads */
 
-            
-            position: relative;
-            isolation: isolate;
-        }
-        
-        /* Semi-transparent overlay to improve text readability - keeps image fully visible but adds contrast */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.4) 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        /* Hero content wrapper - centers content beautifully above overlay */
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 4rem 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        
-        /* Main heading - bold, inspiring, with strong text shadow */
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 800;
-            color: #ffffff;
-            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.7), 0 2px 5px rgba(0, 0, 0, 0.5);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        /* Hero description - elegant and readable */
-        .hero .hero-description {
-            font-size: 1.5rem;
-            max-width: 780px;
-            margin: 0 auto;
-            color: #ffffff;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-            font-weight: 500;
-            line-height: 1.5;
-            background: rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(8px);
-            padding: 1rem 2rem;
-            border-radius: 80px;
-            display: inline-block;
-            width: auto;
-            letter-spacing: 0.01em;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            animation: fadeInUp 0.8s ease-out 0.1s both;
-        }
-        
-        /* Decorative element - warm underline */
-        .hero h1:after {
-            content: '';
-            display: block;
-            width: 90px;
-            height: 4px;
-            background: linear-gradient(90deg, #f5b042, #e67e22);
-            margin: 1.2rem auto 0;
-            border-radius: 4px;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.3);
-        }
-        
-        /* CTA button to enhance hero section */
-        .hero-cta {
-            margin-top: 2.5rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-        
-        .hero-cta .btn {
-            display: inline-block;
-            background: #f5b042;
-            color: #1e2a23;
-            font-weight: 700;
-            padding: 0.9rem 2.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            border: none;
-            cursor: pointer;
-            letter-spacing: 0.5px;
-        }
-        
-        .hero-cta .btn:hover {
-            background: #e67e22;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive hero adjustments */
-        @media (max-width: 992px) {
-            .hero {
-                min-height: 75vh;
-            }
-            .hero h1 {
-                font-size: 3.8rem;
-            }
-            .hero .hero-description {
-                font-size: 1.3rem;
-                padding: 0.8rem 1.6rem;
-                backdrop-filter: blur(6px);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 70vh;
-            }
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .hero .hero-description {
-                font-size: 1.1rem;
-                padding: 0.7rem 1.2rem;
-                backdrop-filter: blur(5px);
-                background: rgba(0, 0, 0, 0.4);
-            }
-            .hero h1:after {
-                width: 70px;
-                height: 3px;
-            }
-            .hero-cta .btn {
-                padding: 0.7rem 1.6rem;
-                font-size: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                min-height: 65vh;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero .hero-description {
-                font-size: 0.95rem;
-                padding: 0.6rem 1rem;
-            }
-            .hero-content {
-                padding: 2rem 1rem;
-            }
-        }
-        
+
+.event-section{
+padding:60px 20px;
+text-align:center;
+}
+
+/* Title */
+
+.sub-title{
+font-size:14px;
+letter-spacing:6px;
+color:maroon;
+margin-top:10px;
+margin-bottom:40px;
+}
+
+/* Images */
+
+.image-row{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-bottom:40px;
+}
+
+.image-card{
+width:320px;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.image-card img{
+width:100%;
+height:260px;
+object-fit:cover;
+display:block;
+}
+
+/* Bottom Text */
+
+.location{
+font-size:18px;
+
+color:rgb(59, 9, 9);
+margin-top:20px;
+}
+
+@media(max-width:768px){
+
+
+.main-title{
+font-size:26px;
+}
+
+.image-card{
+width:100%;
+max-width:350px;
+}
+
+.location{
+font-size:14px;
+letter-spacing:4px;
+}
+
+}
+      
 
     /* Who We Are Content */
     .who-we-are-section {
@@ -811,17 +698,35 @@
   </div>
 </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Who We Are</h1>
-            <p class="hero-description">
-                A grassroots humanitarian organization born from compassion, serving vulnerable communities across Uganda.
-            </p>
-            <div class="hero-cta">
-                <a href="volunteer.html" class="btn">Join Our Mission →</a>
-            </div>
-        </div>
-    </section>
+<section class="event-section">
+
+<div class="sub-title">
+ <h1>Who We Are</h1>
+</div>
+
+<div class="image-row">
+
+<div class="image-card">
+<img src="images/donate.jpeg">
+</div>
+
+<div class="image-card">
+<img src="images/our.JPG">
+</div>
+
+<div class="image-card">
+<img src="images/help.jpg">
+</div>
+
+</div>
+
+<div class="location">
+A grassroots humanitarian organization born from compassion, serving vulnerable communities across Uganda.
+</div>
+
+</section>
+
+
     
   <!-- Main Content -->
   <section class="who-we-are-section">
