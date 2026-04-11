@@ -304,9 +304,7 @@ text-align:center;
 
 .sub-title{
 font-size:14px;
-letter-spacing:6px;
 color:maroon;
-margin-top:10px;
 margin-bottom:40px;
 }
 
@@ -315,13 +313,13 @@ margin-bottom:40px;
 .image-row{
 display:flex;
 justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-margin-bottom:40px;
+gap:20px;
+flex-wrap:nowrap;
 }
 
 .image-card{
-width:320px;
+flex:1;
+max-width:350px;
 border-radius:15px;
 overflow:hidden;
 box-shadow:0 8px 20px rgba(0,0,0,0.1);
@@ -329,7 +327,7 @@ box-shadow:0 8px 20px rgba(0,0,0,0.1);
 
 .image-card img{
 width:100%;
-height:260px;
+height:250px;
 object-fit:cover;
 display:block;
 }
@@ -337,30 +335,63 @@ display:block;
 /* Bottom Text */
 
 .location{
+margin-top:30px;
 font-size:18px;
-
 color:rgb(59, 9, 9);
+max-width:900px;
+margin-left:auto;
+margin-right:auto;
 margin-top:20px;
 }
 
+@media(max-width:1024px){
+
+.image-card img{
+height:220px;
+}
+
+.sub-title h1{
+font-size:30px;
+}
+
+}
+
+/* Mobile */
+
 @media(max-width:768px){
 
+.image-row{
+gap:10px;
+}
 
-.main-title{
+.image-card img{
+height:160px;
+}
+
+.sub-title h1{
 font-size:26px;
 }
 
-.image-card{
-width:100%;
-max-width:350px;
-}
-
 .location{
-font-size:14px;
-letter-spacing:4px;
+font-size:15px;
 }
 
 }
+
+/* Small Mobile */
+
+@media(max-width:480px){
+
+.image-card img{
+height:130px;
+}
+
+.sub-title h1{
+font-size:22px;
+}
+
+}
+
       
 
     /* Who We Are Content */
@@ -513,6 +544,110 @@ letter-spacing:4px;
       border-radius: 1.5rem;
       margin-top: 1.5rem;
     }
+
+       .sponsors-section{
+padding:60px 20px;
+text-align:center;
+background:white;
+overflow:hidden;
+}
+
+/* Title */
+
+.sponsors-title{
+  color: maroon;
+font-size:20px;
+font-weight:600;
+margin-bottom:50px;
+position:relative;
+display:inline-block;
+}
+
+.sponsors-title:before,
+.sponsors-title:after{
+content:"";
+position:absolute;
+top:50%;
+width:80px;
+height:1px;
+background:white;
+}
+
+.sponsors-title:before{
+left:-100px;
+}
+
+.sponsors-title:after{
+right:-100px;
+}
+
+/* Slider */
+
+.slider{
+overflow:hidden;
+position:relative;
+}
+
+.slide-track{
+display:flex;
+gap:30px;
+animation:scroll 25s linear infinite;
+}
+
+/* Cards */
+
+.sponsor-card{
+
+padding:25px;
+border-radius:6px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+display:flex;
+align-items:center;
+justify-content:center;
+height:90px;
+min-width:280px;
+transition:0.3s;
+}
+
+.sponsor-card img{
+max-width:100%;
+max-height:50px;
+object-fit:contain;
+
+transition:0.4s;
+}
+
+/* Hover Animation */
+
+.sponsor-card:hover{
+transform:translateY(-8px);
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.sponsor-card:hover img{
+filter: grayscale(0%);
+}
+
+/* Auto Scroll */
+
+@keyframes scroll{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-50%);
+}
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.sponsor-card{
+min-width:220px;
+}
+
+}
 
     /* Footer */
     .footer {
@@ -711,7 +846,7 @@ letter-spacing:4px;
 </div>
 
 <div class="image-card">
-<img src="images/our.JPG">
+<img src="images/our.webp">
 </div>
 
 <div class="image-card">
@@ -830,7 +965,7 @@ A grassroots humanitarian organization born from compassion, serving vulnerable 
             <p><strong><i class="fas fa-map-marker-alt"></i> Registration District:</strong><br>Bundibugyo District, Uganda</p>
           </div>
           <div>
-            <p><strong><i class="fas fa-building"></i> Registered Office:</strong><br>Humya 1, LC I, Buhundu Parish<br>Bukonzo Subcounty, Bundibugyo District</p>
+            <p><strong><i class="fas fa-building"></i> Registered Office:</strong><br>Humya village, Buhundu Parish<br>Bukonzo Subcounty,Bughendera County,<br> Bundibugyo District, Uganda</p>
             <p><strong><i class="fas fa-users"></i> Founding Members:</strong><br>15 dedicated community leaders</p>
           </div>
         </div>
