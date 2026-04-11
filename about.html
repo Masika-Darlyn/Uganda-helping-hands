@@ -11,6 +11,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Times New Roman', Times, serif;
     }
 
     :root {
@@ -35,7 +36,6 @@
       --gradient-soft: linear-gradient(135deg, #fdf8f2 0%, #fef0e8 100%);
     }
 
-    /* ===== WHOLE PAGE BACKGROUND IMAGE ===== */
     body {
   background:var(--bg);
   color:var(--text);
@@ -174,169 +174,275 @@
       display: none;
     }
 
-    /* Team carousel */
-    .team-section {
-       max-width: 1400px;
+      /* Team Section */
+.team-container {
+            max-width: 1400px;
             margin: 0 auto;
             padding: 60px 24px;
-    }
+        }
 
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
+        /* header styling */
+        .team-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-    .section-title span {
-      color: maroon;
-    }
+        .team-header h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background:   maroon;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 12px;
+        }
 
-    .sub {
-      text-align: center;
-      color: #5e5e5e;
-      margin-bottom: 48px;
-    }
+        .team-header p {
+            color: rgb(51, 13, 13);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
 
-    .carousel-container {
-      max-width: 1300px;
-      margin: 0 auto;
-      position: relative;
-      padding: 0 40px;
-    }
+        /* horizontal slider wrapper */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: visible;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+            padding-bottom: 20px;
+        }
 
-    .team-carousel {
-      overflow: hidden;
-      scroll-behavior: smooth;
-    }
+        .slider-wrapper::-webkit-scrollbar {
+            height: 6px;
+        }
+        .slider-wrapper::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .slider-wrapper::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
 
-    .carousel-track {
-      display: flex;
-      gap: 28px;
-      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      will-change: transform;
-    }
+        /* flex row - horizontal, never wrap, all cards visible in a row (15 members) */
+        .team-row {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+            width: max-content;
+            padding: 16px 8px 24px 8px;
+        }
 
-    .team-card {
-      flex: 0 0 calc(20% - 22.4px);
-      min-width: 220px;
-      background: white;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      transition: all 0.3s;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
+        /* CARD STYLES - modern, no image cut-off, full avatar visible */
+        .card {
+            width: 210px;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 0 0 20px 0;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(203, 213, 225, 0.4);
+            flex-shrink: 0;
+            backdrop-filter: blur(0px);
+            position: relative;
+            overflow: visible;  /* ensures image container doesn't clip overflow */
+        }
 
-    .team-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
-    }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+            border-color: rgb(216, 49, 49);
+        }
 
-    .team-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      display: block;
-    }
+        /* IMAGE CONTAINER - FULLY VISIBLE, NO CUTTING */
+        .card-image {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 24px;   /* gives breathing space, not cropping */
+            margin-bottom: 8px;
+        }
 
-    .card-info {
-      padding: 20px 18px 24px;
-      text-align: center;
-    }
+        /* image styling: fully displayed, rounded, no overflow hidden cuts */
+        .card-image img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center center;
+            border: 4px solid white;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+            background-color: #f0f2f5;
+            transition: transform 0.2s;
+            display: block;
+        }
 
-    .member-name {
-      background: rgb(238, 51, 51);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 40px;
-      display: inline-block;
-      font-weight: 600;
-      margin-top: -38px;
-      position: relative;
-      font-size: 1rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
+        /* optional decorative element (inspired by original shape but keeps image whole) */
+        .card::before {
+            content: "";
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: rgb(247, 110, 110);
+            border-radius: 22px;
+            top: -8px;
+            right: -8px;
+            transform: rotate(12deg);
+            z-index: -1;
+            opacity: 0.5;
+            transition: 0.2s;
+        }
+        .card:hover::before {
+            opacity: 0.8;
+            transform: rotate(8deg) scale(1.02);
+        }
 
-    .role {
-      font-size: 0.85rem;
-      color: #7a6a5c;
-      margin: 12px 0 10px;
-      font-weight: 500;
-    }
+        /* text content */
+        .card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 14px 0 4px 0;
+            color: rgb(17, 4, 4);
+            letter-spacing: -0.2px;
+            padding: 0 8px;
+        }
 
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 12px;
-    }
+        .card span {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgb(97, 9, 9);
+            background: #eef2ff;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 40px;
+            margin: 6px 0 8px;
+        }
 
-    .social-icons i {
-      color: #b97f5c;
-      transition: 0.2s;
-      font-size: 1.2rem;
-    }
+        .card .bio {
+            font-size: 0.75rem;
+            color: rgb(78, 21, 21);
+            padding: 0 12px;
+            line-height: 1.4;
+            margin: 8px 0 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
 
-    .social-icons i:hover {
-      color: rgb(238, 51, 51);
-    }
+        /* social icons inside card */
+        .social-icons {
+            margin-top: 8px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
 
-    /* carousel controls + dots */
-    .carousel-btn {
-      position: absolute;
-      top: 45%;
-      transform: translateY(-50%);
-      background: white;
-      border: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 60px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      font-size: 1.4rem;
-      color: rgb(238, 51, 51);
-      transition: 0.2s;
-      z-index: 5;
-    }
+        .social-icons i {
+            font-size: 0.85rem;
+            color: maroon;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
 
-    .carousel-btn:hover {
-      background: rgb(238, 51, 51);
-      color: white;
-    }
+        .social-icons i:hover {
+            color: maroon;
+        }
 
-    .btn-left {
-      left: 0;
-    }
+        /* dots navigation (optional, but keeps original slider UX) */
+        .dots {
+            text-align: center;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
 
-    .btn-right {
-      right: 0;
-    }
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: #cbd5e1;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+        }
 
-    .dots-container {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 40px;
-      flex-wrap: wrap;
-    }
+        .dot.active {
+            background-color: maroon;
+            width: 28px;
+            border-radius: 8px;
+        }
 
-    .dot {
-      width: 12px;
-      height: 12px;
-      background: #d4c5b8;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
+        /* scroll hint for better UX */
+        .scroll-hint {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-top: 18px;
+            font-size: 0.75rem;
+            color: rgb(39, 6, 6);
+        }
+        .scroll-hint i {
+            font-size: 0.85rem;
+        }
 
-    .dot.active {
-      background: rgb(238, 51, 51);
-      width: 32px;
-    }
+        /* responsive adjustments: cards remain consistent but grid adapts for smaller screens */
+        @media (max-width: 768px) {
+            .team-container {
+                padding: 40px 16px;
+            }
+            .card {
+                width: 190px;
+            }
+            .card-image img {
+                width: 90px;
+                height: 90px;
+            }
+            .card h4 {
+                font-size: 1rem;
+            }
+            .card span {
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 175px;
+            }
+            .card-image img {
+                width: 80px;
+                height: 80px;
+            }
+            .team-row {
+                gap: 16px;
+            }
+        }
+
+        /* ensure image never cut by any overflow hidden parent */
+        .card, .card-image {
+            overflow: visible;
+        }
+
+        /* fix for potential clipping in any ancestor */
+        .team-row, .slider-wrapper {
+            overflow-x: auto;
+            overflow-y: visible;
+        }
 /* NAVBAR */
 .navbar{
   position:sticky;
@@ -650,14 +756,14 @@
            Hero with image that FILLS the entire section completely */
         .hero {
             /* Full viewport height hero - dramatic and immersive */
-            min-height: 85vh;
-            height: auto;
+           height: 120vh;
+           min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
             
             /* BACKGROUND IMAGE - FILLS THE WHOLE SECTION (cover) */
-            background-image: url('images/child.jpg');
+            background-image: url('images/our.JPG');
             background-size: cover;      /* Image fills entire section - covers all space */
             background-position: center center;
             background-repeat: no-repeat;
@@ -828,54 +934,7 @@
                 padding: 2rem 1rem;
             }
         }
-         @media (max-width: 1024px) {
-      .team-card {
-        flex: 0 0 calc(25% - 21px);
-      }
-    }
-
-    @media (max-width: 880px) {
-      .team-card {
-        flex: 0 0 calc(33.33% - 19px);
-      }
-      .intro-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      .media-showcase {
-        grid-template-columns: 1fr;
-      }
-    }
-     @media (max-width: 640px) {
-      .team-card {
-        flex: 0 0 calc(50% - 14px);
-      }
-      .carousel-container {
-        padding: 0 20px;
-      }
-      .container {
-        padding: 40px 20px;
-      }
-      .section-title {
-        font-size: 1.9rem;
-      }
-      .badge {
-        padding: 8px 18px;
-        font-size: 0.8rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .team-card {
-        flex: 0 0 100%;
-      }
-      .carousel-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-      }
-    }
-        
+       
     /* Main Content */
     .about-section {
       padding: 5rem 0;
@@ -944,6 +1003,109 @@
       font-style: italic;
     }
 
+    .section{
+padding:70px 20px;
+text-align:center;
+}
+
+.section h2{
+font-size:20px;
+margin-bottom:8px;
+}
+
+.section p{
+font-size:13px;
+margin-bottom:60px;
+opacity:0.8;
+}
+
+.cards{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.card{
+width:210px;
+position:relative;
+}
+
+.card-top{
+height:130px;
+border-radius:12px;
+}
+
+.card-content{
+background:white;
+color:#333;
+padding:45px 20px 30px;
+border-radius:12px;
+position:relative;
+margin-top:-60px;
+box-shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+
+.card-content::before{
+content:"";
+position:absolute;
+top:-30px;
+left:0;
+right:0;
+margin:auto;
+width:0;
+height:0;
+border-left:30px solid transparent;
+border-right:30px solid transparent;
+border-bottom:30px solid white;
+}
+
+.number{
+font-weight:bold;
+font-size:20px;
+margin-bottom:15px;
+color: #5a0000;
+}
+
+.text{
+font-size:13px;
+line-height:1.5;
+margin-bottom:20px;
+}
+
+.icon{
+font-size:22px;
+}
+
+/* Colors */
+
+.blue{
+background:linear-gradient(180deg,#6a6cff,#7c8cff);
+}
+
+.purple{
+background:linear-gradient(180deg,#b845ff,#d15cff);
+}
+
+.pink{
+background:linear-gradient(180deg,#ff2f6d,#ff5a90);
+}
+
+.orange{
+background:linear-gradient(180deg,#ff7a00,#ff9d32);
+}
+
+.icon-blue{color:#6a6cff;}
+.icon-purple{color:#b845ff;}
+.icon-pink{color:#ff2f6d;}
+.icon-orange{color:#ff7a00;}
+
+@media(max-width:768px){
+.cards{
+flex-direction:column;
+align-items:center;
+}
+}
     /* Stats Row */
     .stats-row {
       display: flex;
@@ -1011,110 +1173,110 @@
       margin-bottom: 0.8rem;
     }
 
-    
 
-      /* CTA Section */
-    .cta-section {
-      padding: 1rem 0;
-      background: linear-gradient(135deg, rgba(128,0,0,0.95), rgba(100,50,30,0.95));
-      color: white;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .cta-section h2 {
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-    .cta-section p {
-      position: relative;
-      z-index: 1;
-    }
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-    
-    /* Partners Logos inside CTA - Horizontal attractive line */
-    .cta-partners {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.25);
-      position: relative;
-      z-index: 1;
-    }
-    .cta-partners-title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 1.5rem;
-      opacity: 0.8;
-      font-weight: 400;
-    }
-    .partners-horizontal {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      row-gap: 1.2rem;
-    }
-    .partner-logo-card {
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(4px);
-      padding: 0.7rem 1.5rem;
-      border-radius: 60px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255,255,255,0.2);
-      cursor: default;
-    }
-    .partner-logo-card:hover {
-      background: rgba(255,255,255,0.25);
-      transform: translateY(-3px);
-      border-color: rgba(255,255,255,0.5);
-    }
-    .partner-logo-img {
-      max-height: 45px;
-      width: auto;
-      max-width: 110px;
-      filter: brightness(0) invert(1);
-      opacity: 0.9;
-      transition: all 0.2s;
-    }
-    .partner-logo-card:hover .partner-logo-img {
-      opacity: 1;
-      filter: brightness(0) invert(1) drop-shadow(0 2px 2px rgba(0,0,0,0.1));
-    }
-    /* For text-based partner placeholder */
-    .partner-text-logo {
-      color: white;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    }
-    @media (max-width: 700px) {
-      .partner-logo-card {
-        padding: 0.5rem 1rem;
-      }
-      .partner-logo-img {
-        max-height: 35px;
-        max-width: 85px;
-      }
-      .partners-horizontal {
-        gap: 1rem;
-      }
-    }
+    .sponsors-section{
+padding:60px 20px;
+text-align:center;
+background:white;
+overflow:hidden;
+}
+
+/* Title */
+
+.sponsors-title{
+  color: maroon;
+font-size:20px;
+font-weight:600;
+margin-bottom:50px;
+position:relative;
+display:inline-block;
+}
+
+.sponsors-title:before,
+.sponsors-title:after{
+content:"";
+position:absolute;
+top:50%;
+width:80px;
+height:1px;
+background:white;
+}
+
+.sponsors-title:before{
+left:-100px;
+}
+
+.sponsors-title:after{
+right:-100px;
+}
+
+/* Slider */
+
+.slider{
+overflow:hidden;
+position:relative;
+}
+
+.slide-track{
+display:flex;
+gap:30px;
+animation:scroll 25s linear infinite;
+}
+
+/* Cards */
+
+.sponsor-card{
+
+padding:25px;
+border-radius:6px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+display:flex;
+align-items:center;
+justify-content:center;
+height:90px;
+min-width:280px;
+transition:0.3s;
+}
+
+.sponsor-card img{
+max-width:100%;
+max-height:50px;
+object-fit:contain;
+
+transition:0.4s;
+}
+
+/* Hover Animation */
+
+.sponsor-card:hover{
+transform:translateY(-8px);
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.sponsor-card:hover img{
+filter: grayscale(0%);
+}
+
+/* Auto Scroll */
+
+@keyframes scroll{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-50%);
+}
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.sponsor-card{
+min-width:220px;
+}
+
+}
 
     /* Footer */
     .footer {
@@ -1215,12 +1377,7 @@
     }
 
     @media (max-width: 550px) {
-      .container {
-         max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 40px;
-
-      }
+      .container { padding: 0 20px; }
       .content-card {
         padding: 1.5rem;
       }
@@ -1242,7 +1399,7 @@
     <!-- LOGO -->
     <div class="logo">
       <img src="images/logo.png" class="logo-img"
-      onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 50 50\'%3E%3Crect width=\'50\' height=\'50\' fill=\'%23800000\' rx=\'10\'/%3E%3Ctext x=\'8\' y=\'38\' fill=\'white\' font-size=\'35\'%3E🤝%3C/text%3E%3C/svg%3E'">
+      >
       <span>Uganda- Helping Hands</span>
     </div>
 
@@ -1348,9 +1505,10 @@
           </div>
         </div>
       </div>
+    </section>
+    
+    <section>
    <div class="container">
-  
-
   <!-- media: image + clickable video -->
   <div class="media-showcase">
     <div class="media-card">
@@ -1365,6 +1523,73 @@
 </div>
  </section>
   <section class="about-section">
+    <div class="content-card">
+
+<h2 class="section-title">Legal Status & Registration</h2>
+
+<div class="cards">
+
+<!-- Card 1 -->
+<div class="card">
+<div class="card-top blue"></div>
+<div class="card-content">
+<div class="number">Organization Type</div>
+<div class="text">
+Community Based Organization (CBO) registered in Bundibugyo District, Uganda
+</div>
+<div class="icon icon-blue">
+<i class="fas fa-certificate"></i>
+</div>
+</div>
+</div>
+
+<!-- Card 2 -->
+<div class="card">
+<div class="card-top purple"></div>
+<div class="card-content">
+<div class="number">Established</div>
+<div class="text">
+17 December 2023 (Constitutional Meeting)<br>
+18 January 2024 (Constitution in Force)
+</div>
+<div class="icon icon-purple">
+<i class="fas fa-calendar-alt"></i>
+</div>
+</div>
+</div>
+
+<!-- Card 3 -->
+<div class="card">
+<div class="card-top pink"></div>
+<div class="card-content">
+<div class="number">Registered Office</div>
+<div class="text">
+Humya Village Buhundu Parish<br>
+Bukonzo Subcounty, Bughendera County,Bundibugyo District, Uganda
+</div>
+<div class="icon icon-pink">
+<i class="fas fa-map-marker-alt"></i>
+</div>
+</div>
+</div>
+
+<!-- Card 4 -->
+<div class="card">
+<div class="card-top orange"></div>
+<div class="card-content">
+<div class="number">Founding Members</div>
+<div class="text">
+15 dedicated community leaders who came together to formalize the organization's vision
+</div>
+<div class="icon icon-orange">
+<i class="fas fa-users"></i>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
     <div class="container">
       
       <!-- Our Story / Founder's Journey -->
@@ -1388,33 +1613,9 @@
         </div>
       </div>
 
-      <!-- Legal Status & Registration -->
-      <div class="content-card">
-        <h2 class="section-title">Legal Status & Registration</h2>
-        <div class="info-grid">
-          <div class="info-item">
-            <i class="fas fa-certificate"></i>
-            <h4>Organization Type</h4>
-            <p>Community Based Organization (CBO) registered in Bundibugyo District, Uganda</p>
-          </div>
-          <div class="info-item">
-            <i class="fas fa-calendar-alt"></i>
-            <h4>Established</h4>
-            <p>17 December 2023 (Constitutional Meeting)<br>18 January 2024 (Constitution in Force)</p>
-          </div>
-          <div class="info-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <h4>Registered Office</h4>
-            <p>Humya 1, LC I, Buhundu Parish<br>Bukonzo Subcounty, Bundibugyo District, Uganda</p>
-          </div>
-          <div class="info-item">
-            <i class="fas fa-users"></i>
-            <h4>Founding Members</h4>
-            <p>15 dedicated community leaders who came together to formalize the organization's vision</p>
-          </div>
-        </div>
-      </div>
 
+
+  
       <!-- Mission & Vision Preview -->
       <div class="content-card">
         <h2 class="section-title">Our Guiding Purpose</h2>
@@ -1431,8 +1632,6 @@
           </div>
         </div>
       </div>
-
-  
 
       <!-- Who We Serve -->
       <div class="content-card">
@@ -1474,50 +1673,285 @@
       </div>
 
 
-  <!-- Team Carousel Section: 15 members, 5 per slide, auto slide + dots -->
-<div class="team-section">
-  <div class="section-title">Meet Our <span>Team</span></div>
-  <div class="sub">Passionate change-makers driving impact across Uganda</div>
+    <!-- Team Section -->
+<div class="team-container">
+    <div class="team-header">
+        <h2>OUR TEAM</h2>
+        <p>Meet our professional team ready to serve the community.</p>
+    </div>
 
-  <div class="carousel-container">
-    <button class="carousel-btn btn-left" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-    <div class="team-carousel" id="teamCarousel">
-      <div class="carousel-track" id="carouselTrack"></div>
-    </div>
-    <button class="carousel-btn btn-right" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-  </div>
-  <div class="dots-container" id="dotsContainer"></div>
-</div>
- </section>
-      <!-- CTA Section with Partners Logos inside (horizontal line) -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Ready to Make a Difference?</h2>
-      <p>Your support helps us continue our mission of empowering vulnerable children and families.</p>
-      <div class="cta-buttons">
-        <a href="donate.html" class="btn btn-light"><i class="fas fa-heart"></i> Donate Today</a>
-        <a href="volunteer.html" class="btn btn-outline" style="border-color: white; color: white;"><i class="fas fa-hands-helping"></i> Become a Volunteer</a>
-      </div>
-      
-      <!-- Partners Logos Section inside CTA - attractive horizontal line -->
-      <div class="cta-partners">
-        <div class="cta-partners-title"><i class="fas fa-handshake"></i> Our Trusted Partners</div>
-        <div class="partners-horizontal">
-  
-          <div class="partner-logo-card">
-            <span class="partner-text-logo"><i class="fas fa-globe-africa"></i> UNICEF</span>
-          </div>
-          <div class="partner-logo-card">
-            <span class="partner-text-logo"><i class="fas fa-building"></i> Bundibugyo District</span>
-          </div>
-          <div class="partner-logo-card">
-            <span class="partner-text-logo"><i class="fas fa-leaf"></i> Green Hope</span>
-          </div>
+    <!-- Horizontal scrollable area (fully responsive, all 15 members in one row) -->
+    <div class="slider-wrapper" id="sliderWrapper">
+        <div class="team-row" id="teamRow">
+            <!-- 15 team members - each card contains FULL IMAGE (no cut) -->
+            
+            <!-- Member 1 -->
+            <div class="card" onclick="openMemberPage('Bukama Hakim')">
+                <div class="card-image">
+                    <img src="images/CHAIRPERSON.jpg" alt="Bukama Hakim">
+                </div>
+                <h4>Bukama Hakim</h4>
+                <span>Founder & Chairperson</span>
+                <div class="bio">Leading vision & strategy. Passionate about innovation and team growth.</div>
+                <div class="social-icons">
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="far fa-envelope"></i>
+                </div>
+            </div>
+
+            <!-- Member 2 -->
+              <div class="card" onclick="openMemberPage('Mhindo Brian Kahigwa')">
+                <div class="card-image">
+                    <img src="images/brian.jpeg" alt="Mhindo Brian Kahigwa">
+                </div>
+                <h4>Mhindo Brian Kahigwa</h4>
+                <span>Vice Chairperson</span>
+                <div class="bio">Operations & team coordination, ensuring smooth workflow and excellence.</div>
+                <div class="social-icons">
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-github"></i>
+                </div>
+            </div>
+
+            <!-- Member 3 -->
+           
+              <div class="card" onclick="openMemberPage('Kyengonzi Eve')">
+                <div class="card-image">
+                    <img src="images/public.JPG" alt="Kyengonzi Eve">
+                </div>
+                <h4>Kyengonzi Eve</h4>
+                <span>Treasurer</span>
+                <div class="bio">Digital storyteller, brand visibility expert, creative campaigns.</div>
+                <div class="social-icons">
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="far fa-envelope"></i>
+                </div>
+            </div>
+            <!-- Member 4 -->
+            <div class="card" onclick="openMemberPage('Masika Darlyn')">
+                <div class="card-image">
+                    <img src="images/darlyn.jpg" alt="Masika Darlyn">
+                </div>
+                <h4>Masika Darlyn</h4>
+                <span>Media/Internet Activities Manager</span>
+                <div class="bio">Digital storyteller, brand visibility expert, creative campaigns.</div>
+                <div class="social-icons">
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-github"></i>
+                </div>
+            </div>
+
+            <!-- Member 5 -->
+           <div class="card" onclick="openMemberPage('Bwambale Musitafa')">
+                <div class="card-image">
+                    <img src="images/SECRETARY.JPG" alt="Bwambale Musitafa">
+                </div>
+                <h4>Bwambale Musitafa</h4>
+                <span>Secretary</span>
+                <div class="bio">Agile specialist, bridging business goals and technical delivery.</div>
+                <div class="social-icons">
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+
+
+            <!-- Member 6 -->
+
+             <div class="card" onclick="openMemberPage('Tumwesigye Fred')">
+                <div class="card-image">
+                    <img src="images/ASS. SECRTARY.JPG" alt="Tumwesigye Fred">
+                </div>
+                <h4>Tumwesigye Fred</h4>
+                <span>Ass.Secretary</span>
+                <div class="bio">Crafting intuitive experiences with human-centered design.</div>
+                <div class="social-icons">
+                    <i class="fab fa-dribbble"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+            
+            <!-- Member 7 -->
+            <div class="card" onclick="openMemberPage('Namukwenda Praise')">
+                <div class="card-image">
+                    <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Namukwenda Praise">
+                </div>
+                <h4>Namukwenda Praise</h4>
+                <span>Publicity</span>
+                <div class="bio">Visual storytelling, branding, and artistic direction.</div>
+                <div class="social-icons">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-behance"></i>
+                </div>
+            </div>
+
+            <!-- Member 8 -->
+            <div class="card" onclick="openMemberPage('Paul Rodriguez')">
+                <div class="card-image">
+                    <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Paul Rodriguez">
+                </div>
+                <h4>Paul Rodriguez</h4>
+                <span>Data Scientist</span>
+                <div class="bio">Turning data into insights, machine learning & analytics.</div>
+                <div class="social-icons">
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+
+            <!-- Member 9 -->
+            <div class="card" onclick="openMemberPage('Namukwenda Memory')">
+                <div class="card-image">
+                    <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Namukwenda Memory">
+                </div>
+                <h4>Namukwenda Memory</h4>
+                <span>Legal Officer</span>
+                <div class="bio">Growth marketing, brand positioning, and digital outreach.</div>
+                <div class="social-icons">
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+
+            <!-- Member 10 -->
+            <div class="card" onclick="openMemberPage('Bwambale Peter')">
+                <div class="card-image">
+                    <img src="images/ORPHANS TUTOR.JPG" alt="Bwambale Peter">
+                </div>
+                <h4>Bwambale Peter</h4>
+                <span>Orphans Tutor</span>
+                <div class="bio">Infrastructure automation, cloud architecture & CI/CD.</div>
+                <div class="social-icons">
+                    <i class="fab fa-github"></i>
+                    <i class="fab fa-aws"></i>
+                </div>
+            </div>
+
+            <!-- Member 11 -->
+            <div class="card" onclick="openMemberPage('Biira Joan')">
+                <div class="card-image">
+                    <img src="images/public.JPG" alt="Biira Joan">
+                </div>
+                <h4>Biira Joan</h4>
+                <span>Public Relations Officer</span>
+                <div class="bio">Crafting compelling narratives and editorial excellence.</div>
+                <div class="social-icons">
+                    <i class="fab fa-medium"></i>
+                    <i class="far fa-envelope"></i>
+                </div>
+            </div>
+
+            <!-- Member 12 -->
+            <div class="card" onclick="openMemberPage('Chris Evans')">
+                <div class="card-image">
+                    <img src="https://randomuser.me/api/portraits/men/79.jpg" alt="Chris Evans">
+                </div>
+                <h4>Chris Evans</h4>
+                <span>Sales Director</span>
+                <div class="bio">Client relations, strategic partnerships & revenue growth.</div>
+                <div class="social-icons">
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+            </div>
+
+            <!-- Member 13 -->
+            <div class="card" onclick="openMemberPage('Muhindo Didan')">
+                <div class="card-image">
+                    <img src="images/codinator.JPG" alt="Muhindo Didan">
+                </div>
+                <h4>Muhindo Didan</h4>
+                <span>Regional Mobilizer</span>
+                <div class="bio">Talent acquisition, culture building & employee wellbeing.</div>
+                <div class="social-icons">
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+
+            <!-- Member 14 -->
+            <div class="card" onclick="openMemberPage('David Kim')">
+                <div class="card-image">
+                    <img src="https://randomuser.me/api/portraits/men/90.jpg" alt="David Kim">
+                </div>
+                <h4>David Kim</h4>
+                <span>Security Specialist</span>
+                <div class="bio">Cybersecurity, risk assessment & data protection.</div>
+                <div class="social-icons">
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+            </div>
+
+            <!-- Member 15 -->
+            <div class="card" onclick="openMemberPage('Kiiza Bosco')">
+                <div class="card-image">
+                    <img src="images/IMG_9982.JPG" alt="Kiiza Bosco">
+                </div>
+                <h4>Kiiza Bosco</h4>
+                <span>Tailoring Tutor</span>
+                <div class="bio">Ensuring client satisfaction and long-term relationships.</div>
+                <div class="social-icons">
+                    <i class="fab fa-twitter"></i>
+                    <i class="far fa-smile"></i>
+                </div>
+            </div>
         </div>
-        <p style="font-size: 0.75rem; margin-top: 1.5rem; opacity: 0.7;">Together we build stronger communities</p>
-      </div>
     </div>
-  </section>
+
+    <div class="dots" id="dotsContainer">
+       
+    </div>
+    
+    <div class="scroll-hint">
+        <i class="fas fa-arrow-left"></i>
+        <span>Drag or scroll sideways → view all 15 team members</span>
+        <i class="fas fa-arrow-right"></i>
+    </div>
+</div> 
+</section>
+
+<section class="sponsors-section">
+
+<h2 class="sponsors-title"><i class="fas fa-handshake"></i> OUR TRUSTED PARTNERS</h2>
+
+<div class="slider">
+<div class="slide-track">
+
+<!-- Logos -->
+
+<div class="sponsor-card">
+<img src="images/green.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/davion.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/babylogo.jpeg">
+</div>
+
+
+<!-- Duplicate for smooth infinite scroll -->
+
+<div class="sponsor-card">
+<img src="images/green.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/davion.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/babylogo.jpeg">
+</div>
+</div>
+</div>
+
+</section>
 
   <footer class="footer">
     <div class="container">
@@ -1599,179 +2033,143 @@ if(window.innerWidth > 768){
       else backToTop.style.opacity = '0.9';
     });
 
-    // ------------------- TEAM MEMBERS (15 people) -------------------
-  const teamMembers = [
-    { name: "Bukama Hakeem", role: "Founder & Chairperson", img: "images/CHAIRPERSON.jpg", social: { fb: "#", twitter: "#", linkedin: "#" } },
-    { name: "Masika Darlyn", role: "Internet, Media & Publicity", img: "images/darlyn.jpg", social: {} },
-    { name: "Bwambale Musitafa", role: "Child Protection Officer & orphan tutor", img: "images/must.jpg", social: {} },
-    { name: "Muhindo Brian", role: "Secretary", img: "images/brian.jpg", social: {} },
-    { name: "Rebecca Auma", role: "Women Empowerment Lead", img: "https://randomuser.me/api/portraits/women/22.jpg", social: {} },
-    { name: "Michael Odongo", role: "Education Specialist", img: "https://randomuser.me/api/portraits/men/11.jpg", social: {} },
-    { name: "Florence Mutesi", role: "Health & Sanitation", img: "https://randomuser.me/api/portraits/women/89.jpg", social: {} },
-    { name: "James Wasswa", role: "SACCO Coordinator", img: "https://randomuser.me/api/portraits/men/52.jpg", social: {} },
-    { name: "Phiona Kyomuhendo", role: "Livelihood Officer", img: "https://randomuser.me/api/portraits/women/33.jpg", social: {} },
-    { name: "Robert Musoke", role: "Logistics Lead", img: "https://randomuser.me/api/portraits/men/77.jpg", social: {} },
-    { name: "Betty Amongin", role: "Advocacy & Legal", img: "https://randomuser.me/api/portraits/women/57.jpg", social: {} },
-    { name: "Erias Ssempijja", role: "Youth Coordinator", img: "https://randomuser.me/api/portraits/men/94.jpg", social: {} },
-    { name: "Catherine Nambi", role: "Finance Officer", img: "https://randomuser.me/api/portraits/women/16.jpg", social: {} },
-    { name: "Amos Bwambale", role: "Water & Sanitation", img: "https://randomuser.me/api/portraits/men/22.jpg", social: {} },
-    { name: "Martha Kyokunda", role: "Communications Officer", img: "https://randomuser.me/api/portraits/women/73.jpg", social: {} }
-  ];
-
-  const track = document.getElementById('carouselTrack');
-  const dotsContainer = document.getElementById('dotsContainer');
-  let currentIndex = 0;
-  let autoSlideInterval;
-  const slidesToShow = getSlidesToShow();  // responsive: 5 for large, 4/3/2/1 based on width
-  const totalMembers = teamMembers.length;
-  let totalSlides = Math.ceil(totalMembers / slidesToShow);
-
-  // Helper to get slidesToShow based on screen width
-  function getSlidesToShow() {
-    const width = window.innerWidth;
-    if (width >= 1100) return 5;
-    if (width >= 900) return 4;
-    if (width >= 640) return 3;
-    if (width >= 480) return 2;
-    return 1;
-  }
-
-  // Build team cards dynamically
-  function renderCarousel() {
-    track.innerHTML = '';
-    // Build groups (pages) each containing up to slidesToShow members
-    const groups = [];
-    for (let i = 0; i < totalMembers; i += slidesToShow) {
-      groups.push(teamMembers.slice(i, i + slidesToShow));
+       // Function for card click (simulate navigation to team detail)
+    function openMemberPage(name) {
+        // alert or redirect (just demo interaction)
+        // In real scenario you could redirect to team.html with query param
+         window.location.href = "team.html";
+        // window.location.href = "team.html";
     }
-    totalSlides = groups.length;
-    groups.forEach((group, groupIdx) => {
-      const groupDiv = document.createElement('div');
-      groupDiv.style.display = 'flex';
-      groupDiv.style.gap = '28px';
-      groupDiv.style.flex = '0 0 100%';
-      groupDiv.style.width = '100%';
-      groupDiv.classList.add('carousel-group');
-      // for each member in group
-      group.forEach(member => {
-        const card = document.createElement('a');
-        card.href = 'team.html';  // each member leads to team.html
-        card.classList.add('team-card');
-        card.style.textDecoration = 'none';
-        card.innerHTML = `
-          <img src="${member.img}" alt="${member.name}" loading="lazy">
-          <div class="card-info">
-            <div class="member-name">${member.name}</div>
-            <div class="role">${member.role}</div>
-            <div class="social-icons">
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-linkedin"></i>
-            </div>
-          </div>
-        `;
-        groupDiv.appendChild(card);
-      });
-      track.appendChild(groupDiv);
-    });
-    updateDots();
-    updateCarouselTransform();
-  }
 
-  function updateCarouselTransform() {
-    const slideWidthPercent = 100;
-    track.style.transform = `translateX(-${currentIndex * slideWidthPercent}%)`;
-  }
-
-  function updateDots() {
+    // Optional: dynamic dot creation for better navigation (since all 15 cards are shown in one row,
+    // we can add navigation dots that scroll horizontally to specific card indices (e.g., card 1, card 6, card 11)
+    const sliderWrapper = document.getElementById('sliderWrapper');
+    const teamRow = document.getElementById('teamRow');
+    const cards = document.querySelectorAll('.card');
+    
+    // Create dots based on number of groups (e.g., 3 groups: first 5, next 5, last 5)
+    const totalCards = cards.length; // 15
+    const groupSize = 5; // show 5 cards per "dot" navigation target
+    const groups = Math.ceil(totalCards / groupSize);
+    const dotsContainer = document.getElementById('dotsContainer');
+    
+    // Clear any existing dots
     dotsContainer.innerHTML = '';
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if (i === currentIndex) dot.classList.add('active');
-      dot.addEventListener('click', () => {
-        stopAutoSlide();
-        currentIndex = i;
-        updateCarouselTransform();
-        updateDots();
-        startAutoSlide();  // restart after manual click
-      });
-      dotsContainer.appendChild(dot);
+    
+    // Create dots
+    for (let i = 0; i < groups; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.setAttribute('data-group', i);
+        dot.addEventListener('click', () => {
+            // scroll horizontally to the first card of the group
+            const targetCardIndex = i * groupSize;
+            if (targetCardIndex < cards.length) {
+                const targetCard = cards[targetCardIndex];
+                // get scroll position relative to wrapper
+                const scrollLeftPos = targetCard.offsetLeft - 20;
+                sliderWrapper.scrollTo({
+                    left: scrollLeftPos,
+                    behavior: 'smooth'
+                });
+            }
+            updateActiveDot(i);
+        });
+        dotsContainer.appendChild(dot);
     }
-  }
-
-  function nextSlide() {
-    if (totalSlides === 0) return;
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateCarouselTransform();
-    updateDots();
-  }
-
-  function prevSlide() {
-    if (totalSlides === 0) return;
-    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    updateCarouselTransform();
-    updateDots();
-  }
-
-  function startAutoSlide() {
-    if (autoSlideInterval) clearInterval(autoSlideInterval);
-    autoSlideInterval = setInterval(() => {
-      nextSlide();
-    }, 4000);
-  }
-
-  function stopAutoSlide() {
-    if (autoSlideInterval) {
-      clearInterval(autoSlideInterval);
-      autoSlideInterval = null;
+    
+    function updateActiveDot(activeGroup) {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, idx) => {
+            if (idx === activeGroup) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
     }
-  }
-
-  // Handle window resize -> rebuild carousel with new slidesToShow
-  let resizeTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      const newSlides = getSlidesToShow();
-      if (newSlides !== slidesToShow) {
-        // reload carousel with new layout
-        location.reload(); // simplest for demo consistency
-      } else {
-        // just in case re-center
-        updateCarouselTransform();
-      }
-    }, 200);
-  });
-
-  // initial render and autoplay with event listeners
-  function initCarousel() {
-    renderCarousel();
-    startAutoSlide();
-
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    if (nextBtn) nextBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      stopAutoSlide();
-      nextSlide();
-      startAutoSlide();
+    
+    // Determine active dot based on scroll position
+    function updateActiveDotFromScroll() {
+        const scrollPos = sliderWrapper.scrollLeft;
+        let activeGroup = 0;
+        // find which card group is currently most visible
+        for (let i = 0; i < groups; i++) {
+            const groupCardIndex = i * groupSize;
+            if (groupCardIndex < cards.length) {
+                const cardElement = cards[groupCardIndex];
+                const cardLeft = cardElement.offsetLeft;
+                if (scrollPos >= cardLeft - 100) {
+                    activeGroup = i;
+                }
+            }
+        }
+        updateActiveDot(activeGroup);
+    }
+    
+    // listen to scroll events for updating dot state
+    sliderWrapper.addEventListener('scroll', () => {
+        requestAnimationFrame(updateActiveDotFromScroll);
     });
-    if (prevBtn) prevBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      stopAutoSlide();
-      prevSlide();
-      startAutoSlide();
+    
+    // initial active dot
+    updateActiveDotFromScroll();
+    
+    // images also have explicit dimensions and border-radius, no clipping.
+    console.log("Ready: All team member images are fully visible without cut on top.");
+    
+    // For extra safety, ensure no parent has overflow hidden that could affect images.
+    // Already all containers have overflow visible on relevant classes.
+    
+    // Also add a window load check to ensure images loaded and no cut
+    window.addEventListener('load', () => {
+        // small re-adjust for any browser quirks: force all card images to stay fully inside
+        const allImgs = document.querySelectorAll('.card-image img');
+        allImgs.forEach(img => {
+            if (img.complete) {
+                // ensure no weird clipping
+                img.style.objectFit = 'cover';
+            }
+        });
     });
-
-    // Pause autoplay when hovering carousel container
-    const carouselContainer = document.querySelector('.carousel-container');
-    if (carouselContainer) {
-      carouselContainer.addEventListener('mouseenter', stopAutoSlide);
-      carouselContainer.addEventListener('mouseleave', startAutoSlide);
-    }
-  }
-
+    
+    // Add optional touch/mouse swipe for smoother experience (beyond native scroll)
+    let startX = 0;
+    let isSwiping = false;
+    sliderWrapper.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isSwiping = true;
+    });
+    sliderWrapper.addEventListener('touchend', (e) => {
+        if (!isSwiping) return;
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        if (Math.abs(diff) > 50) {
+            // native scroll will already handle, but we optionally can adjust but not needed
+            // just prevent accidental dot update
+        }
+        isSwiping = false;
+    });
+    
+    // additional fix to make sure .card-image doesn't clip via any overflow
+    const style = document.createElement('style');
+    style.textContent = `
+        .card-image {
+            overflow: visible !important;
+        }
+        .card {
+            overflow: visible !important;
+        }
+        .team-row {
+            overflow: visible;
+        }
+        .card-image img {
+            display: block;
+            margin: 0 auto;
+        }
+    `;
+    document.head.appendChild(style);
   // Video Play Logic: replace thumbnail with iframe on click
   const videoContainer = document.getElementById('videoContainer');
   const playBtn = document.getElementById('playVideoBtn');
@@ -1804,60 +2202,7 @@ if(window.innerWidth > 768){
   // when page loads, ensure video frame initially hidden
   if (youtubeFrame) youtubeFrame.style.display = 'none';
 
-  // optional: iframe reset (just for good UX)
-  // team.html page placeholder: in case user clicks any team card, they go to team.html (we don't need to create full page here, but specification requires)
-  // Additionally, we can handle if team.html does not exist: but we implement link as required.
-
-  // Recalculate slidesToShow on resize without full reload but more gracefully
-  // Because getSlidesToShow may change, we can reinitialize carousel track without reload
-  let currentSlidesToShow = slidesToShow;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      const newSlidesToShow = getSlidesToShow();
-      if (newSlidesToShow !== currentSlidesToShow) {
-        currentSlidesToShow = newSlidesToShow;
-        // rebuild track structure
-        const oldIndex = currentIndex;
-        // recompute groups
-        const newGroups = [];
-        for (let i = 0; i < totalMembers; i += newSlidesToShow) {
-          newGroups.push(teamMembers.slice(i, i + newSlidesToShow));
-        }
-        totalSlides = newGroups.length;
-        track.innerHTML = '';
-        newGroups.forEach(group => {
-          const groupDiv = document.createElement('div');
-          groupDiv.style.display = 'flex';
-          groupDiv.style.gap = '28px';
-          groupDiv.style.flex = '0 0 100%';
-          groupDiv.style.width = '100%';
-          group.forEach(member => {
-            const card = document.createElement('a');
-            card.href = 'team.html';
-            card.classList.add('team-card');
-            card.innerHTML = `
-              <img src="${member.img}" alt="${member.name}" loading="lazy">
-              <div class="card-info">
-                <div class="member-name">${member.name}</div>
-                <div class="role">${member.role}</div>
-                <div class="social-icons"><i class="fab fa-facebook"></i><i class="fab fa-twitter"></i><i class="fab fa-linkedin"></i></div>
-              </div>
-            `;
-            groupDiv.appendChild(card);
-          });
-          track.appendChild(groupDiv);
-        });
-        if (oldIndex >= totalSlides) currentIndex = totalSlides - 1;
-        else currentIndex = oldIndex;
-        if (currentIndex < 0) currentIndex = 0;
-        updateCarouselTransform();
-        updateDots();
-      }
-    }, 150);
-  });
-
-  initCarousel();
+  
 
   </script>
 </body>
