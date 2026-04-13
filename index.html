@@ -914,6 +914,113 @@
       z-index: 1;
     }
     
+
+    
+    .sponsors-section{
+padding:60px 20px;
+text-align:center;
+background:white;
+overflow:hidden;
+}
+
+/* Title */
+
+.sponsors-title{
+  color: maroon;
+font-size:20px;
+font-weight:600;
+margin-bottom:50px;
+position:relative;
+display:inline-block;
+}
+
+.sponsors-title:before,
+.sponsors-title:after{
+content:"";
+position:absolute;
+top:50%;
+width:80px;
+height:1px;
+background:white;
+}
+
+.sponsors-title:before{
+left:-100px;
+}
+
+.sponsors-title:after{
+right:-100px;
+}
+
+/* Slider */
+
+.slider{
+overflow:hidden;
+position:relative;
+}
+
+.slide-track{
+display:flex;
+gap:30px;
+animation:scroll 25s linear infinite;
+}
+
+/* Cards */
+
+.sponsor-card{
+
+padding:25px;
+border-radius:6px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+display:flex;
+align-items:center;
+justify-content:center;
+height:90px;
+min-width:280px;
+transition:0.3s;
+}
+
+.sponsor-card img{
+max-width:100%;
+max-height:50px;
+object-fit:contain;
+
+transition:0.4s;
+}
+
+/* Hover Animation */
+
+.sponsor-card:hover{
+transform:translateY(-8px);
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+background-color: var(--white);
+}
+
+.sponsor-card:hover img{
+filter: grayscale(0%);
+}
+
+/* Auto Scroll */
+
+@keyframes scroll{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-50%);
+}
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.sponsor-card{
+min-width:220px;
+}
+
+}
+
     /* Partners Logos inside CTA - Horizontal attractive line */
     .cta-partners {
       margin-top: 3rem;
@@ -922,71 +1029,7 @@
       position: relative;
       z-index: 1;
     }
-    .cta-partners-title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 1.5rem;
-      opacity: 0.8;
-      font-weight: 400;
-    }
-    .partners-horizontal {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      row-gap: 1.2rem;
-    }
-    .partner-logo-card {
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(4px);
-      padding: 0.7rem 1.5rem;
-      border-radius: 60px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255,255,255,0.2);
-      cursor: default;
-    }
-    .partner-logo-card:hover {
-      background: rgba(255,255,255,0.25);
-      transform: translateY(-3px);
-      border-color: rgba(255,255,255,0.5);
-    }
-    .partner-logo-img {
-      max-height: 45px;
-      width: auto;
-      max-width: 110px;
-      filter: brightness(0) invert(1);
-      opacity: 0.9;
-      transition: all 0.2s;
-    }
-    .partner-logo-card:hover .partner-logo-img {
-      opacity: 1;
-      filter: brightness(0) invert(1) drop-shadow(0 2px 2px rgba(0,0,0,0.1));
-    }
-    /* For text-based partner placeholder */
-    .partner-text-logo {
-      color: white;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    }
-    @media (max-width: 700px) {
-      .partner-logo-card {
-        padding: 0.5rem 1rem;
-      }
-      .partner-logo-img {
-        max-height: 35px;
-        max-width: 85px;
-      }
-      .partners-horizontal {
-        gap: 1rem;
-      }
-    }
+    
 
     /* Footer */
   .gmail-btn{
@@ -1476,21 +1519,41 @@ padding:8px 14px;
       
       <!-- Partners Logos Section inside CTA - attractive horizontal line -->
       <div class="cta-partners">
-        <div class="cta-partners-title"><i class="fas fa-handshake"></i> Our Trusted Partners</div>
-        <div class="partners-horizontal">
-  
-          <div class="partner-logo-card">
-            <span class="partner-text-logo"><i class="fas fa-globe-africa"></i> UNICEF</span>
-          </div>
-          <div class="partner-logo-card">
-            <span class="partner-text-logo"><i class="fas fa-building"></i> Bundibugyo District</span>
-          </div>
-          <div class="partner-logo-card">
-            <span class="partner-text-logo"><i class="fas fa-leaf"></i> Green Hope</span>
-          </div>
-        </div>
-        <p style="font-size: 0.75rem; margin-top: 1.5rem; opacity: 0.7;">Together we build stronger communities</p>
-      </div>
+       <h2 class="sponsors-title"><i class="fas fa-handshake"></i> OUR TRUSTED PARTNERS</h2>
+
+<div class="slider">
+<div class="slide-track">
+
+<!-- Logos -->
+
+<div class="sponsor-card">
+<img src="images/green.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/davion.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/babylogo.jpeg">
+</div>
+
+
+<!-- Duplicate for smooth infinite scroll -->
+
+<div class="sponsor-card">
+<img src="images/green.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/davion.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/babylogo.jpeg">
+</div>
+</div>
+</div>
     </div>
   </section>
 
@@ -1501,10 +1564,8 @@ padding:8px 14px;
         <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
              <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a>
-            <a href="mailto:inforugandahelpinghands@gmail.com" 
-class="gmail-btn">
-<i class="fas fa-envelope"></i>inforugandahelpinghands@gmail.com
-</a></div>
+            <a href="#" onclick="openGmail()" class="gmail-btn">
+<i class="fas fa-envelope"></i> inforugandahelpinghands@gmail.com </a></div>
         <div>
   <h4>Connect With Us</h4>
   <div style="font-size: 1.8rem; display: flex; gap: 1.2rem; justify-content: flex-start; align-items: center; margin-top: 0.8rem;">
@@ -1527,7 +1588,7 @@ class="gmail-btn">
   </div>
 </div></div>
       </div>
-      <div class="footer-bottom"><p>© 2025 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
+      <div class="footer-bottom"><p>© 2026 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
     </div>
   </footer>
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
@@ -1583,6 +1644,21 @@ if(window.innerWidth > 768){
     drop.onmouseenter = () => drop.classList.add("active");
     drop.onmouseleave = () => drop.classList.remove("active");
   });
+}
+//Gmail
+function openGmail() {
+var email = "inforugandahelpinghands@gmail.com";
+
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+window.location.href = "mailto:" + email;
+} else {
+window.open(
+"https://mail.google.com/mail/?view=cm&fs=1&to=" + email,
+"_blank"
+);
+}
 }
   </script>
 </body>
