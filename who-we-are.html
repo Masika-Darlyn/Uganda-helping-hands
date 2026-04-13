@@ -392,11 +392,130 @@ font-size:22px;
 
 }
 
+ /* Hero Section */
+.hero{
+height:130vh;
+background:url('images/donations.jpeg') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-align:center;
+}
+
+.hero h1{
+font-size:60px;
+letter-spacing:2px;
+animation: fadeInUp 0.8s ease-out;
+}
+
+
+     
+/* Section */
+.section{
+padding:60px 8%;
+text-align:center;
+}
+
+.section h2{
+font-size:30px;
+margin-bottom:20px;
+}
+
+.section p{
+color:#1b0505;
+max-width:700px;
+margin:auto;
+}
+
+/* Features */
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.feature{
+padding:20px;
+}
+
+.feature i{
+font-size:30px;
+color:maroon;
+margin-bottom:10px;
+}
+.lebel {
+      color: rgb(58, 17, 17);
       
+    }
+/* Progress */
+.progress-section{
+padding: 1rem;
+display:grid;
+grid-template-columns:1fr 1fr;
+
+}
+.progress-section:hover{
+transform: translateY(-5px);
+}
+.progress-image{
+background:url('images/edu.jpg') center/cover;
+height:350px;
+ border-radius: 1rem;
+ margin-right: 1rem;
+}
+
+.progress-box{
+background:#6d2b17;
+color:white;
+display:flex;
+align-items:center;
+justify-content:space-around;
+ border-radius: 1.5rem;
+}
+
+.progress-box div{
+text-align:center;
+}
+
+/* Services */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+margin-top:40px;
+}
+.services h4 {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+.service img{
+width:100px;
+height:100px;
+border-radius:50%;
+}
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:35px;
+}
+
+.progress-section{
+grid-template-columns:1fr;
+}
+
+}
+
 
     /* Who We Are Content */
     .who-we-are-section {
-      padding: 2rem 0 5rem;
+      padding: 1rem 0 5rem;
     }
 
     .content-card {
@@ -545,7 +664,7 @@ font-size:22px;
       margin-top: 1.5rem;
     }
 
-       .sponsors-section{
+  .sponsors-section{
 padding:60px 20px;
 text-align:center;
 background:white;
@@ -647,6 +766,25 @@ transform:translateX(-50%);
 min-width:220px;
 }
 
+}
+.gmail-btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:10px 18px;
+color:white;
+text-decoration:none;
+font-size:15px;
+transition:0.3s;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+.gmail-btn{
+font-size:14px;
+padding:8px 14px;
+}
 }
 
     /* Footer */
@@ -833,13 +971,18 @@ min-width:220px;
   </div>
 </nav>
 
-<section class="event-section">
-
-<div class="sub-title">
- <h1>Who We Are</h1>
+<!-- Hero -->
+<section class="hero">
+<div>
+<h1>WHO WE ARE</h1>
 </div>
+</section>
 
-<div class="image-row">
+
+<section class="section">
+        <p ><strong>Uganda- Helping Hands</strong> is a Community Based Organization (CBO) registered in Bundibugyo District, dedicated to restoring dignity, opportunity, and hope to vulnerable children, women, and families across Uganda.</p>
+
+        <div class="image-row">
 
 <div class="image-card">
 <img src="images/donate.jpeg">
@@ -850,7 +993,7 @@ min-width:220px;
 </div>
 
 <div class="image-card">
-<img src="images/tailors.jpg">
+<img src="images/help.jpg">
 </div>
 
 </div>
@@ -858,40 +1001,42 @@ min-width:220px;
 <div class="location">
 A grassroots humanitarian organization born from compassion, serving vulnerable communities across Uganda.
 </div>
+<div class="features">
+<div class="feature">
+<i class="fa fa-user"></i>
+<h3><a class="lebel" href="volunteer.html">Become Volunteer</a></h3>
+</div>
+
+<div class="feature">
+<i class="fa fa-gift"></i>
+<h3><a class="lebel" href="donate.html">Make A Gift</a></h3>
+
+</div>
+
+</div>
 
 </section>
 
+<!-- Progress -->
+<section class="progress-section">
+<div class="progress-image"></div>
+<div class="progress-box">
+<div>
+<h2>2022</h2>
+<p>Year Founded</p>
+</div>
+<div>
+<h2>15</h2>
+<p>Founding Members</p>
+</div>
+<div>
+<h2>10+</h2>
+<p>SACCO Members</p>
+</div>
+</div>
+</section>
 
-    
-  <!-- Main Content -->
-  <section class="who-we-are-section">
-    <div class="container">
-      <!-- Our Identity -->
-      <div class="content-card">
-        <h2 class="section-title">Our Identity</h2>
-        <p style="font-size: 1.1rem; margin-bottom: 1rem;"><strong>Uganda- Helping Hands</strong> is a Community Based Organization (CBO) registered in Bundibugyo District, dedicated to restoring dignity, opportunity, and hope to vulnerable children, women, and families across Uganda.</p>
-        <p>Founded in the aftermath of the COVID-19 pandemic, we witnessed firsthand how rural communities struggled—children dropping out of school, young girls facing early marriage, and families losing their livelihoods. What began as a small gardening project sharing harvests with vulnerable families has grown into a comprehensive humanitarian initiative serving orphaned children, empowering women, and building sustainable community development programs.</p>
-        <div class="stats-row">
-          <div class="stat-box">
-            <div class="stat-number">2022</div>
-            <div class="stat-label">Year Founded</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number">15</div>
-            <div class="stat-label">Founding Members</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">Children in Care</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number">20+</div>
-            <div class="stat-label">SACCO Members</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Founder's Story -->
+ <!-- Founder's Story -->
       <div class="content-card">
         <h2 class="section-title">Our Founder's Story</h2>
         <div class="founder-story">
@@ -911,8 +1056,7 @@ A grassroots humanitarian organization born from compassion, serving vulnerable 
           </div>
         </div>
       </div>
-
-      <!-- Our Vision & Mission -->
+ <!-- Our Vision & Mission -->
       <div class="content-card">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
           <div>
@@ -925,7 +1069,33 @@ A grassroots humanitarian organization born from compassion, serving vulnerable 
           </div>
         </div>
       </div>
+<!-- Services -->
+ <div class="content-card">
+<h2 class="section-title">What Services We Provide</h2>
 
+<div class="services">
+<div class="service">
+<img src="images/masika.jpg">
+<h4>Orphan care</h4>
+</div>
+
+<div class="service">
+<img src="images/wells.webp">
+<h4>Water & Sanitation</h4>
+</div>
+
+<div class="service">
+<img src="images/moms.jpg">
+<h4>humanitarian-aid</h4>
+</div>
+ 
+<div class="service">
+<img src="images/uni.jpg">
+<h4>Education Support</h4>
+</div>
+
+</div>
+</div>
       <!-- Core Values -->
       <div class="content-card">
         <h2 class="section-title">Our Core Values</h2>
@@ -934,10 +1104,15 @@ A grassroots humanitarian organization born from compassion, serving vulnerable 
           <div class="value-item"><i class="fas fa-balance-scale"></i><h4>Integrity</h4><p>Doing what is right, always</p></div>
           <div class="value-item"><i class="fas fa-eye"></i><h4>Transparency</h4><p>Open and accountable operations</p></div>
           <div class="value-item"><i class="fas fa-hand-holding-heart"></i><h4>Community Empowerment</h4><p>Building capacity from within</p></div>
-          <div class="value-item"><i class="fas fa-check-circle"></i><h4>Accountability</h4><p>Responsible to those we serve</p></div>
           <div class="value-item"><i class="fas fa-users"></i><h4>Human Dignity</h4><p>Respecting every person's worth</p></div>
         </div>
       </div>
+
+</section>
+
+    
+  <!-- Main Content -->
+  <section class="who-we-are-section">
 
       <!-- Who We Serve -->
       <div class="content-card">
@@ -971,22 +1146,7 @@ A grassroots humanitarian organization born from compassion, serving vulnerable 
         </div>
       </div>
 
-      <!-- Governance Structure -->
-      <div class="content-card">
-        <h2 class="section-title">Governance Structure</h2>
-        <p>Uganda- Helping Hands is governed by a dedicated Board of Directors elected by the General Assembly:</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-          <div><i class="fas fa-gavel"></i> <strong>Chairperson:</strong> Bukama Hakim</div>
-          <div><i class="fas fa-pen-alt"></i> <strong>Secretary:</strong> Masika Darlyn</div>
-          <div><i class="fas fa-coins"></i> <strong>Treasurer:</strong> Muhindo Brian Kahigwa</div>
-          <div><i class="fas fa-chart-line"></i> Project Coordinator</div>
-          <div><i class="fas fa-hand-holding-usd"></i> Fundraising Officer</div>
-          <div><i class="fas fa-bullhorn"></i> Public Relations Officer</div>
-        </div>
-        <div class="commitment-box" style="margin-top: 1.5rem;">
-          <p><strong><i class="fas fa-shield-alt"></i> Financial Accountability:</strong> Two authorized signatories required for all transactions. Annual audits conducted by independent auditors. Full financial reports presented at Annual General Meetings.</p>
-        </div>
-      </div>
+  
 
       <!-- Child Protection Commitment -->
       <div class="content-card">
@@ -997,18 +1157,47 @@ A grassroots humanitarian organization born from compassion, serving vulnerable 
           <p style="margin-top: 1rem;"><strong>Our principles:</strong> Every child has the right to safety, education, and a nurturing environment where they can thrive.</p>
         </div>
       </div>
-
-      <!-- Call to Action -->
-      <div class="content-card" style="text-align: center; background: linear-gradient(135deg, rgba(128,0,0,0.95), rgba(100,50,30,0.95)); color: white;">
-        <h2 style="color: white; margin-bottom: 1rem;">Join Us in Making a Difference</h2>
-        <p style="margin-bottom: 1.5rem;">Your support helps us provide shelter, education, and hope to vulnerable children and families across Uganda.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="donate.html" style="background: #ffb347; color: #2d1b0c; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-donate"></i> Donate Now</a>
-          <a href="contact.html" style="background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-envelope"></i> Contact Us</a>
-        </div>
-      </div>
-    </div>
   </section>
+    
+<section class="sponsors-section">
+
+<h2 class="sponsors-title"><i class="fas fa-handshake"></i> OUR TRUSTED PARTNERS</h2>
+
+<div class="slider">
+<div class="slide-track">
+
+<!-- Logos -->
+
+<div class="sponsor-card">
+<img src="images/green.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/davion.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/babylogo.jpeg">
+</div>
+
+
+<!-- Duplicate for smooth infinite scroll -->
+
+<div class="sponsor-card">
+<img src="images/green.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/davion.jpeg">
+</div>
+
+<div class="sponsor-card">
+<img src="images/babylogo.jpeg">
+</div>
+</div>
+</div>
+
+</section>
 
  <!-- Footer -->
   <footer class="footer">
@@ -1016,8 +1205,8 @@ A grassroots humanitarian organization born from compassion, serving vulnerable 
       <div class="footer-grid">
         <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
-             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="inforugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> inforugandahelpinghands@gmail.com
-    </a></div>
+             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="#" onclick="openGmail()" class="gmail-btn">
+<i class="fas fa-envelope"></i> inforugandahelpinghands@gmail.com </a></div>
         <div>
   <h4>Connect With Us</h4>
   <div style="font-size: 1.8rem; display: flex; gap: 1.2rem; justify-content: flex-start; align-items: center; margin-top: 0.8rem;">
@@ -1040,7 +1229,7 @@ A grassroots humanitarian organization born from compassion, serving vulnerable 
   </div>
 </div></div>
       </div>
-      <div class="footer-bottom"><p>© 2025 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
+      <div class="footer-bottom"><p>© 2026 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
     </div>
   </footer>
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
@@ -1084,14 +1273,27 @@ if(window.innerWidth > 768){
   });
 }
 
-
- 
     // Back to top
     const backToTop = document.querySelector('.back-to-top');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) backToTop.style.opacity = '1';
       else backToTop.style.opacity = '0.9';
     });
+    //Gmail
+function openGmail() {
+var email = "inforugandahelpinghands@gmail.com";
+
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+window.location.href = "mailto:" + email;
+} else {
+window.open(
+"https://mail.google.com/mail/?view=cm&fs=1&to=" + email,
+"_blank"
+);
+}
+}
   </script>
 </body>
 </html>
