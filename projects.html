@@ -289,197 +289,166 @@
     margin-top:10px;
   }
 }
+      
+       /* HERO */
+.hero{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  height:520px;
+}
 
-   /* ========== HERO SECTION ========== 
-           Hero with image that FILLS the entire section completely */
-        .hero {
-            /* Full viewport height hero - dramatic and immersive */
-            min-height: 85vh;
-            height: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            /* BACKGROUND IMAGE - FILLS THE WHOLE SECTION (cover) */
-            background-image: url('images/child.jpg');
-            background-size: cover;      /* Image fills entire section - covers all space */
-            background-position: center center;
-            background-repeat: no-repeat;
-            
-            /* Fallback color while image loads */
+/* LEFT SIDE */
+.hero-left{
+background:linear-gradient(90deg, #601313 60%, transparent);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  padding:0 60px;
+  
+}
 
-            
-            position: relative;
-            isolation: isolate;
-        }
-        
-        /* Semi-transparent overlay to improve text readability - keeps image fully visible but adds contrast */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.4) 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-        
-        /* Hero content wrapper - centers content beautifully above overlay */
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 4rem 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        
-        /* Main heading - bold, inspiring, with strong text shadow */
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 800;
-            color: #ffffff;
-            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.7), 0 2px 5px rgba(0, 0, 0, 0.5);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        /* Hero description - elegant and readable */
-        .hero .hero-description {
-            font-size: 1.5rem;
-            max-width: 780px;
-            margin: 0 auto;
-            color: #ffffff;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-            font-weight: 500;
-            line-height: 1.5;
-            background: rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(8px);
-            padding: 1rem 2rem;
-            border-radius: 80px;
-            display: inline-block;
-            width: auto;
-            letter-spacing: 0.01em;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            animation: fadeInUp 0.8s ease-out 0.1s both;
-        }
-        
-        /* Decorative element - warm underline */
-        .hero h1:after {
-            content: '';
-            display: block;
-            width: 90px;
-            height: 4px;
-            background: linear-gradient(90deg, #f5b042, #e67e22);
-            margin: 1.2rem auto 0;
-            border-radius: 4px;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.3);
-        }
-        
-        /* CTA button to enhance hero section */
-        .hero-cta {
-            margin-top: 2.5rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-        
-        .hero-cta .btn {
-            display: inline-block;
-            background: #f5b042;
-            color: #1e2a23;
-            font-weight: 700;
-            padding: 0.9rem 2.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            border: none;
-            cursor: pointer;
-            letter-spacing: 0.5px;
-        }
-        
-        .hero-cta .btn:hover {
-            background: #e67e22;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive hero adjustments */
-        @media (max-width: 992px) {
-            .hero {
-                min-height: 75vh;
-            }
-            .hero h1 {
-                font-size: 3.8rem;
-            }
-            .hero .hero-description {
-                font-size: 1.3rem;
-                padding: 0.8rem 1.6rem;
-                backdrop-filter: blur(6px);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 70vh;
-            }
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .hero .hero-description {
-                font-size: 1.1rem;
-                padding: 0.7rem 1.2rem;
-                backdrop-filter: blur(5px);
-                background: rgba(0, 0, 0, 0.4);
-            }
-            .hero h1:after {
-                width: 70px;
-                height: 3px;
-            }
-            .hero-cta .btn {
-                padding: 0.7rem 1.6rem;
-                font-size: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                min-height: 65vh;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero .hero-description {
-                font-size: 0.95rem;
-                padding: 0.6rem 1rem;
-            }
-            .hero-content {
-                padding: 2rem 1rem;
-            }
-        }
-        
 
-    /* Projects Section */
-    .projects-section {
-      padding: 2rem 0 5rem;
+
+.hero-content h1{
+  font-size:30px;
+  line-height:1.2;
+  margin-bottom:15px;
+}
+.hero-content h3{
+  font-size:42px;
+  line-height:1.2;
+  margin-bottom:15px;
+  text-align: center;
+}
+.hero-content p{
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+
+/* RIGHT SIDE IMAGE */
+.hero-right{
+  overflow:hidden;
+}
+
+.hero-right img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* ABOUT SECTION */
+.about{
+   background: rgba(255, 252, 245, 0.95);
+      backdrop-filter: blur(4px);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:50px;
+}
+.about:hover {
+  transform: translateY(-5px);
+}
+/* IMAGE STACK */
+.about-images{
+  position:relative;
+  width:100%;
+  max-width:500px;
+}
+
+.about-images .main-img{
+  width:100%;
+  border:6px solid #601313;
+}
+
+.about-images .small-img{
+  position:absolute;
+  bottom:-30px;
+  left:30px;
+  width:160px;
+  border:6px solid #fff;
+}
+
+/* TEXT */
+.about-text h4{
+  font-size:13px;
+  color:#601313;
+  margin-bottom:10px;
+}
+
+.about-text h2{
+  color:#601313;
+  margin-bottom:15px;
+  font-size:24px;
+}
+
+.about-text p{
+  font-size:14px;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.about-text button{
+  background:linear-gradient(45deg,#601313,#f1c607);
+  border:none;
+  padding:10px 20px;
+  border-radius: 1rem;
+}
+.about-text button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, #441515, #e61a1a);
     }
+.read{
+  color: #5a0000;
+}
+.read:hover{
+  color: white;
+}
 
-    .content-card {
+/* RESPONSIVE */
+@media(max-width:900px){
+
+.hero{
+  grid-template-columns:1fr;
+  height:auto;
+}
+
+.hero-left{
+  padding:50px 20px;
+  text-align:center;
+}
+
+.hero-right{
+  height:300px;
+}
+
+.about{
+  grid-template-columns:1fr;
+  text-align:center;
+  
+}
+
+.about-images{
+  margin:auto;
+}
+.about-images:hover{
+
+  
+}
+
+.about-images .small-img{
+  left:50%;
+  transform:translateX(-50%);
+}
+
+}
+ .content-card {
       background: rgba(255, 252, 245, 0.95);
       backdrop-filter: blur(4px);
       border-radius: 2rem;
@@ -493,155 +462,6 @@
       transform: translateY(-5px);
     }
 
-    .section-title {
-      color: var(--primary);
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: var(--secondary);
-      border-radius: 2px;
-    }
-
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 1.5rem;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      position: relative;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
-    }
-
-    .project-header {
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      padding: 1.5rem;
-      color: white;
-      position: relative;
-    }
-
-    .project-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-header h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-status {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 0.3rem 0.8rem;
-      border-radius: 60px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .project-content {
-      padding: 1.5rem;
-    }
-
-    .project-content p {
-      color: #5a3a2a;
-      margin-bottom: 1rem;
-      line-height: 1.7;
-    }
-
-    .project-stats {
-      background: rgba(128, 0, 0, 0.05);
-      padding: 1rem;
-      border-radius: 1rem;
-      margin: 1rem 0;
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .stat-label {
-      font-size: 0.75rem;
-      color: #7a5a4a;
-    }
-
-    .project-needs {
-      background: #fff5e8;
-      padding: 1rem;
-      border-radius: 1rem;
-      margin-top: 1rem;
-    }
-
-    .project-needs h4 {
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    .project-needs ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .project-needs li {
-      font-size: 0.85rem;
-      padding: 0.2rem 0;
-      color: #5a3a2a;
-    }
-
-    .project-needs li i {
-      color: var(--primary);
-      width: 20px;
-    }
-
-    .project-btn {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 60px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 1rem;
-      transition: all 0.3s;
-      font-size: 0.9rem;
-    }
-
-    .project-btn:hover {
-      background: #9e3a3a;
-      transform: translateY(-2px);
-    }
 
     /* Stats Row */
     .stats-row {
@@ -676,6 +496,56 @@
       font-size: 0.9rem;
       color: #5a3a2a;
     }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 1rem 0;
+      background: var(--white);
+      color: rgb(49, 16, 16);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section h2 {
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-section p {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    
+
+.gmail-btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:10px 18px;
+color:white;
+text-decoration:none;
+font-size:15px;
+transition:0.3s;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+.gmail-btn{
+font-size:14px;
+padding:8px 14px;
+}
+}
 
    /* Footer */
     .footer {
@@ -862,20 +732,22 @@
     </div>
   </div>
 </nav>
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Our Projects</h1>
-            <p class="hero-description">
-                Transforming lives through sustainable programs that restore dignity, create opportunity, and build hope.
-            </p>
-            <div class="hero-cta">
-                <a href="volunteer.html" class="btn">Join Our Mission →</a>
-            </div>
-        </div>
-    </section>
+   <!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-content">
+      <h3>OUR PROJECTS</h3>
+      <h1>A step towards a better tomorrow.</h1>
+      <p>YOUR CONTRIBUTION CAN MAKE A DIFFERENCE</p>
+     <a href="donate.html" class="btn btn-light"><i class="fas fa-heart"></i> Donate Now</a>
+    </div>
+  </div>
 
-  <!-- Projects Section -->
-  <section class="projects-section">
+  <div class="hero-right">
+    <img src="images/uni.jpg"> 
+  </div>
+</section>
+<section>
     <div class="container">
       
       <!-- Introduction -->
@@ -902,223 +774,132 @@
           </div>
         </div>
       </div>
+</section>
+<!-- ABOUT -->
+<section class="about">
 
-      <!-- Projects Grid -->
-      <div class="projects-grid">
-        
-        <!-- Project 1: Orphan Care & Shelter -->
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon"><i class="fas fa-home"></i></div>
-            <h3>Orphan Care & Shelter</h3>
-            <span class="project-status"><i class="fas fa-hard-hat"></i> Under Construction</span>
-          </div>
-          <div class="project-content">
-            <p>Providing a safe, loving home for orphaned and vulnerable children who have lost parental care. Our current shelter is overcrowded and structurally unsafe, so we are constructing a new, secure orphan home.</p>
-            <div class="project-stats">
-              <div class="stat">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Children in Care</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">New Home</div>
-                <div class="stat-label">Under Construction</div>
-              </div>
-            </div>
-            <div class="project-needs">
-              <h4><i class="fas fa-tools"></i> Urgent Needs:</h4>
-              <ul>
-                <li><i class="fas fa-hammer"></i> Construction materials for new orphan home</li>
-                <li><i class="fas fa-bed"></i> Bedding, mattresses, and furniture</li>
-                <li><i class="fas fa-utensils"></i> Kitchen equipment and food supplies</li>
-                <li><i class="fas fa-book"></i> Educational materials for children</li>
-              </ul>
-            </div>
-            <a href="donate.html" class="project-btn"><i class="fas fa-donate"></i> Support Orphan Care</a>
-          </div>
-        </div>
+  <div class="about-images">
+    <img class="main-img" src="images/pencil.jpg">
+    <img class="small-img" src="images/two.jpg">
+  </div>
 
-        <!-- Project 2: Education Support -->
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-            <h3>Education Support</h3>
-            <span class="project-status"><i class="fas fa-chart-line"></i> Active</span>
-          </div>
-          <div class="project-content">
-            <p>Ensuring vulnerable children can access quality education through scholastic materials, tuition support, and school enrollment assistance. Every child deserves the opportunity to learn and build a brighter future.</p>
-            <div class="project-stats">
-              <div class="stat">
-                <div class="stat-number">1</div>
-                <div class="stat-label">Child Enrolled</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">Many</div>
-                <div class="stat-label">Waiting for Support</div>
-              </div>
-            </div>
-            <div class="project-needs">
-              <h4><i class="fas fa-pencil-alt"></i> Needs:</h4>
-              <ul>
-                <li><i class="fas fa-book"></i> Exercise books and stationery</li>
-                <li><i class="fas fa-tshirt"></i> School uniforms</li>
-                <li><i class="fas fa-backpack"></i> School bags</li>
-                <li><i class="fas fa-dollar-sign"></i> Tuition fees for vulnerable children</li>
-              </ul>
-            </div>
-            <a href="donate.html" class="project-btn"><i class="fas fa-graduation-cap"></i> Sponsor a Child's Education</a>
-          </div>
-        </div>
+  <div class="about-text">
+    <h2>EDUCATION SUPPORT</h2>
+    <p>
+      Ensuring vulnerable children can access quality education through scholastic materials, tuition support, and school enrollment assistance. Every child deserves the opportunity to learn and build a brighter future.
+    </p>
+    <button><a  class="read" href="education-support.html">READ MORE</a></button>
+  </div>
+</section>
 
-        <!-- Project 3: Women Empowerment - Tailoring -->
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon"><i class="fas fa-tshirt"></i></div>
-            <h3>Women Empowerment</h3>
-            <span class="project-status"><i class="fas fa-chart-line"></i> Active</span>
-          </div>
-          <div class="project-content">
-            <p>Empowering women and girls through vocational skills training, including tailoring and sewing programs. Participants gain practical skills that enable them to earn income and regain confidence.</p>
-            <div class="project-stats">
-              <div class="stat">
-                <div class="stat-number">5</div>
-                <div class="stat-label">Sewing Machines</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">5+</div>
-                <div class="stat-label">Girls Trained Quarterly</div>
-              </div>
-            </div>
-            <div class="project-needs">
-              <h4><i class="fas fa-thread"></i> Needs:</h4>
-              <ul>
-                <li><i class="fas fa-sewing-machine"></i> Additional sewing machines</li>
-                <li><i class="fas fa-cut"></i> Fabric and tailoring materials</li>
-                <li><i class="fas fa-tools"></i> Training equipment and supplies</li>
-                <li><i class="fas fa-chalkboard"></i> Training space expansion</li>
-              </ul>
-            </div>
-            <a href="donate.html" class="project-btn"><i class="fas fa-female"></i> Support Women Empowerment</a>
-          </div>
-        </div>
 
-        <!-- Project 4: Community SACCO -->
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon"><i class="fas fa-hand-holding-usd"></i></div>
-            <h3>Community SACCO</h3>
-            <span class="project-status"><i class="fas fa-chart-line"></i> Active</span>
-          </div>
-          <div class="project-content">
-            <p>A community savings and credit initiative providing small loans to farmers and small business owners. This program promotes economic self-reliance and helps families invest in their futures.</p>
-            <div class="project-stats">
-              <div class="stat">
-                <div class="stat-number">20+</div>
-                <div class="stat-label">Active Members</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">Farmers &</div>
-                <div class="stat-label">Small Business Owners</div>
-              </div>
-            </div>
-            <div class="project-needs">
-              <h4><i class="fas fa-chart-line"></i> Needs:</h4>
-              <ul>
-                <li><i class="fas fa-dollar-sign"></i> Loan capital expansion</li>
-                <li><i class="fas fa-laptop"></i> Record-keeping systems</li>
-                <li><i class="fas fa-chalkboard-teacher"></i> Financial literacy training</li>
-              </ul>
-            </div>
-            <a href="donate.html" class="project-btn"><i class="fas fa-hand-holding-usd"></i> Support SACCO Program</a>
-          </div>
-        </div>
+<!-- ABOUT -->
+<section class="about">
 
-        <!-- Project 5: Water & Sanitation -->
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon"><i class="fas fa-water"></i></div>
-            <h3>Water & Sanitation</h3>
-            <span class="project-status"><i class="fas fa-tools"></i> Ongoing</span>
-          </div>
-          <div class="project-content">
-            <p>Improving access to clean, safe water in rural communities through well construction and water projects. Clean water transforms health, education, and economic opportunities.</p>
-            <div class="project-stats">
-              <div class="stat">
-                <div class="stat-number">Multiple</div>
-                <div class="stat-label">Wells Constructed</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">Rural</div>
-                <div class="stat-label">Communities Served</div>
-              </div>
-            </div>
-            <div class="project-needs">
-              <h4><i class="fas fa-hard-hat"></i> Needs:</h4>
-              <ul>
-                <li><i class="fas fa-drill"></i> Well drilling equipment</li>
-                <li><i class="fas fa-pipe"></i> Water storage tanks</li>
-                <li><i class="fas fa-hands"></i> Sanitation education materials</li>
-              </ul>
-            </div>
-            <a href="donate.html" class="project-btn"><i class="fas fa-tint"></i> Support Clean Water</a>
-          </div>
-        </div>
+  <div class="about-images">
+    <img class="main-img" src="images/uniform.jpg">
+    <img class="small-img" src="images/help.jpg">
+  </div>
 
-        <!-- Project 6: Humanitarian Aid -->
-        <div class="project-card">
-          <div class="project-header">
-            <div class="project-icon"><i class="fas fa-box-open"></i></div>
-            <h3>Humanitarian Aid</h3>
-            <span class="project-status"><i class="fas fa-chart-line"></i> Active</span>
-          </div>
-          <div class="project-content">
-            <p>Providing emergency support to vulnerable individuals including clothing, bedding, household necessities, and shelter support during times of crisis.</p>
-            <div class="project-stats">
-              <div class="stat">
-                <div class="stat-number">Emergency</div>
-                <div class="stat-label">Response Ready</div>
-              </div>
-              <div class="stat">
-                <div class="stat-number">Vulnerable</div>
-                <div class="stat-label">Families Supported</div>
-              </div>
-            </div>
-            <div class="project-needs">
-              <h4><i class="fas fa-gift"></i> Needs:</h4>
-              <ul>
-                <li><i class="fas fa-tshirt"></i> Clothing for children and adults</li>
-                <li><i class="fas fa-bed"></i> Bedding and blankets</li>
-                <li><i class="fas fa-utensils"></i> Food supplies</li>
-                <li><i class="fas fa-home"></i> Emergency shelter materials</li>
-              </ul>
-            </div>
-            <a href="donate.html" class="project-btn"><i class="fas fa-hand-holding-heart"></i> Support Humanitarian Aid</a>
-          </div>
-        </div>
+  <div class="about-text">
+    <h2>ORPHAN CARE </h2>
+    <p>
+      Providing a safe, loving home for orphaned and vulnerable children who have lost parental care. Our current shelter is overcrowded and structurally unsafe, so we are constructing a new, secure orphan home.
+    </p>
+    <button><a  class="read" href="orphan-care.html">READ MORE</a></button>
+  </div>
+</section>
+
+<section class="about">
+
+  <div class="about-images">
+    <img class="main-img" src="images/tailors (2).jpg">
+    <img class="small-img" src="images/mom1.jpg">
+  </div>
+
+  <div class="about-text">
+    <h2>WOMEN EMPOWERMENT</h2>
+    <p>
+      Empowering women and girls through vocational skills training, including tailoring and sewing programs. Participants gain practical skills that enable them to earn income and regain confidence.
+    </p>
+    <button><a  class="read" href="women-empowerment.html">READ MORE</a></button>
+  </div>
+</section>
+<section class="about">
+
+  <div class="about-images">
+    <img class="main-img" src="images/saco.jpg">
+    <img class="small-img" src="images/our.webp">
+  </div>
+
+  <div class="about-text">
+    <h2>COMMUNITY SACCO</h2>
+    <p>
+   A community savings and credit initiative providing small loans to farmers and small business owners. This program promotes economic self-reliance and helps families invest in their futures.
+    </p>
+    <button><a  class="read" href="sacco-loans.html">READ MORE</a></button>
+  </div>
+</section>
+<section class="about">
+
+  <div class="about-images">
+    <img class="main-img" src="images/wells.webp">
+    <img class="small-img" src="images/wel.jpg">
+  </div>
+
+  <div class="about-text">
+    <h2>WATER AND SANITATION</h2>
+    <p>
+     Improving access to clean, safe water in rural communities through well construction and water projects. Clean water transforms health, education, and economic opportunities.
+    </p>
+    <button><a  class="read" href="water-sanitation.html">READ MORE</a></button>
+  </div>
+</section>
+<section class="about">
+
+  <div class="about-images">
+    <img class="main-img" src="images/daps.jpg">
+    <img class="small-img" src="images/birt.jpg">
+  </div>
+
+  <div class="about-text">
+    <h2>HUMANITARIAN AID</h2>
+    <p>
+      Providing emergency support to vulnerable individuals including clothing, bedding, household necessities, and shelter support during times of crisis.
+    </p>
+    <button><a  class="read" href="humanitarian-aid.html">READ MORE</a></button>
+  </div>
+</section>
+
+<section class="about">
+
+  <div class="about-images">
+    <img class="main-img" src="images/maize.jpg">
+    <img class="small-img" src="images/moms.jpg">
+  </div>
+
+  <div class="about-text">
+    <h2>FARMING AND POULTRY</h2>
+    <p>
+      Carrying out farming and poultry activities for extra income to support the community  during times of crisis.
+    </p>
+    <button><a  class="read" href="farm.html">READ MORE</a></button>
+  </div>
+</section>
+
+
+    
+<!-- CARDS -->
+
+<section class="cta-section">
+    <div class="container">
+      <h2>Ready to Make a Difference?</h2>
+      <p>Your support helps us continue our mission of empowering vulnerable children and families.</p>
+      <div class="cta-buttons">
+        <a href="donate.html" class="btn btn-light"><i class="fas fa-heart"></i> Donate Today</a>
+        <a href="volunteer.html" class="btn btn-outline" style="border-color: white; color: white;"><i class="fas fa-hands-helping"></i> Become a Volunteer</a>
       </div>
-
-      <!-- Impact Story -->
-      <div class="content-card">
-        <h2 class="section-title">Impact Story: Masika's Journey</h2>
-        <div style="background: linear-gradient(135deg, rgba(128, 0, 0, 0.05), rgba(100, 50, 30, 0.05)); padding: 1.5rem; border-radius: 1rem;">
-          <i class="fas fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5;"></i>
-          <p style="font-style: italic; font-size: 1.1rem; margin: 1rem 0;">"Through the generous support of a donor, Masika Ritah, one of the vulnerable children supported by Uganda- Helping Hands, was successfully enrolled in school. This milestone has given her a chance to begin her educational journey and pursue the dreams that every child deserves to have."</p>
-          <p>Masika's story demonstrates the life-changing impact that donor support can have on the lives of vulnerable children. Today, she attends school regularly and dreams of becoming a nurse to help others in her community. Many other children are still waiting for the same opportunity.</p>
-        </div>
-      </div>
-
-      <!-- How to Support -->
-      <div class="content-card" style="text-align: center; background: linear-gradient(135deg, rgba(128,0,0,0.95), rgba(100,50,30,0.95)); color: white;">
-        <h2 style="color: white; margin-bottom: 1rem;">Be Part of the Solution</h2>
-        <p style="margin-bottom: 1.5rem;">Every project needs your support. Whether through donations, volunteering, or partnerships, you can help us transform lives across Uganda.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="donate.html" style="background: #ffb347; color: #2d1b0c; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-donate"></i> Donate Now</a>
-          <a href="contact.html" style="background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-handshake"></i> Partner With Us</a>
-          <a href="gallery.html" style="background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-images"></i> See Our Work</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
 <!-- Footer -->
   <footer class="footer">
@@ -1126,8 +907,8 @@
       <div class="footer-grid">
         <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
-             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="inforugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> inforugandahelpinghands@gmail.com
-    </a></div>
+             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="#" onclick="openGmail()" class="gmail-btn">
+<i class="fas fa-envelope"></i> inforugandahelpinghands@gmail.com </a></div>
         <div>
   <h4>Connect With Us</h4>
   <div style="font-size: 1.8rem; display: flex; gap: 1.2rem; justify-content: flex-start; align-items: center; margin-top: 0.8rem;">
@@ -1150,9 +931,10 @@
   </div>
 </div></div>
       </div>
-      <div class="footer-bottom"><p>© 2025 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
+      <div class="footer-bottom"><p>© 2026 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
     </div>
   </footer>
+
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
   <script>
 // MENU
@@ -1198,6 +980,21 @@ if(window.innerWidth > 768){
       if (window.scrollY > 300) backToTop.style.opacity = '1';
       else backToTop.style.opacity = '0.9';
     });
+    //Gmail
+function openGmail() {
+var email = "inforugandahelpinghands@gmail.com";
+
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+window.location.href = "mailto:" + email;
+} else {
+window.open(
+"https://mail.google.com/mail/?view=cm&fs=1&to=" + email,
+"_blank"
+);
+}
+}
   </script>
 </body>
 </html>
