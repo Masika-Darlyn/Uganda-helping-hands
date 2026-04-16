@@ -327,7 +327,7 @@
             justify-content: center;
             
             /* BACKGROUND IMAGE - FILLS THE WHOLE SECTION (cover) */
-            background-image: url('images/need.jpg');
+            background-image: url('images/meets.jpg');
             background-size: cover;      /* Image fills entire section - covers all space */
             background-position: center center;
             background-repeat: no-repeat;
@@ -733,6 +733,26 @@
       color: var(--primary);
       margin-right: 8px;
     }
+    .gmail-btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:10px 18px;
+color:white;
+text-decoration:none;
+font-size:15px;
+transition:0.3s;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+.gmail-btn{
+font-size:14px;
+padding:8px 14px;
+}
+}
+
  /* Footer */
     .footer {
       background: #1e1e1b;
@@ -972,21 +992,22 @@ We're here to listen, partner, and support. Reach out today — your voice matte
             <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
             <div class="info-content">
               <h3>Phone</h3>
-              <p><a href="tel:+256764377294">+256 764377294</a><br><a href="tel:+256783572503">+256 783 572503</a></p>
+              <p><a href="tel:+256764377294">+256 764377294</a><br><a href="tel:+256786497006">+256786497006</a></p>
             </div>
           </div>
           <div class="info-card">
             <div class="info-icon"><i class="fas fa-envelope"></i></div>
             <div class="info-content">
               <h3>Email</h3>
-              <p><a href="mailto:info@helpinghandsug.org">info@helpinghandsug.org</a><br><a href="mailto:registrar@helpinghandsug.org">registrar@helpinghandsug.org</a></p>
+              <p> <a href="#" onclick="openGmail()" class="gmail-btn">
+ inforugandahelpinghands@gmail.com </a></p>
             </div>
           </div>
           <div class="info-card">
             <div class="info-icon"><i class="fas fa-clock"></i></div>
             <div class="info-content">
               <h3>Office Hours</h3>
-              <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Sunday: Closed</p>
+              <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: Closed<br>Sunday: Closed</p>
             </div>
           </div>
           <div class="registration-details">
@@ -1051,8 +1072,8 @@ We're here to listen, partner, and support. Reach out today — your voice matte
           </iframe>
         </div>
         <div class="map-address">
-          <i class="fas fa-location-dot"></i> <strong>Humya 1, LC I, Buhundu Parish, Bukonzo Subcounty, Bundibugyo District, Uganda</strong>
-          <p style="margin-top: 8px; font-size: 0.9rem;"><i class="fas fa-directions"></i> Use the map to get directions — we're located in the heart of Bundibugyo community.</p>
+          <i class="fas fa-location-dot"></i> <strong>Humya village, Buhundu Parish, Bukonzo Subcounty,Bughendera County, Bundibugyo District, Uganda</strong>
+          <p style="margin-top: 8px; font-size: 0.9rem;"><i class="fas fa-directions"></i> Use the map to get directions — we're located in the heart of Bughendera county, Bundibugyo community.</p>
         </div>
       </div>
     </div>
@@ -1064,8 +1085,8 @@ We're here to listen, partner, and support. Reach out today — your voice matte
       <div class="footer-grid">
         <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
-             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="inforugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> inforugandahelpinghands@gmail.com
-    </a></div>
+             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="#" onclick="openGmail()" class="gmail-btn">
+<i class="fas fa-envelope"></i> inforugandahelpinghands@gmail.com </a></div>
         <div>
   <h4>Connect With Us</h4>
   <div style="font-size: 1.8rem; display: flex; gap: 1.2rem; justify-content: flex-start; align-items: center; margin-top: 0.8rem;">
@@ -1088,7 +1109,7 @@ We're here to listen, partner, and support. Reach out today — your voice matte
   </div>
 </div></div>
       </div>
-      <div class="footer-bottom"><p>© 2025 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
+      <div class="footer-bottom"><p>© 2026 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
     </div>
   </footer>
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
@@ -1147,6 +1168,21 @@ if(window.innerWidth > 768){
         });
       }
   
+      //Gmail
+function openGmail() {
+var email = "inforugandahelpinghands@gmail.com";
+
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+window.location.href = "mailto:" + email;
+} else {
+window.open(
+"https://mail.google.com/mail/?view=cm&fs=1&to=" + email,
+"_blank"
+);
+}
+}
   </script>
 </body>
 </html>
