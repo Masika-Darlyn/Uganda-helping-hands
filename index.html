@@ -139,6 +139,7 @@
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
       background: linear-gradient(135deg, #ffc26b, #ffa133);
     }
+    
 
 /* CLOSE BUTTON */
 .close-btn{
@@ -1029,7 +1030,32 @@ min-width:220px;
       position: relative;
       z-index: 1;
     }
-    
+    .cta-buttons{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.cta-btn{
+background: linear-gradient(135deg, #ffb347, #ff8c1a);
+      color: #2d1b0c;
+padding:12px 25px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+}
+.cta-btn:hover{
+  transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.cta-btn-outline{
+  background: linear-gradient(135deg, #ffb347, #ff8c1a);
+      color: #2d1b0c;
+
+}
 
     /* Footer */
   .gmail-btn{
@@ -1234,9 +1260,9 @@ padding:8px 14px;
           
           <h1>Helping Hands,<br>Brighter Futures</h1>
           <p>Empowering orphans, women, and vulnerable families in Bundibugyo District, Uganda through sustainable programs and community-driven solutions.</p>
-          <div class="hero-buttons">
-            <a href="donate.html" class="btn btn-primary"><i class="fas fa-donate"></i> Donate Now</a>
-            <a href="volunteer.html" class="btn btn-outline"><i class="fas fa-users"></i> Get Involved</a>
+          <div class="cta-buttons">
+            <a href="donate.html" class="cta-btn"><i class="fas fa-donate"></i> Donate Now</a>
+            <a href="volunteer.html" class="cta-btn"><i class="fas fa-users"></i> Get Involved</a>
           </div>
         </div>
       </div>
@@ -1390,7 +1416,7 @@ padding:8px 14px;
         </div>
       </div>
       <div class="view-all-events">
-        <a href="events.html" class="btn" style="background: var(--primary); color: white;"><i class="fas fa-calendar-week"></i> View All Events</a>
+        <a href="events.html" class="cta-btn" style="background: var(--primary); color: white;"><i class="fas fa-calendar-week"></i> View All Events</a>
       </div>
     </div>
   </section>
@@ -1501,7 +1527,7 @@ padding:8px 14px;
           <div class="story-quote">
             <i class="fas fa-quote-left" style="color: var(--primary); margin-right: 10px;"></i> Every child deserves protection. Every girl deserves education. Every vulnerable person deserves dignity.
           </div>
-          <a href="story.html" class="btn btn-outline">Read Full Story <i class="fas fa-arrow-right"></i></a>
+          <a href="story.html" class="cta-btn">Read Full Story <i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
@@ -1513,8 +1539,8 @@ padding:8px 14px;
       <h2>Ready to Make a Difference?</h2>
       <p>Your support helps us continue our mission of empowering vulnerable children and families.</p>
       <div class="cta-buttons">
-        <a href="donate.html" class="btn btn-light"><i class="fas fa-heart"></i> Donate Today</a>
-        <a href="volunteer.html" class="btn btn-outline" style="border-color: white; color: white;"><i class="fas fa-hands-helping"></i> Become a Volunteer</a>
+        <a href="donate.html" class="cta-btn"><i class="fas fa-heart"></i> Donate Today</a>
+        <a href="volunteer.html" class="cta-btn" style="border-color: white; color: white;"><i class="fas fa-hands-helping"></i> Become a Volunteer</a>
       </div>
       
       <!-- Partners Logos Section inside CTA - attractive horizontal line -->
