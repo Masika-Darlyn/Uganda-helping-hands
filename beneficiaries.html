@@ -386,10 +386,10 @@
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
         
-        .hero-cta .btn {
+        .hero-btn {
             display: inline-block;
             background: #f5b042;
-            color: #1e2a23;
+            color: #331313;
             font-weight: 700;
             padding: 0.9rem 2.2rem;
             border-radius: 50px;
@@ -402,7 +402,7 @@
             letter-spacing: 0.5px;
         }
         
-        .hero-cta .btn:hover {
+        .hero-btn:hover {
             background: #e67e22;
             color: white;
             transform: translateY(-3px);
@@ -751,6 +751,72 @@
       color: #5a3a2a;
       margin-top: 0.5rem;
     }
+    /* CTA Section */
+    .cta-section {
+      padding: 1rem 0;
+      background: linear-gradient(135deg, rgba(128,0,0,0.95), rgba(100,50,30,0.95));
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section h2 {
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-section p {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-buttons{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.cta-btn{
+background: linear-gradient(135deg, #ffb347, #ff8c1a);
+      color: #2d1b0c;
+padding:12px 25px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+}
+.cta-btn:hover{
+  transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.cta-btn-outline{
+  background: linear-gradient(135deg, #ffb347, #ff8c1a);
+      color: #2d1b0c;
+
+}
+
+    .gmail-btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:10px 18px;
+color:white;
+text-decoration:none;
+font-size:15px;
+transition:0.3s;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+.gmail-btn{
+font-size:14px;
+padding:8px 14px;
+}
+}
+
 
   /* Footer */
     .footer {
@@ -943,7 +1009,7 @@
 The heart of our work — the children, women, and families we serve across Uganda.
             </p>
             <div class="hero-cta">
-                <a href="volunteer.html" class="btn">Join Our Mission →</a>
+                <a href="volunteer.html" class="hero-btn">Join Our Mission →</a>
             </div>
         </div>
     </section>
@@ -1059,7 +1125,7 @@ The heart of our work — the children, women, and families we serve across Ugan
         <div class="stories-grid">
           <div class="story-card">
             <div class="story-image">
-              <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400&h=250&fit=crop" alt="Orphaned children" onerror="this.src='https://via.placeholder.com/400x250?text=Orphan+Care'">
+              <img src="images/edu.jpg">
               <div class="story-overlay">
                 <span class="story-category"><i class="fas fa-child"></i> Orphan Care</span>
               </div>
@@ -1075,7 +1141,7 @@ The heart of our work — the children, women, and families we serve across Ugan
           
           <div class="story-card">
             <div class="story-image">
-              <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400&h=250&fit=crop" alt="Tailoring training" onerror="this.src='https://via.placeholder.com/400x250?text=Women+Empowerment'">
+              <img src="images/mom.jpg">
               <div class="story-overlay">
                 <span class="story-category"><i class="fas fa-female"></i> Women Empowerment</span>
               </div>
@@ -1091,7 +1157,7 @@ The heart of our work — the children, women, and families we serve across Ugan
           
           <div class="story-card">
             <div class="story-image">
-              <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=250&fit=crop" alt="Education support" onerror="this.src='https://via.placeholder.com/400x250?text=Education'">
+              <img src="images/masika.jpg">
               <div class="story-overlay">
                 <span class="story-category"><i class="fas fa-graduation-cap"></i> Education</span>
               </div>
@@ -1131,18 +1197,18 @@ The heart of our work — the children, women, and families we serve across Ugan
           </div>
         </div>
       </div>
-
-      <!-- Call to Action -->
-      <div class="content-card" style="text-align: center; background: linear-gradient(135deg, rgba(128,0,0,0.95), rgba(100,50,30,0.95)); color: white;">
-        <h2 style="color: white; margin-bottom: 1rem;">You Can Make a Difference</h2>
-        <p style="margin-bottom: 1.5rem;">Every child who finds a safe home, every woman who learns a skill, every family that gains hope — these transformations are possible because of supporters like you.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="donate.html" style="background: #ffb347; color: #2d1b0c; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-donate"></i> Sponsor a Child</a>
-          <a href="contact.html" style="background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-handshake"></i> Partner With Us</a>
-        </div>
+ </section>
+     </section>
+      <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Make a Difference?</h2>
+      <p>Your support helps us continue our mission of empowering vulnerable children and families.</p>
+      <div class="cta-buttons">
+        <a href="donate.html" class="cta-btn"><i class="fas fa-heart"></i> Donate Today</a>
+        <a href="volunteer.html" class="cta-btn" style="border-color: white; color: white;"><i class="fas fa-hands-helping"></i> Become a Volunteer</a>
       </div>
-    </div>
-  </section>
+    </section>
+ 
 
    
  <!-- Footer -->
@@ -1151,8 +1217,8 @@ The heart of our work — the children, women, and families we serve across Ugan
       <div class="footer-grid">
         <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
-             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="inforugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> inforugandahelpinghands@gmail.com
-    </a></div>
+             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="#" onclick="openGmail()" class="gmail-btn">
+<i class="fas fa-envelope"></i> inforugandahelpinghands@gmail.com </a></div>
         <div>
   <h4>Connect With Us</h4>
   <div style="font-size: 1.8rem; display: flex; gap: 1.2rem; justify-content: flex-start; align-items: center; margin-top: 0.8rem;">
@@ -1175,7 +1241,7 @@ The heart of our work — the children, women, and families we serve across Ugan
   </div>
 </div></div>
       </div>
-      <div class="footer-bottom"><p>© 2025 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
+      <div class="footer-bottom"><p>© 2026 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
     </div>
   </footer>
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
@@ -1226,6 +1292,22 @@ if(window.innerWidth > 768){
       if (window.scrollY > 300) backToTop.style.opacity = '1';
       else backToTop.style.opacity = '0.9';
     });
+
+    //Gmail
+function openGmail() {
+var email = "inforugandahelpinghands@gmail.com";
+
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+window.location.href = "mailto:" + email;
+} else {
+window.open(
+"https://mail.google.com/mail/?view=cm&fs=1&to=" + email,
+"_blank"
+);
+}
+}
   </script>
 </body>
 </html>
