@@ -392,21 +392,164 @@ font-size:22px;
 
 }
 
- /* Hero Section */
-.hero{
-height:130vh;
-background:url('images/donations.jpeg') center/cover;
+/* ========== HERO SECTION ========== 
+           Hero with image that FILLS the entire section completely */
+        .hero{
+background: url('images/donate.jpeg') no-repeat center center/cover;
+min-height: 130vh;
 display:flex;
 align-items:center;
 justify-content:center;
-color:white;
 text-align:center;
+padding:60px 20px;
+position:relative;
+color:white;
+}
+
+/* Optional Dark Overlay for readability */
+
+
+
+.hero-content{
+      position: relative;
+      z-index: 2;
+      text-align: center;
+       padding: 4rem 1.5rem;
+       max-width: 900px;
+       margin: 0 auto;
+       width: 100%;
 }
 
 .hero h1{
-font-size:60px;
-letter-spacing:2px;
-animation: fadeInUp 0.8s ease-out;
+ font-size: 5rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.7), 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-description{
+ font-size: 1.5rem;
+            max-width: 780px;
+            margin: 0 auto;
+            color: #ffffff;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+            font-weight: 500;
+            line-height: 1.5;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(8px);
+            padding: 1rem 2rem;
+            border-radius: 80px;
+            display: inline-block;
+            width: auto;
+            letter-spacing: 0.01em;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+.hero h1:after {
+            content: '';
+            display: block;
+            width: 90px;
+            height: 4px;
+            background: linear-gradient(90deg, #f5b042, #e67e22);
+            margin: 1.2rem auto 0;
+            border-radius: 4px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.3);
+        }
+        .hero-cta {
+            margin-top: 2.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+.hero-btn {
+            display: inline-block;
+            background: #f5b042;
+            color: #1e2a23;
+            font-weight: 700;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero-cta .btn:hover {
+            background: #e67e22;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+        }
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+      /* Tablet */
+
+@media(max-width:1024px){
+
+.hero{
+min-height:60vh;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.hero-description{
+font-size:18px;
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero{
+min-height:55vh;
+padding:40px 15px;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero-description{
+font-size:16px;
+}
+
+}
+
+/* Small Mobile */
+
+@media(max-width:480px){
+
+.hero{
+min-height:50vh;
+}
+
+.hero h1{
+font-size:26px;
+}
+
+.hero-description{
+font-size:15px;
+}
+
 }
 
 
@@ -971,14 +1114,19 @@ padding:8px 14px;
   </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero">
-<div>
-<h1>WHO WE ARE</h1>
+  <section class="hero">
+<div class="hero-content">
+<h1>Who We Are</h1>
+
+<p class="hero-description">
+Discover the heart behind Uganda-Helping Hands.
+
+<div class="hero-cta">
+<a href="volunteer.html" class="hero-btn">Join Our Mission →</a>
+</div>
+
 </div>
 </section>
-
-
 <section class="section">
         <p ><strong>Uganda- Helping Hands</strong> is a Community Based Organization (CBO) registered in Bundibugyo District, dedicated to restoring dignity, opportunity, and hope to vulnerable children, women, and families across Uganda.</p>
 
