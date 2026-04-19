@@ -140,7 +140,12 @@
       background: linear-gradient(135deg, #ffc26b, #ffa133);
     }
     
-
+.btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 28px;
+    }
 /* CLOSE BUTTON */
 .close-btn{
   display:none;
@@ -1260,7 +1265,7 @@ padding:8px 14px;
           
           <h1>Helping Hands,<br>Brighter Futures</h1>
           <p>Empowering orphans, women, and vulnerable families in Bundibugyo District, Uganda through sustainable programs and community-driven solutions.</p>
-          <div class="cta-buttons">
+          <div class="btn-group">
             <a href="donate.html" class="cta-btn"><i class="fas fa-donate"></i> Donate Now</a>
             <a href="volunteer.html" class="cta-btn"><i class="fas fa-users"></i> Get Involved</a>
           </div>
@@ -1518,7 +1523,7 @@ padding:8px 14px;
     <div class="container">
       <div class="founder-container">
         <div class="founder-image">
-          <img src="images/CHAIRPERSON.jpg" alt="Bukama Hakim" class="founder-img" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+          <img src="images/CHAIRPERSON.jpg" alt="Bukama Hakim" class="founder-img">
         </div>
         <div class="founder-content">
           <h2>Our Story</h2>
@@ -1535,13 +1540,15 @@ padding:8px 14px;
 
   <!-- CTA Section with Partners Logos inside (horizontal line) -->
   <section class="cta-section">
-    <div class="container">
-      <h2>Ready to Make a Difference?</h2>
+      <div class="cta-section">
+      <h3>Ready to Make a Difference?</h3>
       <p>Your support helps us continue our mission of empowering vulnerable children and families.</p>
       <div class="cta-buttons">
-        <a href="donate.html" class="cta-btn"><i class="fas fa-heart"></i> Donate Today</a>
-        <a href="volunteer.html" class="cta-btn" style="border-color: white; color: white;"><i class="fas fa-hands-helping"></i> Become a Volunteer</a>
+        <a href="donate.html" class="cta-btn"><i class="fas fa-donate"></i> Donate Now</a>
+        <a href="volunteer.html" class="cta-btn cta-btn-outline"><i class="fas fa-hands-helping"></i> Volunteer With Us</a>
       </div>
+    </div>
+  </div>
       
       <!-- Partners Logos Section inside CTA - attractive horizontal line -->
       <div class="cta-partners">
@@ -1650,7 +1657,7 @@ dropdowns.forEach(drop => {
 
   btn.onclick = (e) => {
     e.stopPropagation();
-
+ 
     dropdowns.forEach(d => {
       if(d !== drop) d.classList.remove("active");
     });
