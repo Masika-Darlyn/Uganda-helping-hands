@@ -145,6 +145,8 @@
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
       background: linear-gradient(135deg, #ffc26b, #ffa133);
     }
+    
+ 
 
 /* CLOSE BUTTON */
 .close-btn{
@@ -292,48 +294,21 @@
     margin-top:10px;
   }
 }
-   /* ========== HERO SECTION ========== 
-           Hero with image that FILLS the entire section completely */
+  /* HERO */
         .hero {
-            /* Full viewport height hero - dramatic and immersive */
-            min-height: 85vh;
-            height: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 90vh;
+  background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.2)),
+              url('images/uniform.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
             
-            /* BACKGROUND IMAGE - FILLS THE WHOLE SECTION (cover) */
-            background-image: url('images/girls (2).jpg');
-            background-size: cover;      /* Image fills entire section - covers all space */
-            background-position: center center;
-            background-repeat: no-repeat;
             
-            /* Fallback color while image loads */
-
-            
-            position: relative;
-            isolation: isolate;
         }
-        
-        /* Semi-transparent overlay to improve text readability - keeps image fully visible but adds contrast */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.4) 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-        
+       
         /* Hero content wrapper - centers content beautifully above overlay */
         .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 4rem 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            width: 100%;
+            max-width: 600px;
         }
         
         /* Main heading - bold, inspiring, with strong text shadow */
@@ -357,14 +332,10 @@
             text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
             font-weight: 500;
             line-height: 1.5;
-            background: rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(8px);
             padding: 1rem 2rem;
-            border-radius: 80px;
             display: inline-block;
             width: auto;
             letter-spacing: 0.01em;
-            border: 1px solid rgba(255, 255, 255, 0.25);
             animation: fadeInUp 0.8s ease-out 0.1s both;
         }
         
@@ -386,10 +357,10 @@
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
         
-        .hero-cta .btn {
+        .hero-btn {
             display: inline-block;
             background: #f5b042;
-            color: #1e2a23;
+            color: #420d0d;
             font-weight: 700;
             padding: 0.9rem 2.2rem;
             border-radius: 50px;
@@ -402,7 +373,7 @@
             letter-spacing: 0.5px;
         }
         
-        .hero-cta .btn:hover {
+        .hero-btn:hover {
             background: #e67e22;
             color: white;
             transform: translateY(-3px);
@@ -453,16 +424,22 @@
                 width: 70px;
                 height: 3px;
             }
-            .hero-cta .btn {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-btn {
                 padding: 0.7rem 1.6rem;
                 font-size: 1rem;
             }
+            .split {
+    grid-template-columns: 1fr;
+  }
         }
         
         @media (max-width: 480px) {
             .hero {
                 min-height: 65vh;
             }
+            .stats { margin-top: -2rem; padding: 2rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -475,7 +452,85 @@
             }
         }
         
+/* Stats Section */
+    .stats {
+      background: rgba(128, 0, 0, 0.1);
+      padding: 2rem 0;
+      margin-top: -2rem;
+      position: relative;
+      z-index: 3;
+      border-radius: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(128,0,0,0.1);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      gap: 2rem;
+    }
+    .stats-grid:hover{
+     transform: translateY(-5px);  
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .stat-label {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
 
+    /* Stats Row */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .stat-box {
+      flex: 1;
+      min-width: 150px;
+      background: rgba(128, 0, 0, 0.1);
+      padding: 1.5rem;
+      border-radius: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-5px);
+    }
+/* NEXT SECTION */
+.split {
+  background: rgba(255, 252, 245, 0.95);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  backdrop-filter: blur(4px);
+  border-radius: 2rem;
+  padding: 80px 50px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+.split:hover {
+      transform: translateY(-5px);
+    }
+
+.split img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.split h2 {
+  font-size: 28px;
+}
     /* Main Content */
     .education-section {
       padding: 2rem 0 5rem;
@@ -512,40 +567,6 @@
       height: 4px;
       background: var(--secondary);
       border-radius: 2px;
-    }
-
-    /* Stats Row */
-    .stats-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      gap: 2rem;
-      margin: 2rem 0;
-      text-align: center;
-    }
-
-    .stat-box {
-      flex: 1;
-      min-width: 150px;
-      background: rgba(128, 0, 0, 0.1);
-      padding: 1.5rem;
-      border-radius: 1.5rem;
-      transition: transform 0.3s;
-    }
-
-    .stat-box:hover {
-      transform: translateY(-5px);
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: #5a3a2a;
     }
 
     /* Info Grid */
@@ -660,6 +681,62 @@
       font-weight: 600;
       color: var(--primary);
     }
+    .cta-section{
+      padding: 1rem 0;
+      background: var(--white);
+      color: rgb(49, 16, 16);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+}
+
+.cta-buttons{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.cta-btn{
+background: linear-gradient(135deg, #ffb347, #ff8c1a);
+      color: #2d1b0c;
+padding:12px 25px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+}
+.cta-btn:hover{
+  transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.cta-btn-outline{
+  background: linear-gradient(135deg, #ffb347, #ff8c1a);
+      color: #2d1b0c;
+
+}
+
+    .gmail-btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:10px 18px;
+color:white;
+text-decoration:none;
+font-size:15px;
+transition:0.3s;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+.gmail-btn{
+font-size:14px;
+padding:8px 14px;
+}
+}
+
 /* Footer */
     .footer {
       background: #1e1e1b;
@@ -791,7 +868,7 @@
         <i class="fas fa-times"></i>
       </div>
 
-      <a href="index.html" class="nav-link active"><i class="fas fa-home"></i>Home</a>
+      <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
 
       <!-- ABOUT -->
       <div class="dropdown">
@@ -845,40 +922,27 @@
                 Opening doors to learning, opportunity, and a brighter future for vulnerable children.
             </p>
             <div class="hero-cta">
-                <a href="volunteer.html" class="btn">Join Our Mission →</a>
+                <a href="volunteer.html" class="hero-btn">Join Our Mission →</a>
             </div>
         </div>
     </section>
 
-  <!-- Main Content -->
-  <section class="education-section">
-    <div class="container">
-      
-      <!-- Introduction -->
-      <div class="content-card">
-        <h2 class="section-title">Education: The Key to Breaking the Cycle of Poverty</h2>
-        <p style="font-size: 1.1rem; margin-bottom: 1rem;">Education is one of the most powerful tools for breaking the cycle of poverty and giving children the opportunity to build a better future. Unfortunately, many children in rural communities, especially orphans and those from vulnerable families, face serious barriers that prevent them from accessing education.</p>
-        <p>In Bundibugyo District and surrounding communities, it is common to find children who remain at home simply because their families cannot afford basic school requirements such as scholastic materials, uniforms, or tuition. For orphaned children who have already lost parental care and support, these barriers can be even more difficult to overcome.</p>
-        
-        <div class="stats-row">
-          <div class="stat-box">
-            <div class="stat-number">1</div>
-            <div class="stat-label">Child Enrolled Through Support</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number">Many</div>
-            <div class="stat-label">Children Still Waiting</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number">2023</div>
-            <div class="stat-label">Program Established</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number">Ongoing</div>
-            <div class="stat-label">Enrollment Support</div>
-          </div>
-        </div>
+ <!-- Stats Section -->
+  <div class="container">
+    <div class="stats">
+      <div class="stats-grid">
+        <div><div class="stat-number" >1</div><div class="stat-label"><a style="color: var(--primary);">Child Enrolled Through Support</a></div></div>
+        <div><div class="stat-number">Many</div><div class="stat-label"><a style="color: var(--primary);">Children Still Waiting</a></div></div>
+        <div><div class="stat-number">2023</div><div class="stat-label"><a style="color: var(--primary);">Program Established</a></div></div>
+
       </div>
+    </div>
+  </div>
+
+
+  <!-- Main Content -->
+  
+  <section class="education-section">
 
       <!-- Our Mission -->
       <div class="content-card">
@@ -908,7 +972,20 @@
           </div>
         </div>
       </div>
+   
 
+       <!-- SPLIT SECTION -->
+
+  <div class="split">
+  <img src="images/education.jpg">
+  
+  <div>
+   <h2 class="section-title">Education:</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 1rem;">This is one of the most powerful tools for breaking the cycle of poverty and giving children the opportunity to build a better future. Unfortunately, many children in rural communities, especially orphans and those from vulnerable families, face serious barriers that prevent them from accessing education.</p>
+       
+        
+  </div>
+</div>
       <!-- Success Story: Masika Ritah -->
       <div class="content-card">
         <h2 class="section-title">A Story of Hope: Masika Ritah</h2>
@@ -1044,19 +1121,21 @@
           <p style="margin-top: 1rem;"><strong>But we cannot do it alone.</strong> The number of children who need assistance is far greater than the resources currently available. With your support, we can enroll more children, provide more materials, and transform more lives through the power of education.</p>
         </div>
       </div>
+  </section>
+     
 
-      <!-- Call to Action -->
-      <div class="content-card" style="text-align: center; background: linear-gradient(135deg, rgba(128,0,0,0.95), rgba(100,50,30,0.95)); color: white;">
-        <h2 style="color: white; margin-bottom: 1rem;">Sponsor a Child's Education</h2>
-        <p style="margin-bottom: 1.5rem;">For just $25 a month, you can provide a vulnerable child with school fees, scholastic materials, and the hope of a brighter future. Be the reason a child can attend school this year.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="donate.html" style="background: #ffb347; color: #2d1b0c; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-graduation-cap"></i> Sponsor a Child</a>
-          <a href="contact.html" style="background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-hand-holding-heart"></i> Donate Materials</a>
-          <a href="gallery.html" style="background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 60px; text-decoration: none; font-weight: bold;"><i class="fas fa-images"></i> See Our Work</a>
-        </div>
+<section>
+    <!-- Call to Action -->
+    <div class="cta-section">
+      <h3>Sponsor a Child's Education</h3>
+      <p>For just $25 a month, you can provide a vulnerable child with school fees, scholastic materials, and the hope of a brighter future. Be the reason a child can attend school this year.</p>
+      <div class="cta-buttons">
+        <a href="donate.html" class="cta-btn"><i class="fas fa-donate"></i> Donate Now</a>
+        <a href="volunteer.html" class="cta-btn cta-btn-outline"><i class="fas fa-hands-helping"></i> Volunteer With Us</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   
  <!-- Footer -->
@@ -1065,8 +1144,8 @@
       <div class="footer-grid">
         <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
-             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="inforugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> inforugandahelpinghands@gmail.com
-    </a></div>
+             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="#" onclick="openGmail()" class="gmail-btn">
+<i class="fas fa-envelope"></i> inforugandahelpinghands@gmail.com </a></div>
         <div>
   <h4>Connect With Us</h4>
   <div style="font-size: 1.8rem; display: flex; gap: 1.2rem; justify-content: flex-start; align-items: center; margin-top: 0.8rem;">
@@ -1089,7 +1168,7 @@
   </div>
 </div></div>
       </div>
-      <div class="footer-bottom"><p>© 2025 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
+      <div class="footer-bottom"><p>© 2026 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
     </div>
   </footer>
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
@@ -1138,6 +1217,22 @@ if(window.innerWidth > 768){
       if (window.scrollY > 300) backToTop.style.opacity = '1';
       else backToTop.style.opacity = '0.9';
     });
+
+    //Gmail
+function openGmail() {
+var email = "inforugandahelpinghands@gmail.com";
+
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+window.location.href = "mailto:" + email;
+} else {
+window.open(
+"https://mail.google.com/mail/?view=cm&fs=1&to=" + email,
+"_blank"
+);
+}
+}
   </script>
 </body>
 </html>
