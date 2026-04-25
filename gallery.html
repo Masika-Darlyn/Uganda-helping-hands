@@ -292,150 +292,348 @@
   }
 }
 
-/* GRID COLLAGE */
-.grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows:200px;
-  gap:8px;
-  padding:8px;
-}
+     /* HERO */
+        .hero {
+            height: 90vh;
+  background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.2)),
+              url('images/gift.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+            
+            
+        }
+       
+        /* Hero content wrapper - centers content beautifully above overlay */
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        /* Main heading - bold, inspiring, with strong text shadow */
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.7), 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Hero description - elegant and readable */
+        .hero .hero-description {
+            font-size: 1.5rem;
+            max-width: 780px;
+            margin: 0 auto;
+            color: #ffffff;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+            font-weight: 500;
+            line-height: 1.5;
+            padding: 1rem 2rem;
+            display: inline-block;
+            width: auto;
+            letter-spacing: 0.01em;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        
+        /* Decorative element - warm underline */
+        .hero h1:after {
+            content: '';
+            display: block;
+            width: 90px;
+            height: 4px;
+            background: linear-gradient(90deg, #f5b042, #e67e22);
+            margin: 1.2rem auto 0;
+            border-radius: 4px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.3);
+        }
+        
+        /* CTA button to enhance hero section */
+        .hero-cta {
+            margin-top: 2.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background: #f5b042;
+            color: #420d0d;
+            font-weight: 700;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero-btn:hover {
+            background: #e67e22;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive hero adjustments */
+        @media (max-width: 992px) {
+            .hero {
+                min-height: 75vh;
+            }
+            .hero h1 {
+                font-size: 3.8rem;
+            }
+            .hero .hero-description {
+                font-size: 1.3rem;
+                padding: 0.8rem 1.6rem;
+                backdrop-filter: blur(6px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 70vh;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero .hero-description {
+                font-size: 1.1rem;
+                padding: 0.7rem 1.2rem;
+                backdrop-filter: blur(5px);
+                background: rgba(0, 0, 0, 0.4);
+            }
+            .hero h1:after {
+                width: 70px;
+                height: 3px;
+            }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-btn {
+                padding: 0.7rem 1.6rem;
+                font-size: 1rem;
+            }
+            .split {
+    grid-template-columns: 1fr;
+  }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 65vh;
+            }
+            .stats { margin-top: -2rem; padding: 2rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero .hero-description {
+                font-size: 0.95rem;
+                padding: 0.6rem 1rem;
+            }
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+        }
 
-.grid div{
-  position:relative;
-  overflow:hidden;
-}
+  
+    /* ========= MODERN GALLERY GRID ========= */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+     
+      max-width: 1400px;
+      padding: 3rem 1.5rem;
+      margin: 2rem 0;
+      
+    }
 
-/* IMAGE SLIDER EFFECT */
-.grid img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  animation:zoomMove 20s infinite alternate ease-in-out;
-}
+    /* On smartphones: force exactly 2 columns with equal width */
+    @media (max-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0 1rem 2rem;
+      }
+    }
 
-/* slow movement animation */
-@keyframes zoomMove{
-  0%{ transform:scale(1); }
-  100%{ transform:scale(1.2); }
-}
+    /* gallery card item */
+    .gallery-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      background: #fff;
+      transition: transform 0.35s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      aspect-ratio: 4 / 3;
+    }
+    .gallery-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: var(--shadow);
+    }
+    .gallery-card .img-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      /* Smooth but noticeable movement: slower gentle zoom + hover big zoom */
+      animation: gentleFloat 14s infinite alternate ease-in-out;
+    }
+    /* Gentle floating movement that is easy to see but not dizzying */
+    @keyframes gentleFloat {
+      0% {
+        transform: scale(1) translateY(0px);
+      }
+      100% {
+        transform: scale(1.08) translateY(-4px);
+      }
+    }
+    /* On hover: faster and more dramatic movement for engagement */
+    .gallery-card:hover img {
+      transform: scale(1.18) translateY(-6px);
+      animation: none; /* stop gentle float to avoid conflict, gives clear hover effect */
+      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+    }
+    /* Overlay text */
+    .card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      padding: 1rem;
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.35s ease;
+      text-align: left;
+    }
+    .gallery-card:hover .card-overlay {
+      transform: translateY(0);
+    }
+    .card-overlay h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
+    .card-overlay p {
+      font-size: 0.7rem;
+      opacity: 0.9;
+    }
 
-/* HOVER EFFECT */
-.grid div:hover img{
-  transform:scale(1.3);
-  transition:0.6s;
-}
+    /* Grouped Section */
+    .group-section {
+      background: var(--light-beige);
+      padding: 3rem 1.5rem;
+      margin: 2rem 0;
+      border-radius: 48px 48px 32px 32px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      margin: 10px auto 0;
+      border-radius: 4px;
+    }
+    .group-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.8rem;
+    }
+    .cluster-item {
+      flex: 1 1 280px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+    .cluster-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.12);
+    }
+    .cluster-img {
+      height: 220px;
+      overflow: hidden;
+    }
+    .cluster-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+    .cluster-item:hover .cluster-img img {
+      transform: scale(1.12);
+    }
+    .cluster-info {
+      padding: 1rem;
+      text-align: center;
+    }
+    .cluster-info h4 {
+      color: var(--primary);
+      font-weight: 700;
+    }
 
-.grid div::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.2);
-  opacity:0;
-  transition:0.4s;
-}
-
-.grid div:hover::after{
-  opacity:1;
-}
-
-/* CENTER TILE */
-.center{
-  background:#0d47a1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  text-align:center;
-  animation:fadeIn 2s ease;
-}
-
-.center h2{
-  margin-top:10px;
-}
-
-
-.overlay-text h1{
-  font-size:42px;
-  font-weight:700;
-}
-
-.overlay-text p{
-  font-size:14px;
-  margin-top:10px;
-}
-
-/* FADE ANIMATION */
-@keyframes fadeUp{
-  from{ opacity:0; transform:translate(-50%, -20%); }
-  to{ opacity:1; transform:translate(-50%, -50%); }
-}
-
-@keyframes fadeIn{
-  from{ opacity:0; }
-  to{ opacity:1; }
-}
-
-/* BOTTOM IMAGES */
-.bottom-images{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  margin-top:-60px;
-  padding:0 20px;
-  flex-wrap:wrap;
-}
-
-.bottom-images img{
-  width:260px;
-  height:200px;
-  object-fit:cover;
-  transition:0.5s;
-}
-
-.bottom-images img:hover{
-  transform:scale(1.1) rotate(1deg);
-}
-
-/* INFO */
-.info{
-  display:flex;
-  justify-content:space-between;
-  padding:60px 10%;
-  flex-wrap:wrap;
-}
-
-.left h3{
-  background:#0d47a1;
-  padding:15px;
-  margin-bottom:20px;
-  transition:0.3s;
-}
-
-.left h3:hover{
-  background:#1565c0;
-}
-
-.left ul{
-  list-style:none;
-  line-height:1.8;
-  color:#bbb;
-}
-
-.right .best{
-  background:#3fa9f5;
-  padding:20px 40px;
-  transition:0.4s;
-}
-
-.right .best:hover{
-  transform:scale(1.05);
-}
-
+    /* Inspire Banner */
+    .inspire-banner {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      border-radius: 48px;
+      margin: 2rem auto;
+      max-width: 1200px;
+    }
+    .inspire-banner a {
+      background: white;
+      color: var(--primary);
+      padding: 0.6rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 1rem;
+      transition: 0.3s;
+    }
+    .inspire-banner a:hover {
+      transform: scale(1.05);
+      background: #ffe6cc;
+    }
 /* RESPONSIVE */
-@media(max-width:900px){
+@media(min-width: 641px) and (max-width:900px){
   .grid{
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
   }
 
   .overlay-text h1{
@@ -462,7 +660,42 @@
   }
 }
 
+ /* CTA */
+.cta-section{
+      padding: 1rem 0;
+      background: linear-gradient(rgb(175, 23, 23),rgb(19, 4, 4));
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+}
 
+.cta-buttons{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.cta-btn{
+background: white;
+      color: #2d1b0c;
+padding:12px 25px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+}
+.cta-btn:hover{
+  transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.cta-btn-outline{
+  background:white;
+      color: #2d1b0c;
+
+}
 .gmail-btn{
 display:inline-flex;
 align-items:center;
@@ -481,7 +714,13 @@ transition:0.3s;
 font-size:14px;
 padding:8px 14px;
 }
-}
+.gallery-hero h1 {
+        font-size: 2rem;
+      }
+      .card-overlay h3 {
+        font-size: 0.85rem;
+      }
+    }
 
 /* Footer */
     .footer {
@@ -634,48 +873,77 @@ padding:8px 14px;
     </div>
   </div>
 </nav>
+ <section class="hero">
+        <div class="hero-content">
+            <h1>📸 Moments of Impact</h1>
+            <p class="hero-description">
+                Witness transformation — from education to clean water, women empowerment, and hope restored. Every image moves with purpose.
+            </p>
+            <div class="hero-cta">
+                <a href="volunteer.html" class="hero-btn">Join Our Mission →</a>
+            </div>
+        </div>
+    </section>
 
-<!-- GRID -->
-<section class="grid">
-  <div><img src="images/pencil.jpg"></div>
-  <div class="center" style="background:maroon;">
-    <div style="color:white;, font-size:30px;">⚛</div>
-    <h2 style="color:white;">OUR GALLERY</h2>
-     <p style="color:white;">Discover Moments of hope, transformation, and community impact — captured through our journey.</p>
+<section>
+<!-- MAIN GALLERY: two columns on mobile, fluid on desktop + gentle movement -->
+<div class="gallery-grid">
+  <!-- Images grouped from original collection plus additional impact shots -->
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/our.webp" alt="Community"></div><div class="card-overlay"><h3>Community Unity</h3><p>Together we rise</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/pencil.jpg" alt="Education"></div><div class="card-overlay"><h3>Education Support</h3><p>Supplies for dreams</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/uniform.jpg" alt="Uniforms"></div><div class="card-overlay"><h3>School Uniforms</h3><p>Dignity & confidence</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/daps.jpg" alt="Children"></div><div class="card-overlay"><h3>Bright Futures</h3><p>Happy at school</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/child.jpg" alt="Orphan care"></div><div class="card-overlay"><h3>Orphan Care</h3><p>Love & protection</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/donate.jpeg" alt="Donations"></div><div class="card-overlay"><h3>Food Distribution</h3><p>Hope on every plate</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/need.jpg" alt="Aid"></div><div class="card-overlay"><h3>Humanitarian Aid</h3><p>Emergency response</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/tailors (2).jpg" alt="Tailoring"></div><div class="card-overlay"><h3>Women Empowerment</h3><p>Skills & tailoring</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/school.jpg" alt="School building"></div><div class="card-overlay"><h3>Learning Centers</h3><p>Building classrooms</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/education.jpg" alt="Classroom"></div><div class="card-overlay"><h3>Quality Education</h3><p>Empowering minds</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/tailors.jpg" alt="Tailors"></div><div class="card-overlay"><h3>Self Reliance</h3><p>Sewing livelihoods</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/gift.jpg" alt="Gifts"></div><div class="card-overlay"><h3>Season of Giving</h3><p>Joyful moments</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/help.jpg" alt="Helping"></div><div class="card-overlay"><h3>Volunteer Action</h3><p>Hands of compassion</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/TEENAGE.jpg" alt="Youth"></div><div class="card-overlay"><h3>Youth Leaders</h3><p>Building tomorrow</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/saco.jpg" alt="SACCO"></div><div class="card-overlay"><h3>SACCO & Loans</h3><p>Financial freedom</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/wells.webp" alt="Water"></div><div class="card-overlay"><h3>Clean Water</h3><p>Health & sanitation</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/maize.jpg" alt="Farming"></div><div class="card-overlay"><h3>Sustainable Farming</h3><p>Food security</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/lady.JPG" alt="Women group"></div><div class="card-overlay"><h3>Women Cooperative</h3><p>Economic resilience</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/male.JPG" alt="Men"></div><div class="card-overlay"><h3>Community Leaders</h3><p>Driving change</p></div></div>
+  <div class="gallery-card"><div class="img-wrapper"><img src="images/meets.jpg" alt="Meeting"></div><div class="card-overlay"><h3>Strategic Planning</h3><p>Partnership for impact</p></div></div>
+</div>
+
+<!-- Grouped featured stories -->
+<div class="group-section">
+  <div class="section-title">✨ Featured Stories of Change</div>
+  <div class="group-cluster">
+    <div class="cluster-item">
+      <div class="cluster-img"><img src="images/food.jpg" alt="Food relief"></div>
+      <div class="cluster-info"><h4>Food Relief Program</h4><p>Feeding hundreds of families monthly with nutritious meals.</p></div>
+    </div>
+    <div class="cluster-item">
+      <div class="cluster-img"><img src="images/hen.webp" alt="Poultry"></div>
+      <div class="cluster-info"><h4>Livelihoods & Poultry</h4><p>Empowering women through chicken rearing projects.</p></div>
+    </div>
+    <div class="cluster-item">
+      <div class="cluster-img"><img src="images/sponsers.jpg" alt="Sponsors"></div>
+      <div class="cluster-info"><h4>Sponsorship Impact</h4><p>Thanks to donors worldwide transforming lives.</p></div>
+    </div>
   </div>
-  <div><img src="images/uniform.jpg"></div>
+</div>
+<section>
 
-  <div><img src="images/our.webp"></div>
-  <div><img src="images/daps.jpg"></div>
-  <div><img src="images/child.jpg"></div>
-
-  <div><img src="images/donate.jpeg"></div>
-  <div><img src="images/need.jpg"></div>
-  <div><img src="images/tailors (2).jpg"></div>
-
-  <div><img src="images/school.jpg"></div>
-  <div><img src="images/education.jpg"></div>
-  <div><img src="images/tailors.jpg"></div>
-
-<div><img src="images/gift.jpg"></div>
-  <div><img src="images/help.jpg"></div>
-  <div><img src="images/TEENAGE.jpg"></div>
-
-   <div><img src="images/saco.jpg"></div>
-    <div> <img src="images/wells.webp"></div>
-     <div><img src="images/maize.jpg"></div>
+<section>
+    <!-- Call to Action -->
+    <div class="cta-section">
+      <i class="fas fa-camera-retro" style="font-size: 2rem; margin-bottom: 0.5rem; display: inline-block;"></i>
+      <h3>Be Part of the Story</h3>
+      <p>Your support turns these moments into lasting change. Join us to empower communities across Uganda.</p>
+      <div class="cta-buttons">
+        <a href="donate.html" class="cta-btn"><i class="fas fa-donate"></i> Donate Now</a>
+        <a href="volunteer.html" class="cta-btn cta-btn-outline"><i class="fas fa-hands-helping"></i> Volunteer With Us</a>
+      </div>
+    </div>
+  </div>
 </section>
-
-
-<!-- BOTTOM IMAGES -->
-<section class="bottom-images">
-  <img src="images/food.jpg">
-  <img src="images/hen.webp">
-  <img src="images/sponsers.jpg">
-</section>
-
-  
-
  <!-- Footer -->
   <footer class="footer">
     <div class="container">
