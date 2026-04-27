@@ -94,78 +94,130 @@
       box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
     }
 
-    /* images + video */
-    .media-showcase {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 24px;
-      margin-bottom: 70px;
-    }
-
-    .media-card {
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.15);
-      transition: 0.3s;
-      background: #fff;
-    }
-
-    .media-card img {
+   .video-showcase {
       width: 100%;
-      height: 100%;
+      margin: 2rem 0 3rem;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 30px 45px -20px rgba(0, 0, 0, 0.25);
+      transition: all 0.4s ease;
+      background: linear-gradient(135deg, #1a0a0a 0%, #2d1a1a 100%);
+      position: relative;
+    }
+    
+    .video-showcase:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 35px 50px -20px rgba(128, 0, 0, 0.35);
+    }
+    
+    .video-wrapper-main {
+      position: relative;
+      width: 100%;
+      background: #0a0a0a;
+      cursor: pointer;
+    }
+    
+    .video-wrapper-main video {
+      width: 100%;
+      height: auto;
+      max-height: 550px;
       object-fit: cover;
       display: block;
-      transition: transform 0.5s;
+      transition: transform 0.5s ease;
     }
-
-    .media-card:hover img {
-      transform: scale(1.02);
+    
+    .video-wrapper-main:hover video {
+      transform: scale(1.01);
     }
-
-    .video-wrapper {
-      position: relative;
-      cursor: pointer;
-      background: #1e1e1e;
-    }
-
-    .video-thumb {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-    }
-
-    .play-btn {
+    
+    .play-overlay {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: maroon;
-      width: 68px;
-      height: 68px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s;
+      z-index: 2;
+      opacity: 1;
+    }
+    
+    .play-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      backdrop-filter: blur(0);
+    }
+    
+    .play-circle {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, #800000, #a52a2a);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-size: 38px;
       color: white;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 0 8px rgba(128, 0, 0, 0.3);
       transition: all 0.3s;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-      pointer-events: auto;
-      z-index: 3;
+      cursor: pointer;
+      animation: pulseGlow 2s infinite;
     }
-
-    .play-btn:hover {
-      background: maroon;
-      transform: translate(-50%, -50%) scale(1.07);
+    
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 0 0 rgba(128,0,0,0.5); }
+      70% { box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 0 15px rgba(128,0,0,0); }
+      100% { box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 0 0 rgba(128,0,0,0); }
     }
-
-    iframe.video-frame {
-      width: 100%;
-      height: 280px;
-      border: none;
-      display: none;
+    
+    .play-circle:hover {
+      transform: scale(1.08);
+      background: linear-gradient(135deg, #9e1a1a, #c03030);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
-
+    
+    .video-caption {
+      background: linear-gradient(90deg, #800000, #6b2e2e);
+      padding: 1rem 2rem;
+      text-align: center;
+      color: white;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      font-size: 1rem;
+    }
+    
+    .video-caption i {
+      margin-right: 10px;
+      color: #ffc107;
+    }
+    
+    /* Responsive video */
+    @media (max-width: 768px) {
+      .play-circle {
+        width: 65px;
+        height: 65px;
+        font-size: 28px;
+      }
+      .video-caption {
+        font-size: 0.85rem;
+        padding: 0.7rem 1rem;
+      }
+      .video-wrapper-main video {
+        max-height: 350px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .play-circle {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+      }
+    }
       /* Team Section */
 .team-container {
             max-width: 1400px;
@@ -176,7 +228,7 @@
         /* header styling */
         .team-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 48px;
         }
 
         .team-header h2 {
@@ -197,87 +249,150 @@
             margin: 0 auto;
             line-height: 1.5;
         }
-
-        /* horizontal slider wrapper */
-        .slider-wrapper {
-            position: relative;
-            width: 100%;
-            overflow-x: auto;
-            overflow-y: visible;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: #cbd5e1 #f1f5f9;
-            padding-bottom: 20px;
-        }
-
-        .slider-wrapper::-webkit-scrollbar {
-            height: 6px;
-        }
-        .slider-wrapper::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 10px;
-        }
-        .slider-wrapper::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
-        }
-
-        /* flex row - horizontal, never wrap, all cards visible in a row (15 members) */
-        .team-row {
-            display: flex;
-            flex-direction: row;
-            gap: 24px;
-            width: max-content;
-            padding: 16px 8px 24px 8px;
-        }
-
-        /* CARD STYLES - modern, no image cut-off, full avatar visible */
-        .card {
-            width: 210px;
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 0 0 20px 0;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            border: 1px solid rgba(203, 213, 225, 0.4);
-            flex-shrink: 0;
-            backdrop-filter: blur(0px);
-            position: relative;
-            overflow: visible;  /* ensures image container doesn't clip overflow */
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
-            border-color: rgb(216, 49, 49);
-        }
-
-        /* IMAGE CONTAINER - FULLY VISIBLE, NO CUTTING */
-        .card-image {
-            position: relative;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding-top: 24px;   /* gives breathing space, not cropping */
-            margin-bottom: 8px;
-        }
-
-        /* image styling: fully displayed, rounded, no overflow hidden cuts */
-        .card-image img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center center;
-            border: 4px solid white;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
-            background-color: #f0f2f5;
-            transition: transform 0.2s;
-            display: block;
-        }
+    .slider-main {
+       position: relative; 
+       width: 100%; 
+       overflow: hidden; 
+       border-radius: 32px; 
+      }
+    .slider-track-container {
+       overflow: hidden;
+        border-radius: 28px; 
+      }
+    .team-slider-track {
+       display: flex; 
+       transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1); 
+       will-change: transform; 
+      }
+    .slide {
+       flex: 0 0 100%; 
+       display: flex; 
+       flex-direction: row; 
+       justify-content: center; 
+       gap: 24px; padding: 8px 4px; 
+       flex-wrap: nowrap; 
+      }
+    .card {
+      flex: 1; 
+      min-width: 0; 
+      background: #ffffff; 
+      border-radius: 28px; 
+      padding: 0 0 20px 0;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+       text-align: center; 
+       cursor: pointer;
+      transition: all 0.25s ease; 
+      border: 1px solid rgba(203, 213, 225, 0.5);
+      position: relative; 
+      overflow: visible;
+    }
+    .card:hover { 
+      transform: translateY(-6px); 
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15); 
+       
+    }
+    .card-image { 
+      position: relative; 
+      width: 100%; 
+      display: flex; 
+      justify-content: center; 
+      padding-top: 24px; 
+      margin-bottom: 8px; 
+      overflow: visible; 
+    }
+    .card-image img { 
+      width: 110px; 
+      height: 110px;
+       border-radius: 50%; 
+       object-fit: cover; 
+       border: 4px solid white; 
+       box-shadow: 0 8px 18px rgba(0,0,0,0.1); 
+       transition: 0.2s;
+       }
+    .card h4 {
+       font-size: 1.05rem; 
+       font-weight: 700; margin: 14px 0 4px; 
+       color: #110404; 
+      }
+    .card span { 
+      font-size: 0.68rem; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      color: maroon; 
+      background: #fef2e8; 
+      display: inline-block; 
+      padding: 4px 12px; 
+      border-radius: 40px; 
+      margin: 6px 0 8px; 
+    }
+    .card .bio { 
+      font-size: 0.73rem; 
+      color: #4e1515; 
+      padding: 0 12px; 
+      line-height: 1.4; 
+      margin: 6px 0 10px; 
+      display: -webkit-box; -webkit-line-clamp: 2;
+       -webkit-box-orient: vertical;
+       overflow: hidden; }
+    .social-icons { 
+      margin-top: 8px; 
+      display: flex; 
+      justify-content: center; 
+      gap: 12px; 
+    }
+    .social-icons i {
+       font-size: 0.85rem; 
+       color: maroon; 
+       transition: 0.2s; }
+    .slider-controls {
+       display: flex; 
+       justify-content: center;
+        align-items: center;
+         gap: 28px; 
+         margin-top: 32px; }
+    .nav-btn { 
+      background: white; 
+      border: 1px solid #e2e8f0; 
+      border-radius: 60px; 
+      width: 46px; 
+      height: 46px; 
+      font-size: 1.4rem; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      cursor: pointer; 
+      color: maroon; 
+      transition: 0.2s; 
+    }
+    .nav-btn:hover { 
+      background: maroon; 
+      color: white; 
+    }
+    .dots { 
+      text-align: center; 
+      margin-top: 24px; 
+      display: flex; 
+      justify-content: center;
+       gap: 12px; 
+      }
+    .dot { 
+      height: 10px; 
+      width: 10px; 
+      background-color: #cbd5e1;
+       border-radius: 50%; 
+       cursor: pointer; 
+       transition: 0.2s; 
+      }
+    .dot.active { 
+      background-color: maroon; 
+      width: 28px; border-radius: 8px; }
+    .scroll-hint {
+       text-align: center; 
+       margin-top: 18px; 
+       font-size: 0.75rem; 
+       color: #4e1515; 
+       opacity: 0.7; 
+      }
 
         /* optional decorative element (inspired by original shape but keeps image whole) */
         .card::before {
@@ -297,144 +412,15 @@
         .card:hover::before {
             opacity: 0.8;
             transform: rotate(8deg) scale(1.02);
+            
         }
+        /* responsive team slider: 5 per slide always, shrink cards proportionally */
+    @media (max-width: 1100px) { .card-image img { width: 90px; height: 90px; } .card h4 { font-size: 0.9rem; } .slide { gap: 16px; } }
+    @media (max-width: 850px) { .card-image img { width: 80px; height: 80px; } .card h4 { font-size: 0.8rem; } .card span { font-size: 0.6rem; } .bio { font-size: 0.65rem; } .slide { gap: 12px; } }
+    @media (max-width: 650px) { .card-image img { width: 70px; height: 70px; } .card h4 { font-size: 0.7rem; } .card .bio { display: none; } .slide { gap: 8px; } }
+    @media (max-width: 500px) { .card-image img { width: 55px; height: 55px; } .card h4 { font-size: 0.65rem; } .social-icons i { font-size: 0.7rem; } }
 
-        /* text content */
-        .card h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin: 14px 0 4px 0;
-            color: rgb(17, 4, 4);
-            letter-spacing: -0.2px;
-            padding: 0 8px;
-        }
 
-        .card span {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: rgb(97, 9, 9);
-            background: #eef2ff;
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 40px;
-            margin: 6px 0 8px;
-        }
-
-        .card .bio {
-            font-size: 0.75rem;
-            color: rgb(78, 21, 21);
-            padding: 0 12px;
-            line-height: 1.4;
-            margin: 8px 0 10px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        /* social icons inside card */
-        .social-icons {
-            margin-top: 8px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .social-icons i {
-            font-size: 0.85rem;
-            color: maroon;
-            transition: color 0.2s;
-            cursor: pointer;
-        }
-
-        .social-icons i:hover {
-            color: maroon;
-        }
-
-        /* dots navigation (optional, but keeps original slider UX) */
-        .dots {
-            text-align: center;
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .dot {
-            height: 10px;
-            width: 10px;
-            background-color: #cbd5e1;
-            border-radius: 50%;
-            display: inline-block;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-        }
-
-        .dot.active {
-            background-color: maroon;
-            width: 28px;
-            border-radius: 8px;
-        }
-
-        /* scroll hint for better UX */
-        .scroll-hint {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            margin-top: 18px;
-            font-size: 0.75rem;
-            color: rgb(39, 6, 6);
-        }
-        .scroll-hint i {
-            font-size: 0.85rem;
-        }
-
-        /* responsive adjustments: cards remain consistent but grid adapts for smaller screens */
-        @media (max-width: 768px) {
-            .team-container {
-                padding: 40px 16px;
-            }
-            .card {
-                width: 190px;
-            }
-            .card-image img {
-                width: 90px;
-                height: 90px;
-            }
-            .card h4 {
-                font-size: 1rem;
-            }
-            .card span {
-                font-size: 0.65rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .card {
-                width: 175px;
-            }
-            .card-image img {
-                width: 80px;
-                height: 80px;
-            }
-            .team-row {
-                gap: 16px;
-            }
-        }
-
-        /* ensure image never cut by any overflow hidden parent */
-        .card, .card-image {
-            overflow: visible;
-        }
-
-        /* fix for potential clipping in any ancestor */
-        .team-row, .slider-wrapper {
-            overflow-x: auto;
-            overflow-y: visible;
-        }
 /* NAVBAR */
 .navbar{
   position:sticky;
@@ -969,15 +955,10 @@ opacity:0.8;
 }
 
 .cards{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-}
-
-.card{
-width:210px;
-position:relative;
+   display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-top: 30px;
 }
 
 .card-top{
@@ -988,11 +969,15 @@ border-radius:12px;
 .card-content{
 background:white;
 color:#333;
-padding:45px 20px 30px;
+padding:40px 20px 30px;
 border-radius:12px;
 position:relative;
 margin-top:-60px;
 box-shadow:0 10px 20px rgba(0,0,0,0.25);
+ flex: 1;
+  display: flex;
+      flex-direction: column;
+      position: relative;
 }
 
 .card-content::before{
@@ -1052,23 +1037,28 @@ background:linear-gradient(180deg,#ff7a00,#ff9d32);
 
 @media(max-width:768px){
 .cards{
-flex-direction:column;
-align-items:center;
+grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
 }
+@media (max-width: 480px) {
+      .cards { gap: 16px; }
+      .card-content { padding: 30px 12px 20px; }
+      
+    }
 }
     /* Stats Row */
     .stats-row {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-      gap: 2rem;
+      gap: 1.5rem;
       margin: 2rem 0;
       text-align: center;
     }
 
     .stat-box {
       flex: 1;
-      min-width: 150px;
+      min-width: 120px;
       background: rgba(128, 0, 0, 0.1);
       padding: 1.5rem;
       border-radius: 1.5rem;
@@ -1080,7 +1070,7 @@ align-items:center;
     }
 
     .stat-number {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 700;
       color: var(--primary);
     }
@@ -1351,9 +1341,7 @@ padding:8px 14px;
       .content-card {
         padding: 1.5rem;
       }
-      .stats-row {
-        flex-direction: column;
-      }
+      
       .founder-circle {
         width: 160px;
         height: 160px;
@@ -1481,20 +1469,19 @@ Discover the heart behind Uganda-Helping Hands — our story, mission, and commi
     </section>
     
     <section>
-   <div class="container">
-  <!-- media: image + clickable video -->
-  <div class="media-showcase">
-    <div class="media-card">
-      <img src="images/meets.jpg" alt="Community work">
-    </div>
-    <div class="media-card video-wrapper" id="videoContainer">
-      <img class="video-thumb" id="videoThumb" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format" alt="Play video">
-      <div class="play-btn" id="playVideoBtn"><i class="fas fa-play"></i></div>
-      <iframe class="video-frame" id="youtubeFrame" src="https://www.youtube.com/embed/4xtb0aB49KE?autoplay=1&rel=0" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
- </section>
+      <div class="container">
+        <div class="video-showcase">
+          <div class="video-wrapper-main" id="videoWrapper">
+            <video id="promoVideo"  preload="metadata">
+              <source src="images/work.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+              <div class="play-overlay" id="videoOverlay">
+                <div class="play-circle" id="playCircleBtn">
+                  <i class="fas fa-play"></i>
+                </div></div></div>
+                <div class="video-caption">
+                  <i class="fas fa-heart"></i> Watch our journey — transforming lives one step at a time <i class="fas fa-hand-holding-heart"></i>
+                </div></div></div>
+    </section>
   <section class="about-section">
     <div class="content-card">
 
@@ -1647,245 +1634,24 @@ Bukonzo Subcounty, Bughendera County,Bundibugyo District, Uganda
 
 
     <!-- Team Section -->
+
 <div class="team-container">
-    <div class="team-header">
-        <h2>OUR TEAM</h2>
-        <p>Meet our professional team ready to serve the community.</p>
-    </div>
-
-    <!-- Horizontal scrollable area (fully responsive, all 15 members in one row) -->
-    <div class="slider-wrapper" id="sliderWrapper">
-        <div class="team-row" id="teamRow">
-            <!-- 15 team members - each card contains FULL IMAGE (no cut) -->
-            
-            <!-- Member 1 -->
-            <div class="card" onclick="openMemberPage('Bukama Hakim')">
-                <div class="card-image">
-                    <img src="images/CHAIRPERSON.jpg" alt="Bukama Hakim">
-                </div>
-                <h4>Bukama Hakim</h4>
-                <span>Founder & Chairperson</span>
-                <div class="bio">Leading vision & strategy. Passionate about innovation and team growth.</div>
-                <div class="social-icons">
-                    <i class="fab fa-linkedin-in"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="far fa-envelope"></i>
-                </div>
-            </div>
-
-            <!-- Member 2 -->
-              <div class="card" onclick="openMemberPage('Mhindo Brian Kahigwa')">
-                <div class="card-image">
-                    <img src="images/brian.jpeg" alt="Mhindo Brian Kahigwa">
-                </div>
-                <h4>Mhindo Brian Kahigwa</h4>
-                <span>Vice Chairperson</span>
-                <div class="bio">Operations & team coordination, ensuring smooth workflow and excellence.</div>
-                <div class="social-icons">
-                    <i class="fab fa-linkedin-in"></i>
-                    <i class="fab fa-github"></i>
-                </div>
-            </div>
-
-            <!-- Member 3 -->
-           
-              <div class="card" onclick="openMemberPage('Kyengonzi Eve')">
-                <div class="card-image">
-                    <img src="images/public.jpg" alt="Kyengonzi Eve">
-                </div>
-                <h4>Kyengonzi Eve</h4>
-                <span>Treasurer</span>
-                <div class="bio">Digital storyteller, brand visibility expert, creative campaigns.</div>
-                <div class="social-icons">
-                    <i class="fab fa-linkedin-in"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="far fa-envelope"></i>
-                </div>
-            </div>
-            <!-- Member 4 -->
-            <div class="card" onclick="openMemberPage('Masika Darlyn')">
-                <div class="card-image">
-                    <img src="images/darlyn.jpg" alt="Masika Darlyn">
-                </div>
-                <h4>Masika Darlyn</h4>
-                <span>Media/Internet Activities Manager</span>
-                <div class="bio">Digital storyteller, brand visibility expert, creative campaigns.</div>
-                <div class="social-icons">
-                    <i class="fab fa-linkedin-in"></i>
-                    <i class="fab fa-github"></i>
-                </div>
-            </div>
-
-            <!-- Member 5 -->
-           <div class="card" onclick="openMemberPage('Bwambale Musitafa')">
-                <div class="card-image">
-                    <img src="images/SECRETARY.webp" alt="Bwambale Musitafa">
-                </div>
-                <h4>Bwambale Musitafa</h4>
-                <span>Secretary</span>
-                <div class="bio">Agile specialist, bridging business goals and technical delivery.</div>
-                <div class="social-icons">
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-linkedin"></i>
-                </div>
-            </div>
-
-
-            <!-- Member 6 -->
-
-             <div class="card" onclick="openMemberPage('Tumwesigye Fred')">
-                <div class="card-image">
-                    <img src="images/ASS. SECRTARY.jpg" alt="Tumwesigye Fred">
-                </div>
-                <h4>Tumwesigye Fred</h4>
-                <span>Ass.Secretary</span>
-                <div class="bio">Crafting intuitive experiences with human-centered design.</div>
-                <div class="social-icons">
-                    <i class="fab fa-dribbble"></i>
-                    <i class="fab fa-linkedin"></i>
-                </div>
-            </div>
-            
-            <!-- Member 7 -->
-            <div class="card" onclick="openMemberPage('Namukwenda Praise')">
-                <div class="card-image">
-                    <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Namukwenda Praise">
-                </div>
-                <h4>Namukwenda Praise</h4>
-                <span>Publicity</span>
-                <div class="bio">Visual storytelling, branding, and artistic direction.</div>
-                <div class="social-icons">
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-behance"></i>
-                </div>
-            </div>
-
-            <!-- Member 8 -->
-            <div class="card" onclick="openMemberPage('Paul Rodriguez')">
-                <div class="card-image">
-                    <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Paul Rodriguez">
-                </div>
-                <h4>Paul Rodriguez</h4>
-                <span>Data Scientist</span>
-                <div class="bio">Turning data into insights, machine learning & analytics.</div>
-                <div class="social-icons">
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fas fa-chart-line"></i>
-                </div>
-            </div>
-
-            <!-- Member 9 -->
-            <div class="card" onclick="openMemberPage('Namukwenda Memory')">
-                <div class="card-image">
-                    <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Namukwenda Memory">
-                </div>
-                <h4>Namukwenda Memory</h4>
-                <span>Legal Officer</span>
-                <div class="bio">Growth marketing, brand positioning, and digital outreach.</div>
-                <div class="social-icons">
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fab fa-twitter"></i>
-                </div>
-            </div>
-
-            <!-- Member 10 -->
-            <div class="card" onclick="openMemberPage('Bwambale Peter')">
-                <div class="card-image">
-                    <img src="images/ORPHANS TUTOR.webp" alt="Bwambale Peter">
-                </div>
-                <h4>Bwambale Peter</h4>
-                <span>Orphans Tutor</span>
-                <div class="bio">Infrastructure automation, cloud architecture & CI/CD.</div>
-                <div class="social-icons">
-                    <i class="fab fa-github"></i>
-                    <i class="fab fa-aws"></i>
-                </div>
-            </div>
-
-            <!-- Member 11 -->
-            <div class="card" onclick="openMemberPage('Biira Joan')">
-                <div class="card-image">
-                    <img src="images/public.jpg" alt="Biira Joan">
-                </div>
-                <h4>Biira Joan</h4>
-                <span>Public Relations Officer</span>
-                <div class="bio">Crafting compelling narratives and editorial excellence.</div>
-                <div class="social-icons">
-                    <i class="fab fa-medium"></i>
-                    <i class="far fa-envelope"></i>
-                </div>
-            </div>
-
-            <!-- Member 12 -->
-            <div class="card" onclick="openMemberPage('Chris Evans')">
-                <div class="card-image">
-                    <img src="https://randomuser.me/api/portraits/men/79.jpg" alt="Chris Evans">
-                </div>
-                <h4>Chris Evans</h4>
-                <span>Sales Director</span>
-                <div class="bio">Client relations, strategic partnerships & revenue growth.</div>
-                <div class="social-icons">
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fas fa-phone-alt"></i>
-                </div>
-            </div>
-
-            <!-- Member 13 -->
-            <div class="card" onclick="openMemberPage('Muhindo Didan')">
-                <div class="card-image">
-                    <img src="images/codinator.webp" alt="Muhindo Didan">
-                </div>
-                <h4>Muhindo Didan</h4>
-                <span>Regional Mobilizer</span>
-                <div class="bio">Talent acquisition, culture building & employee wellbeing.</div>
-                <div class="social-icons">
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fas fa-heart"></i>
-                </div>
-            </div>
-
-            <!-- Member 14 -->
-            <div class="card" onclick="openMemberPage('David Kim')">
-                <div class="card-image">
-                    <img src="https://randomuser.me/api/portraits/men/90.jpg" alt="David Kim">
-                </div>
-                <h4>David Kim</h4>
-                <span>Security Specialist</span>
-                <div class="bio">Cybersecurity, risk assessment & data protection.</div>
-                <div class="social-icons">
-                    <i class="fab fa-linkedin"></i>
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-            </div>
-
-            <!-- Member 15 -->
-            <div class="card" onclick="openMemberPage('Kiiza Bosco')">
-                <div class="card-image">
-                    <img src="images/IMG_9982.webp" alt="Kiiza Bosco">
-                </div>
-                <h4>Kiiza Bosco</h4>
-                <span>Tailoring Tutor</span>
-                <div class="bio">Ensuring client satisfaction and long-term relationships.</div>
-                <div class="social-icons">
-                    <i class="fab fa-twitter"></i>
-                    <i class="far fa-smile"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="dots" id="dotsContainer">
-       
-    </div>
-    
-    <div class="scroll-hint">
-        <i class="fas fa-arrow-left"></i>
-        <span>Drag or scroll sideways → view all 15 team members</span>
-        <i class="fas fa-arrow-right"></i>
-    </div>
-</div> 
+  <div class="team-header"><h2>OUR TEAM</h2>
+    <p>Meet our professional team ready to serve the community.</p>
+  </div>
+  <div class="slider-main">
+    <div class="slider-track-container">
+      <div class="team-slider-track" id="teamSliderTrack"></div>
+    </div></div>
+    <div class="slider-controls">
+      <div class="nav-btn" id="prevSlideBtn">
+        <i class="fas fa-chevron-left"></i></div>
+        <div class="dots" id="dotsContainer"></div>
+        <div class="nav-btn" id="nextSlideBtn">
+          <i class="fas fa-chevron-right"></i></div></div>
+          <div class="scroll-hint"><i class="fas fa-arrow-left"></i> 
+            <span>Click arrows or dots → view all 15 members</span> <i class="fas fa-arrow-right"></i></div></div>
 </section>
-
 <section class="sponsors-section">
 
 <h2 class="sponsors-title"><i class="fas fa-handshake"></i> OUR TRUSTED PARTNERS</h2>
@@ -1961,6 +1727,51 @@ Bukonzo Subcounty, Bughendera County,Bundibugyo District, Uganda
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
 
   <script>
+     // TEAM MEMBERS (15) - each card click opens team.html
+  const teamMembers = [
+    { name: "Bukama Hakim", role: "Founder & Chairperson", bio: "Leading vision & strategy", img: "images/CHAIRPERSON.jpg" },
+    { name: "Mhindo Brian Kahigwa", role: "Vice Chairperson", bio: "Operations & coordination", img: "images/brian.jpeg" },
+    { name: "Kyengonzi Eve", role: "Treasurer", bio: "Financial management", img: "images/public.jpg" },
+    { name: "Masika Darlyn", role: "Media/Internet Manager", bio: "Digital storytelling", img: "images/darlyn.jpg" },
+    { name: "Bwambale Musitafa", role: "Secretary", bio: "Administration", img: "images/SECRETARY.webp" },
+    { name: "Tumwesigye Fred", role: "Ass.Secretary", bio: "Record keeping", img: "images/ASS. SECRTARY.jpg" },
+    { name: "Bwambale Peter", role: "Orphans Tutor", bio: "Child education", img: "images/ORPHANS TUTOR.webp" },
+    { name: "Muhindo Didan", role: "Regional Mobilizer", bio: "Community mobilization", img: "images/codinator.webp" },
+    { name: "Kiiza Bosco", role: "Tailoring Tutor", bio: "Vocational training", img: "images/IMG_9982.webp" },
+   
+  ];
+  function getImgSrc(m) { return m.img && m.img !== '' ? m.img : "https://randomuser.me/api/portraits/lego/1.jpg"; }
+  function createCard(m) { return `<div class="card" data-name="${m.name.replace(/"/g, '&quot;')}"><div class="card-image"><img src="${getImgSrc(m)}" alt="${m.name}" onerror="this.src='https://randomuser.me/api/portraits/lego/2.jpg'"></div><h4>${m.name}</h4><span>${m.role}</span><div class="bio">${m.bio}</div><div class="social-icons"><i class="fab fa-linkedin-in"></i><i class="fab fa-twitter"></i><i class="far fa-envelope"></i></div></div>`; }
+  function groupSlides(arr, per=5) { let slides=[]; for(let i=0;i<arr.length;i+=per) slides.push(arr.slice(i,i+per)); return slides; }
+  let slidesData = groupSlides(teamMembers,5);
+  let currentIdx = 0;
+  let autoInterval;
+  const track = document.getElementById('teamSliderTrack');
+  const dotsDiv = document.getElementById('dotsContainer');
+  function renderSlider() {
+    if(!track) return;
+    let html = '';
+    slidesData.forEach(slide => { html += `<div class="slide">${slide.map(m => createCard(m)).join('')}</div>`; });
+    track.innerHTML = html;
+    dotsDiv.innerHTML = '';
+    for(let i=0;i<slidesData.length;i++){ let dot=document.createElement('span'); dot.classList.add('dot'); if(i===currentIdx) dot.classList.add('active'); dot.addEventListener('click',()=>goToSlide(i)); dotsDiv.appendChild(dot); }
+    updateTransform();
+    attachCardEvents();
+  }
+  function updateTransform(){ if(track) track.style.transform = `translateX(-${currentIdx*100}%)`; document.querySelectorAll('.dot').forEach((d,i)=>{ if(i===currentIdx) d.classList.add('active'); else d.classList.remove('active'); }); }
+  function goToSlide(idx){ if(idx<0) idx=0; if(idx>=slidesData.length) idx=slidesData.length-1; if(currentIdx===idx) return; currentIdx=idx; updateTransform(); resetAutoSlide(); }
+  function nextSlide(){ goToSlide((currentIdx+1)%slidesData.length); }
+  function prevSlide(){ goToSlide((currentIdx-1+slidesData.length)%slidesData.length); }
+  function resetAutoSlide(){ if(autoInterval) clearInterval(autoInterval); autoInterval = setInterval(()=>{ nextSlide(); }, 5000); }
+  function attachCardEvents() {
+    document.querySelectorAll('.card').forEach(card => {
+      card.removeEventListener('click', cardClickHandler);
+      card.addEventListener('click', cardClickHandler);
+    });
+  }
+  function cardClickHandler(e) { e.stopPropagation(); window.location.href = "team.html"; }
+  window.addEventListener('DOMContentLoaded',()=>{ renderSlider(); resetAutoSlide(); document.getElementById('prevSlideBtn')?.addEventListener('click',prevSlide); document.getElementById('nextSlideBtn')?.addEventListener('click',nextSlide); });
+  
     // MENU
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
@@ -2006,174 +1817,40 @@ if(window.innerWidth > 768){
       else backToTop.style.opacity = '0.9';
     });
 
-       // Function for card click (simulate navigation to team detail)
-    function openMemberPage(name) {
-        // alert or redirect (just demo interaction)
-        // In real scenario you could redirect to team.html with query param
-         window.location.href = "team.html";
-        // window.location.href = "team.html";
-    }
-
-    // Optional: dynamic dot creation for better navigation (since all 15 cards are shown in one row,
-    // we can add navigation dots that scroll horizontally to specific card indices (e.g., card 1, card 6, card 11)
-    const sliderWrapper = document.getElementById('sliderWrapper');
-    const teamRow = document.getElementById('teamRow');
-    const cards = document.querySelectorAll('.card');
-    
-    // Create dots based on number of groups (e.g., 3 groups: first 5, next 5, last 5)
-    const totalCards = cards.length; // 15
-    const groupSize = 5; // show 5 cards per "dot" navigation target
-    const groups = Math.ceil(totalCards / groupSize);
-    const dotsContainer = document.getElementById('dotsContainer');
-    
-    // Clear any existing dots
-    dotsContainer.innerHTML = '';
-    
-    // Create dots
-    for (let i = 0; i < groups; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        if (i === 0) dot.classList.add('active');
-        dot.setAttribute('data-group', i);
-        dot.addEventListener('click', () => {
-            // scroll horizontally to the first card of the group
-            const targetCardIndex = i * groupSize;
-            if (targetCardIndex < cards.length) {
-                const targetCard = cards[targetCardIndex];
-                // get scroll position relative to wrapper
-                const scrollLeftPos = targetCard.offsetLeft - 20;
-                sliderWrapper.scrollTo({
-                    left: scrollLeftPos,
-                    behavior: 'smooth'
-                });
-            }
-            updateActiveDot(i);
-        });
-        dotsContainer.appendChild(dot);
-    }
-    
-    function updateActiveDot(activeGroup) {
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((dot, idx) => {
-            if (idx === activeGroup) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-    }
-    
-    // Determine active dot based on scroll position
-    function updateActiveDotFromScroll() {
-        const scrollPos = sliderWrapper.scrollLeft;
-        let activeGroup = 0;
-        // find which card group is currently most visible
-        for (let i = 0; i < groups; i++) {
-            const groupCardIndex = i * groupSize;
-            if (groupCardIndex < cards.length) {
-                const cardElement = cards[groupCardIndex];
-                const cardLeft = cardElement.offsetLeft;
-                if (scrollPos >= cardLeft - 100) {
-                    activeGroup = i;
-                }
-            }
-        }
-        updateActiveDot(activeGroup);
-    }
-    
-    // listen to scroll events for updating dot state
-    sliderWrapper.addEventListener('scroll', () => {
-        requestAnimationFrame(updateActiveDotFromScroll);
-    });
-    
-    // initial active dot
-    updateActiveDotFromScroll();
-    
-    // images also have explicit dimensions and border-radius, no clipping.
-    console.log("Ready: All team member images are fully visible without cut on top.");
-    
-    // For extra safety, ensure no parent has overflow hidden that could affect images.
-    // Already all containers have overflow visible on relevant classes.
-    
-    // Also add a window load check to ensure images loaded and no cut
-    window.addEventListener('load', () => {
-        // small re-adjust for any browser quirks: force all card images to stay fully inside
-        const allImgs = document.querySelectorAll('.card-image img');
-        allImgs.forEach(img => {
-            if (img.complete) {
-                // ensure no weird clipping
-                img.style.objectFit = 'cover';
-            }
-        });
-    });
-    
-    // Add optional touch/mouse swipe for smoother experience (beyond native scroll)
-    let startX = 0;
-    let isSwiping = false;
-    sliderWrapper.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        isSwiping = true;
-    });
-    sliderWrapper.addEventListener('touchend', (e) => {
-        if (!isSwiping) return;
-        const endX = e.changedTouches[0].clientX;
-        const diff = startX - endX;
-        if (Math.abs(diff) > 50) {
-            // native scroll will already handle, but we optionally can adjust but not needed
-            // just prevent accidental dot update
-        }
-        isSwiping = false;
-    });
-    
-    // additional fix to make sure .card-image doesn't clip via any overflow
-    const style = document.createElement('style');
-    style.textContent = `
-        .card-image {
-            overflow: visible !important;
-        }
-        .card {
-            overflow: visible !important;
-        }
-        .team-row {
-            overflow: visible;
-        }
-        .card-image img {
-            display: block;
-            margin: 0 auto;
-        }
-    `;
-    document.head.appendChild(style);
-  // Video Play Logic: replace thumbnail with iframe on click
-  const videoContainer = document.getElementById('videoContainer');
-  const playBtn = document.getElementById('playVideoBtn');
-  const videoThumb = document.getElementById('videoThumb');
-  const youtubeFrame = document.getElementById('youtubeFrame');
-
-  function playVideo() {
-    if (youtubeFrame.style.display === 'none' || !youtubeFrame.style.display) {
-      videoThumb.style.display = 'none';
-      playBtn.style.display = 'none';
-      youtubeFrame.style.display = 'block';
-      // autoplay already in src (autoplay=1)
+     
+  // VIDEO LOGIC: no image, just native video with click-to-play & custom overlay
+  const video = document.getElementById('promoVideo');
+  const overlay = document.getElementById('videoOverlay');
+  const playCircle = document.getElementById('playCircleBtn');
+  
+  function hideOverlayAndPlay() {
+    if (overlay) overlay.classList.add('hidden');
+    if (video) {
+      video.play().catch(e => console.log("Autoplay prevented:", e));
     }
   }
-
-  if (playBtn) {
-    playBtn.addEventListener('click', (e) => {
+  
+  function showOverlayAndPause() {
+    if (overlay) overlay.classList.remove('hidden');
+    if (video) video.pause();
+  }
+  
+  if (video && overlay) {
+    video.addEventListener('play', () => { overlay.classList.add('hidden'); });
+    video.addEventListener('pause', () => { if (!video.ended) overlay.classList.remove('hidden'); });
+    video.addEventListener('ended', () => { overlay.classList.remove('hidden'); });
+    playCircle.addEventListener('click', (e) => {
       e.stopPropagation();
-      playVideo();
+      if (video.paused) { hideOverlayAndPlay(); }
+      else { showOverlayAndPause(); }
     });
+    overlay.addEventListener('click', () => { hideOverlayAndPlay(); });
+    video.addEventListener('click', () => { if (video.paused) hideOverlayAndPlay(); });
+    // try to play on load if browser allows, but keep overlay clickable
+    video.load();
   }
-  if (videoContainer) {
-    videoContainer.addEventListener('click', (e) => {
-      if (e.target !== playBtn && !playBtn.contains(e.target)) {
-        playVideo();
-      }
-    });
-  }
-
-  // when page loads, ensure video frame initially hidden
-  if (youtubeFrame) youtubeFrame.style.display = 'none';
+  
+  window.addEventListener('DOMContentLoaded',()=>{ renderSlider(); resetAutoSlide(); document.getElementById('prevSlideBtn')?.addEventListener('click',prevSlide); document.getElementById('nextSlideBtn')?.addEventListener('click',nextSlide); });
 
   //Gmail
 function openGmail() {
