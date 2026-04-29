@@ -13,7 +13,9 @@
       box-sizing: border-box;
     }
 
-    :root {
+   :root {
+      --bg:#ffffff;
+      --text:#333;
       --primary: #800000;
       --primary-dark: #5a0000;
       --primary-light: #a04545;
@@ -23,62 +25,20 @@
       --dark: #330000;
       --nav-bg: rgb(238, 219, 219);
       --light: #fef9f5;
+      --light-beige: #fffaf5;
       --white: #ffffff;
       --gray: #6b6b68;
+      --gray-light: #e8e0d8;
       --shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
       --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+      --gradient-warm: linear-gradient(135deg, #fff5ed 0%, #ffe8dc 100%);
+      --gradient-soft: linear-gradient(135deg, #fdf8f2 0%, #fef0e8 100%);
     }
-
-    body {
-      background: #fefaf5;
-      font-family: 'Times New Roman', Times, serif;
-      line-height: 1.6;
-      color: #1f1a17;
-    }
-
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* ROOT */
-:root{
-  --bg:#ffffff;
-  --text:#333;
-  --primary: #800000;
-  --primary-dark: #5a0000;
-  --primary-light: #a04545;
-  --primary-soft: #fef5f0;
-  --secondary: #9e6b3e;
-  --accent: #e6b17e;
-  --dark: #330000;
-  --nav-bg: rgb(238, 219, 219);
-  --light: #fef9f5;
-  --light-beige: #fffaf5;
-  --white: #ffffff;
-  --gray: #6b6b68;
-  --gray-light: #e8e0d8;
-  --shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
-  --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
-  --gradient-warm: linear-gradient(135deg, #fff5ed 0%, #ffe8dc 100%);
-  --gradient-soft: linear-gradient(135deg, #fdf8f2 0%, #fef0e8 100%);
-    }
-
-
-/* RESET */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-body{
+      body {
   background:var(--bg);
   color:var(--text);
   font-family: 'Times New Roman', Times, serif;
-}
+    }
 
 /* NAVBAR */
 .navbar{
@@ -134,7 +94,7 @@ body{
 
 /* LINKS */
 .nav-link{
-  font-size: 0.95rem;
+  font-size: 0.95r em;
       padding: 0.5rem 1rem;
       border-radius: 40px;
       color: var(--dark);
@@ -176,7 +136,13 @@ body{
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
       background: linear-gradient(135deg, #ffc26b, #ffa133);
     }
-
+    
+.btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 28px;
+    }
 /* CLOSE BUTTON */
 .close-btn{
   display:none;
@@ -261,6 +227,7 @@ body{
     transition:0.3s;
     z-index:1000;
     overflow-y:auto;
+    box-shadow: var(--shadow);
   }
 
   .nav-links.active{
@@ -283,7 +250,7 @@ body{
   }
 
   .nav-link:hover{
-   background: rgba(128,0,0,0.12);
+       background: rgba(128,0,0,0.12);
       transform: translateY(-2px);
       color: var(--primary);
   }
@@ -323,104 +290,405 @@ body{
   }
 }
 
-        /* Hero Section Team */
-    .team-hero {
-      background: linear-gradient(135deg, rgba(128,0,0,0.92), rgba(60,25,15,0.95)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&auto=format');
-      background-size: cover;
-      background-position: center 30%;
-      padding: 5rem 1.5rem;
-      text-align: center;
-      color: white;
-      margin-bottom: 3rem;
-    }
-
-    .team-hero h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .team-hero p {
-      font-size: 1.3rem;
-      max-width: 700px;
+    .container {
+      max-width: 1280px;
       margin: 0 auto;
-      opacity: 0.9;
+      padding: 0 40px;
     }
+
+       /* HERO */
+.hero{
+  position:relative;
+  padding:100px 20px 80px;
+text-align:center;
+background:
+radial-gradient(circle at 20% 30%,rgba(255,214,157,.4),transparent 40%),
+radial-gradient(circle at 80% 20%,rgba(255,255,255,.2),transparent 30%),
+linear-gradient(135deg,#690909,#b02828);
+color:white;
+overflow:hidden;
+}
+.hero:before{
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:rgba(255,255,255,.06);
+border-radius:50%;
+top:-260px;
+right:-120px;
+}
+
+/* TITLE */
+.hero h1{
+  position:relative;
+font-size:clamp(2.2rem,5vw,4rem);
+font-weight:800;
+margin-bottom:15px;
+}
+
+.hero p{
+ position:relative;
+max-width:750px;
+margin:auto;
+font-size:1.15rem;
+opacity:.95;
+
+}
+
+/* TEAM ROW */
+.teams{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap: 20px;
+  margin-top:60px;
+  flex-wrap:wrap;
+}
+
+/* OVAL IMAGE */
+.members{
+  width:110px;
+height:160px;
+border-radius:60px;
+overflow:hidden;
+border:4px solid rgba(255,255,255,.4);
+box-shadow:0 14px 30px rgba(0,0,0,.25);
+transition:.35s;
+
+}
+.members:hover{
+transform:translateY(-8px) scale(1.03);
+}
+
+/* Different heights (to match design rhythm) */
+.m1{ height:160px; }
+.m2{ height:130px; }
+.m3{ height:180px; }
+.m4{ height:145px; }
+.m5{ height:170px; }
+.m6{ height:130px; }
+.m7{ height:175px; }
+.m8{ height:140px; }
+.m9{ height:165px; }
+.m10{ height:145px; }
+
+.members img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero{
+   padding:80px 18px 60px;
+  }
+
+  .teams{
+    gap:15px;
+  }
+
+  .members{
+   width:78px;
+height:115px;
+  }
+}
+
+@media(max-width:480px){
+  .members{
+    width:60px;
+  }
+}
 
     /* Team Grid Layout */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2.2rem;
-      margin: 3rem 0 5rem;
-    }
-
-    .team-member-card {
-      background: white;
-      border-radius: 32px;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .team-member-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 30px 45px -15px rgba(128, 0, 0, 0.25);
-    }
-
-    .member-img-wrapper {
-      position: relative;
-      overflow: hidden;
-      background: #f2e8e0;
-    }
-
-    .member-img-wrapper img {
+     .section {
+      max-width: 1100px;
       width: 100%;
-      height: 320px;
-      object-fit: cover;
-      transition: transform 0.5s;
-      display: block;
+      margin: 40px auto;
+      background: linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.82)), 
+                  url('images/our.webp');
+      background-size: cover;
+      background-position: center 30%;
+      border-radius: 10px;
+      padding: 48px 30px;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      transition: all 0.2s;
+       overflow:hidden;
     }
 
-    .team-member-card:hover .member-img-wrapper img {
-      transform: scale(1.04);
+    /* header styles */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
     }
 
-    .member-info {
-      padding: 1.6rem 1.5rem 1.8rem;
-      background: white;
-    }
-
-    .member-name {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.3rem;
-      letter-spacing: -0.2px;
-    }
-
-    .member-role {
-      font-size: 0.9rem;
+    .header h1 {
+      font-size: 3rem;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--secondary);
-      background: #fef0e8;
-      display: inline-block;
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      margin: 0.7rem 0 0.9rem;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #e0e7ff 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 12px;
     }
 
-    .member-bio {
+    .header p {
+      font-size: 2rem;
+      color: white;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+
+    /* TEAM LIST */
+    .team {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* MEMBER CARD — with larger image & "coming out of circle" optical effect */
+    .member {
+      background: white;
+      backdrop-filter: blur(5px);
+      border-radius: 28px;
+      padding: 20px 24px;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      position: relative;
+      overflow: visible;
+      color: rgba(71, 5, 14, 0.75);
+    }
+
+    .member:hover {
+      background: rgba(248, 72, 95, 0.75);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateX(6px) scale(1.01);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.4);
+    }
+    /* DIVIDER */
+.member::after{
+  content:"";
+  position:absolute;
+  bottom:-10px;
+  left:90px;
+  right:10px;
+  height:1px;
+  background:rgba(255,255,255,0.15);
+}
+
+    /* top row: flex layout for image + text + toggle */
+    .member-top {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      position: relative;
+    }
+
+    /* IMAGE CONTAINER — BIGGER SIZE + "COMING OUT OF THE CIRCLE" NICE EFFECT */
+    .image-wrapper {
+      position: relative;
+      width: 98px;
+      height: 98px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffd6a0, #ffb347);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 25px -8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+
+    /* the actual image — pops out of the circle edge with overflow visible + nice scale */
+    .member-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.3s;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      border: 3px solid rgba(255, 215, 150, 0.9);
+      background: #fff;
+    }
+
+    /* "COMING OUT OF THE CIRCLE" — we enlarge the image on hover & give a bursting overlap effect */
+    .member:hover .member-img {
+      transform: scale(1.12);
+      border-color: #ffcd7e;
+      box-shadow: 0 18px 28px -6px black;
+    }
+
+    /* extra: glow effect behind image wrapper to enhance 'pop' */
+    .image-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,200,100,0.4) 0%, rgba(255,180,70,0) 80%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .member:hover .image-wrapper::after {
+      opacity: 1;
+    }
+
+    /* bigger image on large breakpoints */
+    @media (min-width: 700px) {
+      .image-wrapper {
+        width: 110px;
+        height: 110px;
+      }
+    }
+
+    /* text area */
+    .member-info {
+      flex: 1;
+    }
+
+    .member-info h3 {
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: maroon;
+      letter-spacing: -0.2px;
+      margin-bottom: 5px;
+    }
+
+    .member-info h4 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #d69615;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      background: rgba(255,215,150,0.15);
+      display: inline-block;
+      padding: 2px 12px;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* toggle icon */
+    .toggle {
+      margin-left: auto;
+      font-size: 20px;
+      font-weight: 500;
+      color: #110101;
+      background: rgba(22, 3, 4, 0.12);
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.25s;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+    }
+
+    .member:hover .toggle {
+      background: rgba(26, 3, 7, 0.25);
+      color:  #f8f6f1;
+      transform: scale(1.05);
+    }
+
+    /* expandable content area */
+    .member-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.55s ease-out, margin 0.3s;
       font-size: 0.9rem;
-      color: #5a4a3e;
-      margin: 0.8rem 0 1rem;
       line-height: 1.5;
-      padding: 0 0.2rem;
+      color: rgb(54, 10, 10);
+      margin-left: 0px;
+      font-size: 20px;
+      padding-left: 0px;
+    }
+
+    /* active state (open) */
+    .member.active .member-content {
+      max-height: 260px;
+      margin-top: 20px;
+      overflow-y: auto;
+      transition: max-height 0.6s ease-in;
+    }
+
+    .member.active .toggle {
+      transform: rotate(180deg);
+      background: rgba(255, 210, 90, 0.3);
+    }
+
+    /* style inner paragraph details */
+    .member-content p {
+      margin-bottom: 8px;
+      font-weight: 400;
+      border-left: 2px solid #ffcd7e;
+      padding-left: 16px;
+    }
+
+    .member-content strong {
+      color: #ffdb9f;
+      font-weight: 600;
+    }
+
+    /* responsive design */
+    @media (max-width: 640px) {
+      .section {
+        padding: 32px 20px;
+      }
+      .member-top {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .member-info {
+        flex: auto;
+        width: calc(100% - 80px);
+      }
+      .toggle {
+        margin-left: 0;
+        order: 3;
+      }
+      .member-info h3 {
+        font-size: 1.25rem;
+      }
+      .image-wrapper {
+        width: 80px;
+        height: 80px;
+      }
+      .member.active .member-content {
+        max-height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .member-top {
+        flex-direction: row;
+        align-items: center;
+      }
+      .member-info {
+        min-width: 140px;
+      }
+      .member.active .member-content {
+        max-height: 340px;
+      }
+    }
+
+    /* scroll inside content if needed */
+    .member-content::-webkit-scrollbar {
+      width: 3px;
+    }
+    .member-content::-webkit-scrollbar-track {
+      background: rgba(255,255,240,0.1);
+      border-radius: 10px;
+    }
+    .member-content::-webkit-scrollbar-thumb {
+      background: #ffcd7e;
+      border-radius: 10px;
     }
 
     .social-team {
@@ -449,6 +717,26 @@ body{
       color: white;
       transform: translateY(-3px);
     }
+    .gmail-btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:10px 18px;
+color:white;
+text-decoration:none;
+font-size:15px;
+transition:0.3s;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+.gmail-btn{
+font-size:14px;
+padding:8px 14px;
+}
+}
+
 
      /* Footer */
     .footer {
@@ -627,17 +915,192 @@ body{
     </div>
   </div>
 </nav>
+<!-- HERO -->
+<section class="hero">
 
-  <section class="team-hero">
-    <div class="container">
-      <h1>Meet Our Heart & Soul</h1>
-      <p>Dedicated humanitarians, advocates, and community champions working tirelessly to transform lives across Uganda.</p>
-    </div>
-  </section>
+    <h1>Meet Our Dedicated Team</h1>
+<p>Transforming lives through compassion, leadership and community empowerment.</p>
 
-  <div class="container">
-    <div class="team-grid" id="teamGridContainer"></div>
+
+  <div class="teams">
+
+    <div class="members m1"><img src="images/CHAIRPERSON.jpg"></div>
+    <div class="members m2"><img src="images/brian.jpeg"></div>
+    <div class="members m3"><img src="images/public.jpg"></div>
+    <div class="members m4"><img src="images/darlyn.jpg"></div>
+    <div class="members m5"><img src="images/SECRETARY.webp"></div>
+    <div class="members m6"><img src="images/ASS. SECRTARY.jpg"></div>
+    <div class="members m7"><img src="images/ORPHANS TUTOR.webp"></div>
+    <div class="members m8"><img src="images/codinator.webp"></div>
+    <div class="members m9"><img src="images/IMG_9982.webp"></div>
+
   </div>
+
+</section>
+<section class="section">
+  <div class="header">
+    <h1>✨ Our Team ✨</h1>
+<p>Leaders building hope for vulnerable communities.</p>
+  </div>
+
+  <div class="team">
+  
+    <div class="member">
+      <div class="member-top">
+        <div class="image-wrapper">
+          <img class="member-img" src="images/CHAIRPERSON.jpg" >
+        </div>
+        <div class="member-info">
+          <h3>Bukama Hakim</h3>
+          <h4>Founder & Chairperson</h4>
+        </div>
+        <div class="toggle">⌄</div>
+      </div>
+      <div class="member-content">
+        <p>🏆 <strong>Hakim</strong> Is a visionary leader who turned personal struggle into a movement of hope. Passionate about child rights and community resilience.</p>
+      </div>
+    </div>
+    
+  
+    <div class="member">
+      <div class="member-top">
+        <div class="image-wrapper">
+          <img class="member-img" src="images/brian.jpeg">
+        </div>
+        <div class="member-info">
+          <h3>Muhindo Brian Kahigwa</h3>
+          <h4>Vice Chairperson</h4>
+        </div>
+        <div class="toggle">⌄</div>
+      </div>
+      <div class="member-content">
+        <p>⚡ <strong>Kahigwa</strong> is our Organizational backbone ensuring seamless coordination and documentation of all initiatives.</p>
+      </div>
+    </div>
+    
+    <div class="member">
+      <div class="member-top">
+        <div class="image-wrapper">
+          <img class="member-img" src="images/public.jpg">
+        </div>
+        <div class="member-info">
+          <h3>Kyengonzi Eve</h3>
+          <h4>Treasurer</h4>
+        </div>
+        <div class="toggle">⌄</div>
+      </div>
+      <div class="member-content">
+        <p>📊 <strong>Eve</strong> Ensures transparency, budgeting, and accountability for all donor funds.</p>
+      </div>
+    </div>
+    
+   
+    <div class="member">
+      <div class="member-top">
+        <div class="image-wrapper">
+          <img class="member-img" src="images/darlyn.jpg">
+        </div>
+        <div class="member-info">
+          <h3>Masika Darlyn</h3>
+          <h4>Media/Internet Manager</h4>
+        </div>
+        <div class="toggle">⌄</div>
+      </div>
+      <div class="member-content">
+        <p>🔍 <strong>Darlyn</strong> is a creative storyteller amplifying voices of the vulnerable. Leads digital campaigns & visibility strategy. She has scaled social media engagement by 100% and leads our storytelling efforts.</p>
+      </div>
+    </div>
+    
+
+    <div class="member">
+      <div class="member-top">
+        <div class="image-wrapper">
+          <img class="member-img" src="images/SECRETARY.webp">
+        </div>
+        <div class="member-info">
+          <h3>Bwambale Musitafa</h3>
+          <h4>Secretary</h4>
+        </div>
+        <div class="toggle">⌄</div>
+      </div>
+      <div class="member-content">
+        <p>🎨 <strong>Musitafa</strong>ensures smooth workflows across departments and organization administration activities.</p>
+      </div>
+    </div>
+    
+    
+    <div class="member">
+      <div class="member-top">
+        <div class="image-wrapper">
+          <img class="member-img" src="images/ASS. SECRTARY.jpg">
+        </div>
+        <div class="member-info">
+          <h3>Tumwesigye Fred</h3>
+          <h4>Ass.Secretary</h4>
+        </div>
+        <div class="toggle">⌄</div>
+      </div>
+      <div class="member-content">
+        <p>📈 <strong>Fred</strong> 
+          Connects the organization with global supporters through newsletters and social impact stories.</p>
+      </div>
+    </div>
+    
+    
+    <div class="member">
+      <div class="member-top">
+        <div class="image-wrapper">
+          <img class="member-img" src="images/ORPHANS TUTOR.webp">
+        </div>
+        <div class="member-info">
+          <h3>Bwambale Peter</h3>
+          <h4>Orphans Tutor</h4>
+        </div>
+        <div class="toggle">⌄</div>
+      </div>
+      <div class="member-content">
+        <p>⚙️ <strong>Peter</strong> 
+          is a Dedicated guardian for every child's safety. Provides psychosocial support and academic mentorship.</p>
+      </div>
+    </div>
+    
+    
+    <div class="member">
+      <div class="member-top">
+        <div class="image-wrapper">
+          <img class="member-img" src="images/codinator.webp">
+        </div>
+        <div class="member-info">
+          <h3>Muhindo Didan</h3>
+          <h4>Regional Mobilizer</h4>
+        </div>
+        <div class="toggle">⌄</div>
+      </div>
+      <div class="member-content">
+        <p>🤝 <strong>Didan</strong> Engages people in leadership, sports, and community development activities.</p>
+      </div>
+    </div>
+    
+    <div class="member">
+      <div class="member-top">
+        <div class="image-wrapper">
+          <img class="member-img" src="images/IMG_9982.webp">
+        </div>
+        <div class="member-info">
+          <h3>Kiiza Bosco</h3>
+          <h4>Tailoring Tutor </h4>
+        </div>
+        <div class="toggle">⌄</div>
+      </div>
+      <div class="member-content">
+        <p>📉 <strong>Bosco</strong>Drives sustainable income projects, including agriculture and vocational skills training.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
 <!-- Footer -->
   <footer class="footer">
@@ -645,8 +1108,9 @@ body{
       <div class="footer-grid">
         <div><h4><i class="fas fa-hand-holding-heart"></i> Uganda- Helping Hands</h4><p>Humya village <br>Buhundu Parish<br>Bukonzo Subcounty<br>Bughendera County<br>Bundibugyo District, Uganda</p></div>
         <div><h4>Quick Links</h4><a href="about.html">About Us</a><a href="projects.html">Our Projects</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
-             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a><a href="inforugandahelpinghands@gmail.com"><i class="fab fa-google" style="color: #f5d4d1; width: 24px; font-size: 1.2rem;"></i> inforugandahelpinghands@gmail.com
-    </a></div>
+             <div><h4>Contact Info</h4><a href="tel:+256764377294" ><i class="fas fa-phone" style="color: #25D366; width: 24px;"></i> +256 764377294</a>
+              <a href="#" onclick="openGmail()" class="gmail-btn">
+<i class="fas fa-envelope"></i> inforugandahelpinghands@gmail.com </a></div>
         <div>
   <h4>Connect With Us</h4>
   <div style="font-size: 1.8rem; display: flex; gap: 1.2rem; justify-content: flex-start; align-items: center; margin-top: 0.8rem;">
@@ -669,7 +1133,7 @@ body{
   </div>
 </div></div>
       </div>
-      <div class="footer-bottom"><p>© 2025 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
+      <div class="footer-bottom"><p>© 2026 Uganda- Helping Hands. All rights reserved.</p><p>Registered Community Based Organization - Bundibugyo District, Uganda</p></div>
     </div>
   </footer>
   <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to top</a>
@@ -722,163 +1186,50 @@ if(window.innerWidth > 768){
       });
     }
 
-    // ---------- TEAM DATA (15 members with real images & roles + bio snippets) ----------
-    const teamMembers = [
-      { 
-        name: "Bukama Hakim", 
-        role: "Founder & Chairperson", 
-        img: "images/CHAIRPERSON.jpg",
-        bio: "Visionary leader who turned personal struggle into a movement of hope. Passionate about child rights and community resilience.",
-        social: { fb: "https://facebook.com", twitter: "https://twitter.com", linkedin: "#" }
-      },
-      { 
-        name: "Masika Darlyn", 
-        role: "Internet, Media & Publicity", 
-        img: "images/darlyn.jpg",
-        bio: "Creative storyteller amplifying voices of the vulnerable. Leads digital campaigns & visibility strategy.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Bwambale Musitafa", 
-        role: "Child Protection Officer & Orphan Tutor", 
-        img: "images/must.jpg",
-        bio: "Dedicated guardian for every child's safety. Provides psychosocial support and academic mentorship.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Muhindo Brian", 
-        role: "Secretary", 
-        img: "images/brian.jpg",
-        bio: "Organizational backbone ensuring seamless coordination and documentation of all initiatives.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Rebecca Auma", 
-        role: "Women Empowerment Lead", 
-        img: "https://randomuser.me/api/portraits/women/22.jpg",
-        bio: "Champion of female entrepreneurs, running tailoring workshops and financial literacy programs.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Michael Odongo", 
-        role: "Education Specialist", 
-        img: "https://randomuser.me/api/portraits/men/11.jpg",
-        bio: "Ensures every child has access to quality learning materials and school enrollment support.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Florence Mutesi", 
-        role: "Health & Sanitation", 
-        img: "https://randomuser.me/api/portraits/women/89.jpg",
-        bio: "Leads clean water projects and hygiene campaigns across rural communities.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "James Wasswa", 
-        role: "SACCO Coordinator", 
-        img: "https://randomuser.me/api/portraits/men/52.jpg",
-        bio: "Empowers local farmers and small businesses through affordable micro-loans and savings groups.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Phiona Kyomuhendo", 
-        role: "Livelihood Officer", 
-        img: "https://randomuser.me/api/portraits/women/33.jpg",
-        bio: "Drives sustainable income projects, including agriculture and vocational skills training.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Robert Musoke", 
-        role: "Logistics Lead", 
-        img: "https://randomuser.me/api/portraits/men/77.jpg",
-        bio: "Manages supply chain and distribution of humanitarian aid to hard-to-reach villages.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Betty Amongin", 
-        role: "Advocacy & Legal", 
-        img: "https://randomuser.me/api/portraits/women/57.jpg",
-        bio: "Defends children's rights, provides legal aid, and advocates for policy change.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Erias Ssempijja", 
-        role: "Youth Coordinator", 
-        img: "https://randomuser.me/api/portraits/men/94.jpg",
-        bio: "Engages young people in leadership, sports, and community development activities.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Catherine Nambi", 
-        role: "Finance Officer", 
-        img: "https://randomuser.me/api/portraits/women/16.jpg",
-        bio: "Ensures transparency, budgeting, and accountability for all donor funds.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Amos Bwambale", 
-        role: "Water & Sanitation", 
-        img: "https://randomuser.me/api/portraits/men/22.jpg",
-        bio: "Engineer behind well construction and safe water access in remote areas.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      },
-      { 
-        name: "Martha Kyokunda", 
-        role: "Communications Officer", 
-        img: "https://randomuser.me/api/portraits/women/73.jpg",
-        bio: "Connects the organization with global supporters through newsletters and social impact stories.",
-        social: { fb: "#", twitter: "#", linkedin: "#" }
-      }
-    ];
-
-    // fallback image in case any local image missing
-    const fallbackImg = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&auto=format";
-
-    function generateTeamCards() {
-      const container = document.getElementById('teamGridContainer');
-      if (!container) return;
-      container.innerHTML = '';
+    // interactive expand/collapse: maintain the click behavior (each member toggles individually, 
+  // and closes others for a clean UX, same as original but improved)
+  const members = document.querySelectorAll(".member");
+  
+  members.forEach(member => {
+    // Toggle on entire card click, but avoid issues if clicking inside toggle itself (but it's fine)
+    member.addEventListener("click", (e) => {
+      // prevent accidental propagation if needed, but we want full card click
+      e.stopPropagation();
       
-      teamMembers.forEach(member => {
-        // Construct social icons only if they have at least one valid link, else show placeholder style
-        const socialHtml = `
-          <div class="social-team">
-            <a href="${member.social.fb || '#'}" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-            <a href="${member.social.twitter || '#'}" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-            <a href="${member.social.linkedin || '#'}" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        `;
-        
-        const imgSrc = member.img && member.img.trim() !== '' ? member.img : fallbackImg;
-        
-        const card = document.createElement('div');
-        card.className = 'team-member-card';
-        card.innerHTML = `
-          <div class="member-img-wrapper">
-            <img src="${imgSrc}" alt="${member.name}" loading="lazy" onerror="this.src='${fallbackImg}'">
-          </div>
-          <div class="member-info">
-            <div class="member-name">${member.name}</div>
-            <div class="member-role">${member.role}</div>
-            <div class="member-bio">${member.bio || 'Passionate about creating lasting change in Uganda.'}</div>
-            ${socialHtml}
-          </div>
-        `;
-        container.appendChild(card);
-      });
-    }
-
-    generateTeamCards();
-
-    // smooth hover effect, plus any additional fallback for images
-    window.addEventListener('load', () => {
-      const allImgs = document.querySelectorAll('.member-img-wrapper img');
-      allImgs.forEach(img => {
-        img.addEventListener('error', function() {
-          this.src = fallbackImg;
+      // If current member is already active, we just close it (toggle)
+      // else we close all then open current
+      const isActive = member.classList.contains("active");
+      
+      if (!isActive) {
+        // close all other members
+        members.forEach(other => {
+          if (other !== member) other.classList.remove("active");
         });
-      });
+        // open current
+        member.classList.add("active");
+      } else {
+        // if active, close it
+        member.classList.remove("active");
+      }
     });
+  });
+  
+
+//Gmail
+function openGmail() {
+var email = "inforugandahelpinghands@gmail.com";
+
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+window.location.href = "mailto:" + email;
+} else {
+window.open(
+"https://mail.google.com/mail/?view=cm&fs=1&to=" + email,
+"_blank"
+);
+}
+}
   </script>
 </body>
 </html>
