@@ -41,6 +41,7 @@
   background:var(--bg);
   color:var(--text);
   font-family: 'Times New Roman', Times, serif;
+ 
     }
 
 /* NAVBAR */
@@ -307,156 +308,153 @@
     h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
 
 
-   /* HERO */
+/* HERO */
 .hero{
-  background:linear-gradient(135deg, maroon, rgb(36, 3, 3));;
-  color:#fff;
-  position:relative;
-  height:100vh;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
-  padding:0 8%;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  left:-200px;
-  top:-150px;
-  width:600px;
-  height:600px;
-  background:linear-gradient(135deg, #ffb347, #ff8c1a);
-  border-radius:50%;
-}
-/* TEXT */
+ display:flex;
+align-items:center;
+justify-content:space-between;
+gap: 3rem;
+padding: 4rem 8%;
+min-height:90vh;
+background: linear-gradient(135deg, #290c0c, #500505, #74111a);
+color:#fff;
+position:relative;
+overflow:hidden;
+margin-bottom: 2rem;
+   }
+ .hero::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,215,180,0.2) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
 .hero-text{
-  position:relative;
-  color:#fff;
   max-width:500px;
-  z-index:2;
-}
-
-.hero-text h4{
-  color:#ff5a2c;
-  margin-bottom:10px;
+  animation:fadeUp 1s ease;
 }
 
 .hero-text h1{
-  font-size:42px;
-  margin-bottom:15px;
+ font-size:clamp(2.5rem,5vw,3.8rem);
+margin-bottom:15px;
 }
 
 .hero-text p{
-  font-size:14px;
-  margin-bottom:20px;
-  line-height:1.6;
+margin-bottom:25px;
+opacity:.9;
 }
+.hero-image{
+  width:55%;
+  border-radius:50% 0 50% 50%;
+  overflow:hidden;
+  animation:zoomIn 1.2s ease;
+  box-shadow:0 25px 60px rgba(0,0,0,0.3);
+}
+
+.hero-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+    animation:float 6s ease-in-out infinite;
+}
+
+
+
+/* MISSION */
+.mission{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:80px 8%;
+  gap:40px;
+}
+
+.mission-text{
+  max-width:520px;
+}
+
+.mission-text h2{
+  font-size:28px;
+  margin-bottom:20px;
+  
+}
+
+.mission-text p{
+  line-height:1.8;
+  font-size:15px;
+}
+
+.mission-img{
+  width:45%;
+  border-radius:50% 50% 50% 0;
+  overflow:hidden;
+   animation:zoomIn 1.2s ease;
+}
+
+.mission-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+    animation:float 6s ease-in-out infinite;
+}
+
+/* ANIMATIONS */
+@keyframes fadeSlide{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes zoomIn{
+  from{transform:scale(0.9);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero, .mission{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero-image, .mission-img{
+    width:100%;
+  }
+
+  .hero-text h1{
+    font-size:34px;
+  }
+
+}
+ 
 .hero-btn{
+  display: inline-block;
   background: linear-gradient(135deg, #ffb347, #ff8c1a);
-      color: #2d1b0c;
+ color: #2d1b0c;
 padding:12px 25px;
 border-radius:30px;
 text-decoration:none;
 font-weight:600;
+transition:.3s;
+cursor: pointer;
+ transition: all 0.3s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 .hero-btn:hover{
-  transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+ background: #e67e22;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
 
-
-/* RIGHT IMAGE WITH WAVE */
-.hero-image{
-  position:absolute;
-  right:0;
-  bottom:0;
-  width:450px;
-  height:450px;
-  border-radius:50%;
-  overflow:hidden;
-  z-index:1;
-}
-
-
-/* ORANGE WAVE BORDER */
-.hero-image::before{
-  content:"";
-  position:absolute;
-  bottom:-40px;
-  left:-40px;
-  width:120%;
-  height:120%;
-  border-radius:50%;
-  border:40px solid #ff5a2c;
-  z-index:-1;
-}
-
-.hero-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-
-
-
-/* RIGHT IMAGE WITH WAVE */
-.hero-image{
-   position:absolute;
-  right:0;
-  bottom:0;
-   width:450px;
-  height:450px;
-  border-radius:50%;
-  overflow:hidden;
-  z-index:1;
-}
-
-/* ORANGE WAVE BORDER */
-.hero-image::before{
-  content:"";
-  position:absolute;
-  bottom:-40px;
-  left:-40px;
-  width:120%;
-  height:120%;
-  border-radius:50%;
-  border:40px solid #ff5a2c;
-  z-index:-1;
-}
-
-.hero-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-/* RESPONSIVE */
-@media(max-width:900px){
-
-  .hero{
-    flex-direction:column;
-    justify-content:center;
-    text-align:center;
-  }
-
-  .hero-image{
-    position:relative;
-    width:280px;
-    height:280px;
-    margin-top:30px;
-  }
-
-  .hero-image::before{
-    border-width:20px;
-  }
-
-  .hero::before{
-    width:300px;
-    height:300px;
-    left:-120px;
-    top:-120px;
-  }
-}
 /* Founder */
  /* STORY CONTENT */
     .story-container {
@@ -467,7 +465,11 @@ font-weight:600;
       background: white;
       margin: 2rem auto;
       box-shadow: var(--shadow);
+      transition:.3s;
     }
+    .story-container:hover{
+transform:translateY(-5px);
+}
 
     .founder-profile {
       display: flex;
@@ -516,8 +518,17 @@ font-weight:600;
     }
 
  .story-section {
-      margin-bottom: 2.5rem;
+    background:#fff;
+padding:40px;
+border-radius:20px;
+box-shadow:var(--shadow);
+ margin: 2rem 2px;
+transition:.3s; 
     }
+    
+.story-section:hover{
+transform:translateY(-5px);
+}
 
     .story-section h3 {
       color: var(--primary);
@@ -555,6 +566,9 @@ font-weight:600;
       font-size: 1.2rem;
       color: var(--dark);
     }
+    .story-quote-large:hover{
+transform:translateY(-5px);
+}
 
     .story-quote-large i {
       color: var(--primary);
@@ -580,25 +594,110 @@ font-weight:600;
     .highlight-box p {
       margin-bottom: 0;
     }
+     /* Story Timeline - Elegant */
+    .story-journey {
     
-/* Timeline */
-.timeline{
-margin:50px 0;
-}
+      background: var(--white);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-header h2 {
+      font-size: 3rem;
+      color: var(--dark);
+    }
+    .section-header .subtitle {
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+    .timeline-modern {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline-modern::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    }
+    .timeline-item-modern {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    .timeline-content {
+      width: 45%;
+      padding: 30px;
+      background: var(--light);
+      border-radius: 20px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s;
+    }
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .timeline-year-badge {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      z-index: 2;
+    }
+    .timeline-item-modern:nth-child(even) .timeline-content {
+      margin-left: auto;
+    }
+    @media (max-width: 768px) {
+      .timeline-modern::before { left: 20px; }
+      .timeline-item-modern { flex-direction: column; margin-left: 40px; }
+      .timeline-content { width: 100%; margin-bottom: 20px; }
+      .timeline-item-modern:nth-child(even) .timeline-content { margin-left: 0; }
+      .timeline-year-badge { left: 20px; transform: translateX(0); top: -30px; }
+    }
 
-.timeline-item{
-background:white;
-padding:20px;
-margin-bottom:20px;
-border-left:4px solid #800000;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
 
-.timeline-year{
-font-weight:bold;
-color:#800000;
-margin-bottom:5px;
-}
+     /* Impact Stats */
+    .impact-stats {
+     
+      background: var(--white);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 50px;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .stat-item {
+      animation: fadeInUp 0.6s ease backwards;
+    }
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .stat-label {
+      font-size: 1rem;
+      color: var(--gray);
+      margin-top: 10px;
+    }
 
 
 /* CTA */
@@ -802,22 +901,19 @@ padding:8px 14px;
         <i class="fas fa-donate"></i> Donate now
       </a>
 
-
     </div>
   </div>
 </nav>
 
-  <!-- HERO -->
 <section class="hero">
-
   <div class="hero-text">
-    <h1>OUR STORY</h1>
-    <p>From hardship to hope — the journey of Bukama Hakim and the birth of Uganda- Helping Hands.</p>
-    <a href="volunteer.html" class="hero-btn">Join Our Mission →</a>
+    <h1>OUR STORY<br>Helping lives<br>grow better.</h1>
+     <p>From hardship to hope — the journey of Bukama Hakim and the birth of Uganda- Helping Hands.</p>
+       <a href="volunteer.html" class="hero-btn">Join Our Mission <i class="fas fa-arrow-right"></i></a>
   </div>
 
   <div class="hero-image">
-    <img src="images/sponsers.jpg" alt="team">
+    <img src="images/male.JPG">
   </div>
 
 </section>
@@ -831,7 +927,7 @@ padding:8px 14px;
       <!-- Founder Profile -->
       <div class="founder-profile">
         <div class="founder-image-large">
-          <img src="images/CHAIRPERSON.jpg" alt="Bukama Hakim - Founder" class="founder-circle-large" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+          <img src="images/CHAIRPERSON.jpg"  class="founder-circle-large">
         </div>
         <div class="founder-info">
           <h2>Bukama Hakim</h2>
@@ -841,7 +937,9 @@ padding:8px 14px;
           </div>
         </div>
       </div>
+</section>
 
+<section>
       <!-- The Story -->
       <div class="story-section">
         <h3>Sometimes the deepest compassion is born from the hardest experiences</h3>
@@ -852,10 +950,12 @@ padding:8px 14px;
         <p>Life in a polygamous household brought deep challenges. My mother faced constant intimidation, insults, and fear from the first family. My grandmother later told me how she lived with daily anxiety, unsure of what the next day would bring.</p>
       </div>
 
+
       <div class="story-quote-large">
         <i class="fas fa-quote-left"></i>
         Before I was born, my mother lost her first child, a baby girl, during a time when infant mortality was tragically common. That loss left a permanent mark on her heart—and unknowingly planted a seed in mine to one day care for vulnerable children and struggling mothers.
       </div>
+</section>
 
       <div class="story-section">
         <p>Eventually I was born in <strong>Ntoroko District</strong>, near the shores of <strong>Lake Albert</strong>, where my father worked as a fisherman and fish trader. A few years later my younger sister was born. But the tension and threats within the household became unbearable for my mother.</p>
@@ -869,25 +969,70 @@ padding:8px 14px;
         <p>My mother became a <strong>peasant farmer</strong> and ran a small village restaurant to survive. With little education and limited resources, she worked tirelessly just to ensure we could eat and attend school. Those years shaped my understanding of dignity, resilience, and responsibility.</p>
       </div>
 
-      <!-- Timeline -->
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-year">2020</div>
-          <div class="timeline-content">COVID-19 pandemic strikes. Schools close. Families lose income. Children drop out. Young girls are married off early.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">2022</div>
-          <div class="timeline-content">UGANDA HELPING HANDS is founded. First project: a small gardening initiative sharing harvest with vulnerable families.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">2023</div>
-          <div class="timeline-content">Tailoring skills project launched. Five sewing machines acquired through GoFundMe. Groups of five girls trained every three months.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">2024</div>
-          <div class="timeline-content">Ten orphaned children in personal care. Construction of new orphan home begins. Community SACCO established with 20 members.</div>
-        </div>
+<!-- Journey Timeline -->
+<section class="story-journey">
+  <div class="story-section">
+    <h3>Our Journey of Impact</h3>
+    <div class="subtitle">From a small seed of compassion to a growing movement</div>
+  </div>
+  <div class="timeline-modern">
+    <div class="timeline-item-modern">
+      <div class="timeline-year-badge">2020</div>
+      <div class="timeline-content">
+        <h3 style="color: var(--primary);">The Wake-Up Call</h3>
+        <p>COVID-19 devastates rural communities. Schools close permanently for many children. Young girls are forced into early marriage. The crisis ignites a vision for change.</p>
       </div>
+    </div>
+    <div class="timeline-item-modern">
+      <div class="timeline-year-badge">2022</div>
+      <div class="timeline-content">
+        <h3 style="color: var(--primary);">Birth of Helping Hands</h3>
+        <p>UGANDA HELPING HANDS is officially founded. First project: a community garden sharing harvest with 50+ vulnerable families. The journey begins.</p>
+      </div>
+    </div>
+    <div class="timeline-item-modern">
+      <div class="timeline-year-badge">2023</div>
+      <div class="timeline-content">
+        <h3 style="color: var(--primary);">Empowerment Through Skills</h3>
+        <p>Tailoring program launched with 5 sewing machines funded by GoFundMe. Every 3 months, 5 young women gain life-changing skills and independence.</p>
+      </div>
+    </div>
+    <div class="timeline-item-modern">
+      <div class="timeline-year-badge">2024</div>
+      <div class="timeline-content">
+        <h3 style="color: var(--primary);">Building a Home</h3>
+        <p>10 orphaned children now in personal care. Construction begins on a permanent orphan home. Community SACCO established with 20 members saving for a better future.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Impact Statistics -->
+<section class="impact-stats">
+  <div class="story-section">
+    <h3>Our Impact So Far</h3>
+    <div class="subtitle">Real numbers, real lives transformed</div>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">10+</div>
+      <div class="stat-label">Orphaned Children in Care</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">60+</div>
+      <div class="stat-label">Women & Youth Trained</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Lives Impacted</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">20</div>
+      <div class="stat-label">SACCO Members Saving</div>
+    </div>
+  </div>
+</section>
+     
+     
 
       <div class="story-section">
         <h3>The Moment That Changed Everything</h3>
@@ -915,11 +1060,12 @@ padding:8px 14px;
         
         <p>I have already begun working on this vision by <strong>starting construction of a new orphan house</strong>, but resources remain very limited. Still, the work continues step by step.</p>
       </div>
+      </section>
 
-
-      <div class="story-section">
-        <h3>Our Mission Today</h3>
-        <p>Through <strong>UGANDA HELPING HANDS</strong>, our mission is to:</p>
+<section class="mission">
+  <div class="story-section">
+    <h3>Our Mission Today</h3>
+    <p>Through <strong>UGANDA HELPING HANDS</strong>, our mission is to:</p>
         <ul style="margin-left: 2rem; margin-top: 1rem;">
           <li>Support <strong>girls' education</strong></li>
           <li>Provide <strong>skills training for women and youth</strong></li>
@@ -930,11 +1076,19 @@ padding:8px 14px;
         <p style="margin-top: 1rem;">Sometimes the help we offer is small: school books, tailoring training, or basic supplies for mothers after childbirth. But to the person receiving it, that small help can change the direction of a life.</p>
       </div>
 
+  <div class="mission-img">
+    <img src="images/girls.jpg">
+  </div>
+</section>
+
+<section>
+  
       <div class="story-quote-large">
         <i class="fas fa-quote-left"></i>
         I know what it feels like to grow up uncertain about the future. I know what it means to feel abandoned, unheard, or invisible. That is why I believe deeply that human beings must help fellow human beings.
       </div>
-
+</section>
+<section>
       <div class="story-section">
         <h3>Why This Work Matters</h3>
         <p>I know what it feels like to grow up uncertain about the future. I know what it means to feel abandoned, unheard, or invisible.</p>
@@ -1033,6 +1187,33 @@ if(window.innerWidth > 768){
     drop.onmouseleave = () => drop.classList.remove("active");
   });
 }
+// Animate stats on scroll
+  const observerOptions = { threshold: 0.5 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const stats = entry.target.querySelectorAll('.stat-number');
+        stats.forEach(stat => {
+          const final = stat.innerText;
+          stat.innerText = '0';
+          let current = 0;
+          const increment = parseInt(final) / 50;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= parseInt(final)) {
+              stat.innerText = final;
+              clearInterval(timer);
+            } else {
+              stat.innerText = Math.floor(current) + (final.includes('+') ? '+' : '');
+            }
+          }, 30);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  const statsSection = document.querySelector('.impact-stats');
+  if (statsSection) observer.observe(statsSection);
 //Gmail
 function openGmail() {
 var email = "inforugandahelpinghands@gmail.com";
@@ -1048,6 +1229,7 @@ window.open(
 );
 }
 }
+
   </script>
 </body>
 </html>
