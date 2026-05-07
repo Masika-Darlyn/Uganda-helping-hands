@@ -316,23 +316,15 @@ justify-content:space-between;
 gap: 3rem;
 padding: 4rem 8%;
 min-height:90vh;
-background: linear-gradient(135deg, #290c0c, #500505, #74111a);
+ background: linear-gradient(rgba(10, 0, 0, 0.85), rgba(12, 1, 1, 0.2)),
+              url('images/charity.jpg') center/cover no-repeat;
+
 color:#fff;
 position:relative;
 overflow:hidden;
 margin-bottom: 2rem;
    }
- .hero::before {
-      content: "";
-      position: absolute;
-      top: -30%;
-      right: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(255,215,180,0.2) 0%, rgba(255,255,255,0) 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
+ 
 .hero-text{
   max-width:500px;
   animation:fadeUp 1s ease;
